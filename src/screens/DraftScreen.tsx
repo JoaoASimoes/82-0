@@ -147,68 +147,73 @@ export function DraftScreen({ onComplete }: Props) {
   };
 
   return (
-    <section className="view">
-      <Lineup
-        lineup={lineup}
-        highlight={lastPlaced}
-        selected={selected}
-        targets={targets}
-        onSlotTap={done ? undefined : tapSlot}
-      />
+    <section className="view draft">
+      {/* No computador: esta coluna fica à esquerda e fixa; a lista de jogadores vai à direita. */}
+      <div className="draft-side">
+        <Lineup
+          lineup={lineup}
+          highlight={lastPlaced}
+          selected={selected}
+          targets={targets}
+          onSlotTap={done ? undefined : tapSlot}
+        />
 
-      <div className={`reel ${spinning ? 'spinning' : ''}`}>
-        <div className="stripe" style={{ background: shown ? findTeam(TEAMS, shown.teamId).color : 'var(--acc)' }} />
-        <div className="lbl">{t.draft.draw}</div>
-        <div className="team">{done ? t.draft.closed : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
-        <div className="dec">
-          {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : ''}
+        <div className={`reel ${spinning ? 'spinning' : ''}`}>
+          <div className="stripe" style={{ background: shown ? findTeam(TEAMS, shown.teamId).color : 'var(--acc)' }} />
+          <div className="lbl">{t.draft.draw}</div>
+          <div className="team">{done ? t.draft.closed : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
+          <div className="dec">
+            {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : ''}
+          </div>
+        </div>
+
+        <div className="skips">
+          <button disabled={!combo || spinning || skips.team < 1} onClick={skipTeam}>
+            {t.draft.swapTeam(skips.team)}
+          </button>
+          <button disabled={!combo || spinning || skips.era < 1} onClick={skipEra}>
+            {t.draft.swapDecade(skips.era)}
+          </button>
+        </div>
+
+        <div className="hint">
+          {moveHint || (combo ? t.draft.tapToPick : picked > 0 && !done ? t.draft.tapToMove : '')}
         </div>
       </div>
 
-      <div className="skips">
-        <button disabled={!combo || spinning || skips.team < 1} onClick={skipTeam}>
-          {t.draft.swapTeam(skips.team)}
-        </button>
-        <button disabled={!combo || spinning || skips.era < 1} onClick={skipEra}>
-          {t.draft.swapDecade(skips.era)}
-        </button>
+      <div className="draft-main">
+        {combo && (
+          <div className="sortbar" role="group" aria-label={t.draft.sortBy}>
+            {SORT_KEYS.map((k) => (
+              <button
+                key={k}
+                className={k === sortKey ? 'on' : ''}
+                aria-pressed={k === sortKey}
+                aria-label={`${t.draft.sortBy}: ${k === 'name' ? t.draft.sortName : t.statName[k]}`}
+                onClick={() => setSortKey(k)}
+              >
+                {k === 'name' ? t.draft.sortName : t.stat[k]}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {combo && (
+          <div className="pool">
+            {sortPlayers(poolFor(TEAMS, combo), sortKey).map((p) => (
+              <PlayerRow
+                key={p.name}
+                player={p}
+                available={canPick(lineup, p)}
+                alreadyDrafted={isDrafted(lineup, p.name)}
+                fitsAfterMove={fitsAfterMove(lineup, p)}
+                sortKey={sortKey}
+                onPick={() => pick(p)}
+              />
+            ))}
+          </div>
+        )}
       </div>
-
-      <div className="hint">
-        {moveHint || (combo ? t.draft.tapToPick : picked > 0 && !done ? t.draft.tapToMove : '')}
-      </div>
-
-      {combo && (
-        <div className="sortbar" role="group" aria-label={t.draft.sortBy}>
-          {SORT_KEYS.map((k) => (
-            <button
-              key={k}
-              className={k === sortKey ? 'on' : ''}
-              aria-pressed={k === sortKey}
-              aria-label={`${t.draft.sortBy}: ${k === 'name' ? t.draft.sortName : t.statName[k]}`}
-              onClick={() => setSortKey(k)}
-            >
-              {k === 'name' ? t.draft.sortName : t.stat[k]}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {combo && (
-        <div className="pool">
-          {sortPlayers(poolFor(TEAMS, combo), sortKey).map((p) => (
-            <PlayerRow
-              key={p.name}
-              player={p}
-              available={canPick(lineup, p)}
-              alreadyDrafted={isDrafted(lineup, p.name)}
-              fitsAfterMove={fitsAfterMove(lineup, p)}
-              sortKey={sortKey}
-              onPick={() => pick(p)}
-            />
-          ))}
-        </div>
-      )}
     </section>
   );
 }

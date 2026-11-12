@@ -57,48 +57,53 @@ export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
   };
 
   return (
-    <section className="view">
+    <section className="view season">
       {finished && wins === 82 && <Confetti />}
-      <div className="score display">
-        <span className="w">{wins}</span>-<span className="l">{losses}</span>
-      </div>
-      <div className="verdict">{verdict?.title}</div>
-      <div className="sub">{verdict ? verdict.subtitle : t.season.simulating}</div>
+      {/* No computador: resultado à esquerda, o cinco e os botões à direita. */}
+      <div className="season-result">
+        <div className="score display">
+          <span className="w">{wins}</span>-<span className="l">{losses}</span>
+        </div>
+        <div className="verdict">{verdict?.title}</div>
+        <div className="sub">{verdict ? verdict.subtitle : t.season.simulating}</div>
 
-      <div className="grid">
-        {games.map((g, i) => (
-          <div key={i} className={`g ${i < revealed ? g : ''}`} />
-        ))}
-      </div>
-
-      <div className="card">
-        <h3>{t.season.yourFive}</h3>
-        <div className="ros">
-          {lineup.map((s) => (
-            <div key={s.player!.name}>
-              <span>
-                <b>{s.position}</b> · {s.player!.name}{' '}
-                <span className="muted small">
-                  {teamLabel(TEAMS, s.player!)} · {t.decade(s.player!.decade)}
-                </span>
-              </span>
-              <span className="r small">{statLine(s.player!.stats, t)}</span>
-            </div>
+        <div className="grid">
+          {games.map((g, i) => (
+            <div key={i} className={`g ${i < revealed ? g : ''}`} />
           ))}
         </div>
       </div>
 
-      <div className="row" style={{ visibility: finished ? 'visible' : 'hidden' }}>
-        <button className="btn ghost" onClick={copy}>
-          {t.season.share}
-        </button>
-        <button className="btn" onClick={onAgain}>
-          {t.season.again}
+      <div className="season-side">
+        <div className="card">
+          <h3>{t.season.yourFive}</h3>
+          <div className="ros">
+            {lineup.map((s) => (
+              <div key={s.player!.name}>
+                <span>
+                  <b>{s.position}</b> · {s.player!.name}{' '}
+                  <span className="muted small">
+                    {teamLabel(TEAMS, s.player!)} · {t.decade(s.player!.decade)}
+                  </span>
+                </span>
+                <span className="r small">{statLine(s.player!.stats, t)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="row" style={{ visibility: finished ? 'visible' : 'hidden' }}>
+          <button className="btn ghost" onClick={copy}>
+            {t.season.share}
+          </button>
+          <button className="btn" onClick={onAgain}>
+            {t.season.again}
+          </button>
+        </div>
+        <button className="btn ghost" style={{ marginTop: 10, visibility: finished ? 'visible' : 'hidden' }} onClick={onHome}>
+          {t.season.home}
         </button>
       </div>
-      <button className="btn ghost" style={{ marginTop: 10, visibility: finished ? 'visible' : 'hidden' }} onClick={onHome}>
-        {t.season.home}
-      </button>
     </section>
   );
 }
