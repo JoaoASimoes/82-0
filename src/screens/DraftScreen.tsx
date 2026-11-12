@@ -13,6 +13,7 @@ import {
   moveTargets,
   movePlayer,
   placePlayer,
+  DEFAULT_SORT,
   SORT_KEYS,
   sortPlayers,
   type SortKey,
@@ -47,7 +48,7 @@ export function DraftScreen({ onComplete }: Props) {
   const [selected, setSelected] = useState<number | null>(null);
   const [moveHint, setMoveHint] = useState('');
   /** Ordem da lista do sorteio; mantém-se entre sorteios. */
-  const [sortKey, setSortKey] = useState<SortKey>('name');
+  const [sortKey, setSortKey] = useState<SortKey>(DEFAULT_SORT);
   const timers = useRef<number[]>([]);
 
   useEffect(() => () => timers.current.forEach((t) => window.clearTimeout(t)), []);

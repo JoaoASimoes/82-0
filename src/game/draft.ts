@@ -128,7 +128,9 @@ export const shortDecade = (d: Decade) => `'${String(d).slice(2)}`;
 
 /** Critério para ordenar a lista do sorteio: nome (A→Z) ou uma estatística (maior primeiro). */
 export type SortKey = 'name' | (typeof STAT_KEYS)[number];
-export const SORT_KEYS: readonly SortKey[] = ['name', ...STAT_KEYS];
+export const SORT_KEYS: readonly SortKey[] = [...STAT_KEYS, 'name'];
+/** Ordem inicial da lista do sorteio. */
+export const DEFAULT_SORT: SortKey = 'pts';
 
 /** Devolve uma cópia ordenada (empates por nome). Nunca ordena pela nota, que é secreta. */
 export function sortPlayers<T extends { name: string; stats: PlayerStats }>(players: readonly T[], key: SortKey): T[] {

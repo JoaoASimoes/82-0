@@ -4,6 +4,8 @@ import type { DraftedPlayer } from '../data/types';
 import {
   statLineShort,
   canPick,
+  DEFAULT_SORT,
+  SORT_KEYS,
   sortPlayers,
   fitsAfterMove,
   movePlayer,
@@ -142,6 +144,12 @@ describe('draft', () => {
     it('por estatística, maior primeiro, empates por nome', () => {
       expect(sortPlayers(pool, 'pts').map((x) => x.name)).toEqual(['Jordan', 'Bird', 'Rodman']);
       expect(sortPlayers(pool, 'blk').map((x) => x.name)).toEqual(['Bird', 'Jordan', 'Rodman']);
+    });
+
+    it('começa por pontos e deixa o nome para último', () => {
+      expect(DEFAULT_SORT).toBe('pts');
+      expect(SORT_KEYS[0]).toBe('pts');
+      expect(SORT_KEYS.at(-1)).toBe('name');
     });
 
     it('não altera a lista original', () => {
