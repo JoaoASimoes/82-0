@@ -31,10 +31,9 @@ const SPIN_TICKS = 16;
 
 interface Props {
   onComplete: (lineup: Slot[]) => void;
-  onQuit: () => void;
 }
 
-export function DraftScreen({ onComplete, onQuit }: Props) {
+export function DraftScreen({ onComplete }: Props) {
   const { t } = useLang();
   const [lineup, setLineup] = useState<Slot[]>(createLineup);
   /** Combinação sorteada e pronta a escolher (null enquanto roda ou antes de rodar). */
@@ -149,14 +148,6 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
 
   return (
     <section className="view">
-      <div className="top">
-        <button className="chip" onClick={onQuit}>
-          {t.draft.quit}
-        </button>
-        <span className="display">{done ? t.draft.full : t.draft.pick(picked + 1)}</span>
-        <span className="chip">{picked}/5</span>
-      </div>
-
       <Lineup
         lineup={lineup}
         highlight={lastPlaced}

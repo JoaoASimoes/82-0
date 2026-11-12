@@ -42,9 +42,6 @@ const pt = {
   },
 
   draft: {
-    quit: '✕ Sair',
-    pick: (n: number) => `Escolha ${n}/5`,
-    full: 'Cinco completo',
     draw: 'Sorteio',
     closed: 'Cinco fechado!',
     swapTeam: (n: number) => `↻ Trocar equipa (${n})`,
@@ -117,9 +114,6 @@ const en: Strings = {
   },
 
   draft: {
-    quit: '✕ Quit',
-    pick: (n) => `Pick ${n}/5`,
-    full: 'Five complete',
     draw: 'Draw',
     closed: 'Five locked in!',
     swapTeam: (n) => `↻ Re-roll team (${n})`,

@@ -25,7 +25,6 @@ export function App() {
       {screen.name === 'draft' && (
         <DraftScreen
           key={gameId}
-          onQuit={() => setScreen({ name: 'home' })}
           onComplete={(lineup) => {
             setScreen({ name: 'season', lineup });
             window.scrollTo(0, 0);
