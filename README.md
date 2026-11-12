@@ -36,7 +36,7 @@ claude
 
 ## Player data
 
-`src/data/players.json` is generated, not hand-written. `scripts/build_players.py` reads the CSVs of the [NBA Stats (1947-present)](https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats) Kaggle dataset (Basketball-Reference data) and, for each franchise and decade since the 1980s, keeps the 10 players with the biggest total contribution (summed Game Score). It stores their per-game averages and a hidden rating that blends box-score impact (minutes-weighted BPM) with prestige (MVP and DPOY votes, All-NBA/All-Defense teams, All-Star picks and titles with that team), mapped by percentile onto a fixed 0–99 distribution. Titles aren't in the dataset; they're listed in `CHAMPIONS` in the script.
+`src/data/players.json` is generated, not hand-written. `scripts/build_players.py` reads the CSVs of the [NBA Stats (1947-present)](https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats) Kaggle dataset (Basketball-Reference data) and, for each franchise and decade since the 1980s, keeps the 10 players with the biggest total contribution (summed Game Score). It stores their per-game averages and a hidden rating that blends box-score impact (minutes-weighted BPM, 47%), production (how far his per-game stats stood above that season's league, 15%) and prestige (38%: MVP and DPOY votes, All-NBA/All-Defense teams, All-Star picks and titles with that team), mapped by percentile onto a fixed 0–99 distribution. Titles aren't in the dataset; they're listed in `CHAMPIONS` in the script.
 
 Download the dataset into `data_raw/` (git-ignored, ~32 MB). Only needed to regenerate the JSON; the game and CI use the committed `players.json`.
 

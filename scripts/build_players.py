@@ -7,8 +7,9 @@ Dataset: "NBA Stats (1947-present)" on Kaggle (Basketball-Reference data). Uses
 For every franchise and decade (FIRST_DECADE onwards) it picks the PLAYERS_PER_ERA
 players with the biggest total contribution to that team in that decade, and stores:
   - per-game averages (pts/reb/ast/stl/blk) for that stint  -> shown in the game
-  - a hidden 0-99 rating -> drives the sim. It blends two things (see `impact_scores`):
+  - a hidden 0-99 rating -> drives the sim. It blends three things (WEIGHTS, `impact_scores`):
       * box-score impact: minutes-weighted BPM (pace-adjusted), scaled by minutes per game
+      * production: how far his per-game stats stood above that season's league
       * prestige: MVP votes, All-NBA/All-Defense teams, DPOY votes, All-Star picks and
         championships won with that team in that decade -- the "beyond the stats" part
         that makes Jordan or LeBron who they are.
@@ -62,8 +63,17 @@ RATING_PERCENTILES = [
     88, 88, 88, 88, 89, 89, 89, 89, 89, 90, 90, 91, 91, 92, 92, 92, 93, 93, 93, 94, 95, 95, 96, 97, 98, 99,
 ]
 
-# How much each part weighs in the rating (the rest is box-score impact).
-PRESTIGE_WEIGHT = 0.45
+# How much each part weighs in the rating (they add up to 1).
+WEIGHTS = {
+    'impact': 0.47,      # efficiency: minutes-weighted BPM x minutes per game
+    'production': 0.15,  # statistical dominance over that season's league (e.g. a 50-ppg season)
+    'prestige': 0.38,    # awards and titles
+}
+# Production: per-game stats compared with the rest of the league THAT season (z-scores among
+# players with >= PRODUCTION_MIN_GAMES games), so a 30-ppg season in a low-scoring era counts
+# more than one today. Only standing out counts: a weak category never subtracts.
+PRODUCTION_STATS = {'pts': 1.0, 'trb': 0.7, 'ast': 0.7, 'stl': 0.4, 'blk': 0.4}
+PRODUCTION_MIN_GAMES = 20
 # Prestige points per season (awards are per season; a traded player's are split by games).
 PRESTIGE = {
     'mvp_share': 4.0,          # x MVP vote share (the winner gets ~0.8-1.0)
@@ -168,12 +178,26 @@ def season_prestige(df: pd.DataFrame) -> pd.Series:
     return awards_part + title_part
 
 
+def season_production(df: pd.DataFrame) -> pd.Series:
+    """Statistical dominance of each row: weighted sum of how many standard deviations each
+    per-game stat sits above that season's league (only positive parts count)."""
+    out = pd.Series(0.0, index=df.index)
+    qualified = df.g >= PRODUCTION_MIN_GAMES
+    for col, weight in PRODUCTION_STATS.items():
+        per_game = df[col] / df.g.clip(lower=1)
+        league = per_game[qualified].groupby(df.season[qualified])
+        mean = df.season.map(league.mean())
+        std = df.season.map(league.std()).replace(0, 1)
+        out += weight * ((per_game - mean) / std).clip(lower=0)
+    return out.where(qualified, 0.0)
+
+
 def impact_scores(stint: pd.DataFrame, pool: pd.DataFrame) -> pd.Series:
-    """Blend box-score impact and prestige into one score, each z-scored on the calibration pool."""
+    """Blend the WEIGHTS parts into one score, each z-scored on the calibration pool."""
     def z(col: str) -> pd.Series:
         std = pool[col].std() or 1.0
         return (stint[col] - pool[col].mean()) / std
-    return (1 - PRESTIGE_WEIGHT) * z('impact') + PRESTIGE_WEIGHT * z('prestige')
+    return sum(weight * z(part) for part, weight in WEIGHTS.items())
 
 
 def to_rating(score: float, sorted_scores: list[float]) -> int:
@@ -213,6 +237,7 @@ def main() -> None:
     df['bpm'] = df.bpm.fillna(-2.0)  # missing BPM (tiny samples) = replacement level
     df['bpm_min'] = df.bpm * df.mp
     df['prestige'] = season_prestige(df)
+    df['production'] = season_production(df)
 
     out: dict[str, dict[str, list[dict]]] = {}
     eras: dict[tuple[str, int], pd.DataFrame] = {}
@@ -234,6 +259,9 @@ def main() -> None:
         by_season = rows.groupby(['player_id', 'season']).prestige.sum()
         peak = by_season.groupby(level=0).apply(lambda v: v.nlargest(PEAK_SEASONS).mean())
         stint['prestige'] = peak.reindex(stint.index).fillna(0)
+        by_season = rows.groupby(['player_id', 'season']).production.sum()
+        peak = by_season.groupby(level=0).apply(lambda v: v.nlargest(PEAK_SEASONS).mean())
+        stint['production'] = peak.reindex(stint.index).fillna(0)
         eras[(team, int(decade))] = stint
 
     # `stint` is ranked by total contribution, so head(CALIBRATION_TOP) are the core players.
