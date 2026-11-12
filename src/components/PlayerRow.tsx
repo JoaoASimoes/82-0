@@ -1,5 +1,5 @@
 import type { DraftedPlayer } from '../data/types';
-import { POSITION_NAME } from '../game/draft';
+import { useLang } from '../i18n/LangContext';
 
 interface Props {
   player: DraftedPlayer;
@@ -11,13 +11,14 @@ interface Props {
 }
 
 export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, onPick }: Props) {
+  const { t } = useLang();
   const why = alreadyDrafted
-    ? 'Já está no teu cinco'
+    ? t.draft.inLineup
     : available
-      ? player.positions.map((p) => POSITION_NAME[p]).join(' / ')
+      ? player.positions.map((p) => t.positions[p]).join(' / ')
       : fitsAfterMove
-        ? 'Muda alguém de posição para abrir vaga'
-        : 'Sem lugar livre nesta posição';
+        ? t.draft.fitsAfterMove
+        : t.draft.noSlot;
   return (
     <button className="pl" disabled={!available} onClick={onPick}>
       <span className="ps">{player.positions.join('-')}</span>
@@ -26,9 +27,12 @@ export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, on
         <small>{why}</small>
       </span>
       <span className="sts">
-        <span><b>{player.stats.pts.toFixed(1)}</b>PTS</span>
-        <span><b>{player.stats.reb.toFixed(1)}</b>RES</span>
-        <span><b>{player.stats.ast.toFixed(1)}</b>AST</span>
+        {(['pts', 'reb', 'ast'] as const).map((k) => (
+          <span key={k}>
+            <b>{player.stats[k].toFixed(1)}</b>
+            {t.stat[k]}
+          </span>
+        ))}
       </span>
     </button>
   );

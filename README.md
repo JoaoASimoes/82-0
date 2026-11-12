@@ -1,6 +1,6 @@
 # 82-0 · Perfect Season 🏀
 
-Pick 5 NBA legends and try for a perfect 82-win season. Built to be played on an iPhone (PWA: add it to the home screen and it opens like an app). The game's interface is in European Portuguese.
+Pick 5 NBA legends and try for a perfect 82-win season. Built to be played on an iPhone (PWA: add it to the home screen and it opens like an app). The interface is available in European Portuguese and English (picked on the home screen; defaults to the browser's language).
 
 ## How it plays
 

@@ -4,8 +4,6 @@ import { pickRandom, type Rng } from './rng';
 /** Formato do cinco: 2 bases, 2 extremos, 1 poste. */
 export const SLOT_POSITIONS: readonly Position[] = ['G', 'G', 'F', 'F', 'C'];
 
-export const POSITION_NAME: Record<Position, string> = { G: 'Base', F: 'Extremo', C: 'Poste' };
-
 export interface Slot {
   position: Position;
   player: DraftedPlayer | null;
@@ -125,12 +123,7 @@ export function teamLabel(teams: readonly Team[], combo: Combo): string {
   return team.eras[combo.decade]?.label ?? team.name;
 }
 
-export const decadeLabel = (d: Decade) => (d === 2000 ? 'Anos 2000' : d >= 2010 ? `Anos ${d}` : `Anos ${String(d).slice(2)}`);
 export const shortDecade = (d: Decade) => `'${String(d).slice(2)}`;
-
-/** Linha curta com as médias, ex.: "26.0 PTS · 10.4 RES · 6.5 AST". */
-export const statLine = (s: PlayerStats) =>
-  `${s.pts.toFixed(1)} PTS · ${s.reb.toFixed(1)} RES · ${s.ast.toFixed(1)} AST`;
 
 /** Versão compacta para espaços estreitos, ex.: "26.0/10.4/6.5" (PTS/RES/AST). */
 export const statLineShort = (s: PlayerStats) => [s.pts, s.reb, s.ast].map((v) => v.toFixed(1)).join('/');

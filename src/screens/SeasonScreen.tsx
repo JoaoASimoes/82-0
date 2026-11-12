@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { TEAMS } from '../data/teams';
-import { decadeLabel, lineupAverage, statLine, teamLabel, type Slot } from '../game/draft';
+import { lineupAverage, teamLabel, type Slot } from '../game/draft';
 import { countWins, SEASON_GAMES, simulateSeason } from '../game/season';
 import { verdictFor } from '../game/verdict';
 import { recordSeason } from '../lib/storage';
 import { Confetti } from '../components/Confetti';
+import { useLang } from '../i18n/LangContext';
+import { statLine } from '../i18n/strings';
 
 interface Props {
   lineup: Slot[];
@@ -14,6 +16,7 @@ interface Props {
 }
 
 export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
+  const { t } = useLang();
   const avg = lineupAverage(lineup);
   // Simula uma vez; a animação só revela os resultados aos poucos.
   const [games] = useState(() => simulateSeason(avg, Math.random));
@@ -34,19 +37,19 @@ export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
     if (!finished || recorded.current) return;
     recorded.current = true;
     const { newBest } = recordSeason(countWins(games));
-    if (newBest) toast('Novo recorde pessoal!');
-  }, [finished, games, toast]);
+    if (newBest) toast(t.season.newBest);
+  }, [finished, games, toast, t]);
 
-  const verdict = finished ? verdictFor(wins) : null;
+  const verdict = finished ? t.verdict[verdictFor(wins)] : null;
 
   const copy = async () => {
     const lines = lineup.map((s) => `${s.position} ${s.player!.name} (${s.player!.teamId} '${String(s.player!.decade).slice(2)})`);
-    const text = `🏀 82-0 — fiz ${wins}-${losses}${wins === 82 ? ' 🏆 ÉPOCA PERFEITA' : ''}\n${lines.join('\n')}`;
+    const text = `${t.season.shareText(wins, losses)}\n${lines.join('\n')}`;
     try {
       if (navigator.share) await navigator.share({ text });
       else {
         await navigator.clipboard.writeText(text);
-        toast('Resultado copiado');
+        toast(t.season.copied);
       }
     } catch {
       /* o utilizador cancelou a partilha */
@@ -60,7 +63,7 @@ export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
         <span className="w">{wins}</span>-<span className="l">{losses}</span>
       </div>
       <div className="verdict">{verdict?.title}</div>
-      <div className="sub">{verdict ? verdict.subtitle : 'A simular a época…'}</div>
+      <div className="sub">{verdict ? verdict.subtitle : t.season.simulating}</div>
 
       <div className="grid">
         {games.map((g, i) => (
@@ -69,17 +72,17 @@ export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
       </div>
 
       <div className="card">
-        <h3>O teu cinco</h3>
+        <h3>{t.season.yourFive}</h3>
         <div className="ros">
           {lineup.map((s) => (
             <div key={s.player!.name}>
               <span>
                 <b>{s.position}</b> · {s.player!.name}{' '}
                 <span className="muted small">
-                  {teamLabel(TEAMS, s.player!)} · {decadeLabel(s.player!.decade)}
+                  {teamLabel(TEAMS, s.player!)} · {t.decade(s.player!.decade)}
                 </span>
               </span>
-              <span className="r small">{statLine(s.player!.stats)}</span>
+              <span className="r small">{statLine(s.player!.stats, t)}</span>
             </div>
           ))}
         </div>
@@ -87,14 +90,14 @@ export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
 
       <div className="row" style={{ visibility: finished ? 'visible' : 'hidden' }}>
         <button className="btn ghost" onClick={copy}>
-          Partilhar
+          {t.season.share}
         </button>
         <button className="btn" onClick={onAgain}>
-          Jogar outra vez
+          {t.season.again}
         </button>
       </div>
       <button className="btn ghost" style={{ marginTop: 10, visibility: finished ? 'visible' : 'hidden' }} onClick={onHome}>
-        Início
+        {t.season.home}
       </button>
     </section>
   );

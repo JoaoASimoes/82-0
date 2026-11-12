@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import { TEAMS } from '../data/teams';
 import type { DraftedPlayer } from '../data/types';
 import {
-  statLine,
   statLineShort,
   canPick,
   fitsAfterMove,
@@ -10,7 +9,6 @@ import {
   moveTargets,
   comboHasPick,
   createLineup,
-  decadeLabel,
   drawCombo,
   isComplete,
   lineupAverage,
@@ -82,13 +80,10 @@ describe('draft', () => {
   it('usa o nome histórico da equipa', () => {
     expect(teamLabel(TEAMS, { teamId: 'OKC', decade: 1990 })).toBe('Seattle SuperSonics');
     expect(teamLabel(TEAMS, { teamId: 'OKC', decade: 2020 })).toBe('Oklahoma City Thunder');
-    expect(decadeLabel(1980)).toBe('Anos 80');
-    expect(decadeLabel(2010)).toBe('Anos 2010');
   });
 
   it('formata as médias com uma casa decimal', () => {
     const stats = { pts: 26, reb: 10.4, ast: 6.5 };
-    expect(statLine(stats)).toBe('26.0 PTS · 10.4 RES · 6.5 AST');
     expect(statLineShort(stats)).toBe('26.0/10.4/6.5');
   });
 

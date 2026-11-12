@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import { loadStats } from '../lib/storage';
+import { useLang } from '../i18n/LangContext';
+import { LANGS, STRINGS } from '../i18n/strings';
 
 interface Props {
   onStart: () => void;
@@ -7,34 +9,42 @@ interface Props {
 
 export function HomeScreen({ onStart }: Props) {
   const stats = useMemo(loadStats, []);
+  const { lang, t, setLang } = useLang();
   return (
     <section className="view">
       <div className="logo">
         <div className="ball" />
         <h1 className="display">82-0</h1>
       </div>
-      <p className="tag">Escolhe 5 lendas da NBA. Consegues a época perfeita?</p>
+      <p className="tag">{t.home.tagline}</p>
+
+      <div className="seg" role="group" aria-label={t.home.language}>
+        {LANGS.map((l) => (
+          <button key={l} className={l === lang ? 'on' : ''} aria-pressed={l === lang} lang={STRINGS[l].htmlLang} onClick={() => setLang(l)}>
+            {STRINGS[l].langName}
+          </button>
+        ))}
+      </div>
 
       <div className="card">
-        <h3>Como se joga</h3>
+        <h3>{t.home.howTo}</h3>
         <ol className="rules">
-          <li>Roda para sortear uma <b>equipa</b> e uma <b>década</b>.</li>
-          <li>Escolhe um jogador desse plantel para o teu cinco (2 bases, 2 extremos, 1 poste). Só vês as <b>médias</b> dele nessa equipa e década.</li>
-          <li>Tens <b>1 troca de equipa</b> e <b>1 troca de década</b> por jogo.</li>
-          <li>Simula 82 jogos. Ganha todos para fazer <b>82-0</b>.</li>
+          {t.home.rules.map((rule, i) => (
+            <li key={i}>{rule}</li>
+          ))}
         </ol>
       </div>
 
       <div className="card">
-        <h3>O teu histórico</h3>
+        <h3>{t.home.history}</h3>
         <div className="stats">
           <div>
             <b>{stats.best === null ? '—' : `${stats.best}-${82 - stats.best}`}</b>
-            <span className="muted small">Melhor época</span>
+            <span className="muted small">{t.home.best}</span>
           </div>
           <div>
             <b>{stats.played}</b>
-            <span className="muted small">Épocas</span>
+            <span className="muted small">{t.home.seasons}</span>
           </div>
           <div>
             <b>{stats.perfect}</b>
@@ -44,10 +54,10 @@ export function HomeScreen({ onStart }: Props) {
       </div>
 
       <button className="btn" onClick={onStart}>
-        Jogar
+        {t.home.play}
       </button>
       <p className="muted small center" style={{ marginTop: 14 }}>
-        Cada jogador tem uma nota secreta do seu impacto nessa equipa e década — é ela que decide a época. Médias oficiais da NBA.
+        {t.home.footnote}
       </p>
     </section>
   );

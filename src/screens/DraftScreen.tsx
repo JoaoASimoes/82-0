@@ -5,7 +5,6 @@ import {
   allCombos,
   canPick,
   createLineup,
-  decadeLabel,
   drawCombo,
   findTeam,
   fitsAfterMove,
@@ -13,7 +12,6 @@ import {
   isDrafted,
   moveTargets,
   movePlayer,
-  POSITION_NAME,
   placePlayer,
   poolFor,
   teamLabel,
@@ -23,6 +21,8 @@ import { pickRandom } from '../game/rng';
 import { Lineup } from '../components/Lineup';
 import { PlayerRow } from '../components/PlayerRow';
 import { tap } from '../lib/haptics';
+import { useLang } from '../i18n/LangContext';
+import { positionList } from '../i18n/strings';
 
 const SPIN_TICKS = 16;
 
@@ -32,6 +32,7 @@ interface Props {
 }
 
 export function DraftScreen({ onComplete, onQuit }: Props) {
+  const { t } = useLang();
   const [lineup, setLineup] = useState<Slot[]>(createLineup);
   /** Combinação sorteada e pronta a escolher (null enquanto roda ou antes de rodar). */
   const [combo, setCombo] = useState<Combo | null>(null);
@@ -121,25 +122,24 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
     }
     if (moveTargets(lineup, index).length === 0) {
       setSelected(null);
-      const only = player.positions.map((p) => POSITION_NAME[p].toLowerCase()).join(' ou ');
       setMoveHint(
         player.positions.length > 1
-          ? `${player.name} não tem para onde trocar agora`
-          : `${player.name} só joga a ${only}`,
+          ? t.draft.nowhereToMove(player.name)
+          : t.draft.onlyPlays(player.name, positionList(player.positions, t, 'or')),
       );
       return;
     }
     setSelected(index);
-    setMoveHint(`Toca no lugar para onde queres mudar ${player.name}`);
+    setMoveHint(t.draft.moveWhere(player.name));
   };
 
   return (
     <section className="view">
       <div className="top">
         <button className="chip" onClick={onQuit}>
-          ✕ Sair
+          {t.draft.quit}
         </button>
-        <span className="display">{done ? 'Cinco completo' : `Escolha ${picked + 1}/5`}</span>
+        <span className="display">{done ? t.draft.full : t.draft.pick(picked + 1)}</span>
         <span className="chip">{picked}/5</span>
       </div>
 
@@ -153,24 +153,24 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
 
       <div className={`reel ${spinning ? 'spinning' : ''}`}>
         <div className="stripe" style={{ background: shown ? findTeam(TEAMS, shown.teamId).color : 'var(--acc)' }} />
-        <div className="lbl">Sorteio</div>
-        <div className="team">{done ? 'Cinco fechado!' : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
+        <div className="lbl">{t.draft.draw}</div>
+        <div className="team">{done ? t.draft.closed : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
         <div className="dec">
-          {done ? '' : shown && (spinning || combo) ? decadeLabel(shown.decade) : picked ? 'Roda outra vez' : 'Carrega em Rodar'}
+          {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : picked ? t.draft.spinAgain : t.draft.pressSpin}
         </div>
       </div>
 
       <div className="skips">
         <button disabled={!combo || spinning || skips.team < 1} onClick={skipTeam}>
-          ↻ Trocar equipa ({skips.team})
+          {t.draft.swapTeam(skips.team)}
         </button>
         <button disabled={!combo || spinning || skips.era < 1} onClick={skipEra}>
-          ↻ Trocar década ({skips.era})
+          {t.draft.swapDecade(skips.era)}
         </button>
       </div>
 
       <div className="hint">
-        {moveHint || (combo ? 'Toca num jogador para o escolher' : picked > 0 && !done ? 'Toca num jogador do cinco para o mudar de posição' : '')}
+        {moveHint || (combo ? t.draft.tapToPick : picked > 0 && !done ? t.draft.tapToMove : '')}
       </div>
 
       {combo && (
@@ -190,7 +190,7 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
 
       {!combo && !spinning && !done && (
         <button className="btn" onClick={() => spin()}>
-          Rodar
+          {t.draft.spin}
         </button>
       )}
     </section>

@@ -33,3 +33,22 @@ export function recordSeason(wins: number): { stats: Stats; newBest: boolean } {
   }
   return { stats, newBest: newBest && prev.played > 0 };
 }
+
+const LANG_KEY = '820lang';
+
+/** Língua guardada pelo utilizador, ou null se nunca escolheu (ou não há armazenamento). */
+export function loadLang(): string | null {
+  try {
+    return localStorage.getItem(LANG_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function saveLang(lang: string): void {
+  try {
+    localStorage.setItem(LANG_KEY, lang);
+  } catch {
+    /* sem armazenamento: ignora */
+  }
+}

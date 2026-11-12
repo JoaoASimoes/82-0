@@ -1,6 +1,6 @@
 # 82-0 · Época Perfeita
 
-Jogo mobile-first (PWA para iPhone) inspirado no desafio viral "82-0": o jogador sorteia equipa + década da NBA, escolhe um cinco inicial e simula uma época de 82 jogos.
+Jogo mobile-first (PWA para iPhone, em português e inglês) inspirado no desafio viral "82-0": o jogador sorteia equipa + década da NBA, escolhe um cinco inicial e simula uma época de 82 jogos.
 
 ## Comandos
 - `npm run dev` — servidor local (com `--host`, abre também no telemóvel na mesma rede Wi-Fi)
@@ -19,6 +19,7 @@ src/
   game/       lógica pura, sem React: draft.ts · season.ts · verdict.ts · rng.ts (+ testes ao lado)
   screens/    HomeScreen · DraftScreen · SeasonScreen
   components/ Lineup · PlayerRow · Toast · Confetti
+  i18n/       strings.tsx (textos pt/en) · LangContext.tsx (useLang, língua guardada no localStorage)
   lib/        storage.ts (localStorage) · haptics.ts
 public/       ícones da PWA
 scripts/      build_players.py (gera players.json a partir do dataset em data_raw/) · requirements.txt
@@ -29,7 +30,7 @@ data_raw/     CSVs do dataset do Basketball-Reference (Kaggle). Fora do git.
 - **Lógica fora dos componentes.** Tudo o que decide o jogo vive em `src/game/` como funções puras, e cada mudança aí leva testes.
 - **Aleatoriedade injetada.** Funções de jogo recebem um `Rng`; nos testes usa `seededRng(seed)` para resultados determinísticos. Nunca chamar `Math.random` dentro de `src/game/`.
 - **Imutabilidade.** `placePlayer` e afins devolvem objetos novos; não mutar o `lineup`.
-- **Texto da interface em português de Portugal** (ex.: "ecrã", "telemóvel", "equipa", "base/extremo/poste"). Código e nomes de variáveis em inglês.
+- **Interface em duas línguas: português de Portugal e inglês.** Todo o texto visível vive em `src/i18n/strings.tsx` (`pt` e `en`, o TypeScript obriga as duas a ter as mesmas chaves); os componentes usam `const { t } = useLang()`. Nunca escrever texto da interface diretamente num componente nem em `src/game/` (aí devolvem-se códigos, ex.: `VerdictTier`). Português de Portugal: "ecrã", "telemóvel", "equipa", "base/extremo/poste". Código e nomes de variáveis em inglês.
 - **Mobile primeiro.** Testar a 390×844. Respeitar `env(safe-area-inset-*)`. Alvos de toque ≥ 40px.
 - localStorage pode falhar (modo privado do Safari): usar sempre try/catch, como em `lib/storage.ts`.
 - **Avisar quando for boa altura para um commit.** Sempre que um conjunto de alterações estiver coerente e o `npm run check` passar (ex.: uma funcionalidade terminada, uma correção, uma mudança grande nos dados), sugere ao utilizador fazer commit e propõe uma mensagem. Não fazer o commit sem ele pedir.

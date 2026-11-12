@@ -1,5 +1,7 @@
 import type { Slot } from '../game/draft';
-import { POSITION_NAME, shortDecade, statLineShort } from '../game/draft';
+import { shortDecade, statLineShort } from '../game/draft';
+import { useLang } from '../i18n/LangContext';
+import { positionList } from '../i18n/strings';
 
 interface Props {
   lineup: Slot[];
@@ -14,6 +16,7 @@ interface Props {
 }
 
 export function Lineup({ lineup, highlight, selected = null, targets = [], onSlotTap }: Props) {
+  const { t } = useLang();
   return (
     <div className="lineup">
       {lineup.map((slot, i) => {
@@ -33,8 +36,8 @@ export function Lineup({ lineup, highlight, selected = null, targets = [], onSlo
             aria-pressed={i === selected}
             aria-label={
               slot.player
-                ? `${POSITION_NAME[slot.position]}: ${slot.player.name}${other.length ? `, também joga a ${other.map((p) => POSITION_NAME[p]).join(' e ')}` : ''}`
-                : `${POSITION_NAME[slot.position]}: vazio`
+                ? t.draft.slotPlayer(t.positions[slot.position], slot.player.name, positionList(other, t, 'and'))
+                : t.draft.slotEmpty(t.positions[slot.position])
             }
           >
             <span className="pos">{slot.position}</span>
@@ -42,7 +45,7 @@ export function Lineup({ lineup, highlight, selected = null, targets = [], onSlo
               <>
                 {other.length > 0 && <span className="alt">↔{other.join('')}</span>}
                 <div className="nm">{slot.player.name}</div>
-                <div className="st" title="PTS / RES / AST">
+                <div className="st" title={`${t.stat.pts} / ${t.stat.reb} / ${t.stat.ast}`}>
                   {statLineShort(slot.player.stats)}
                 </div>
                 <div className="tm">
@@ -50,7 +53,7 @@ export function Lineup({ lineup, highlight, selected = null, targets = [], onSlo
                 </div>
               </>
             ) : (
-              <span className="muted small">{POSITION_NAME[slot.position]}</span>
+              <span className="muted small">{t.positions[slot.position]}</span>
             )}
           </button>
         );
