@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { loadStats } from '../lib/storage';
 import { useLang } from '../i18n/LangContext';
-import { LANGS, STRINGS } from '../i18n/strings';
+import { LangSwitch } from '../components/LangSwitch';
 
 interface Props {
   onStart: () => void;
@@ -9,22 +9,17 @@ interface Props {
 
 export function HomeScreen({ onStart }: Props) {
   const stats = useMemo(loadStats, []);
-  const { lang, t, setLang } = useLang();
+  const { t } = useLang();
   return (
     <section className="view">
+      <div className="topbar">
+        <LangSwitch />
+      </div>
       <div className="logo">
         <div className="ball" />
         <h1 className="display">82-0</h1>
       </div>
       <p className="tag">{t.home.tagline}</p>
-
-      <div className="seg" role="group" aria-label={t.home.language}>
-        {LANGS.map((l) => (
-          <button key={l} className={l === lang ? 'on' : ''} aria-pressed={l === lang} lang={STRINGS[l].htmlLang} onClick={() => setLang(l)}>
-            {STRINGS[l].langName}
-          </button>
-        ))}
-      </div>
 
       <div className="card">
         <h3>{t.home.howTo}</h3>

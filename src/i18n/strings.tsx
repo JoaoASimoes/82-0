@@ -10,6 +10,7 @@ export const detectLang = (browserLangs: readonly string[]): Lang =>
 
 const pt = {
   langName: 'Português',
+  code: 'PT',
   htmlLang: 'pt-PT',
   title: '82-0 · Época Perfeita',
   positions: { G: 'Base', F: 'Extremo', C: 'Poste' } as Record<Position, string>,
@@ -89,6 +90,7 @@ export type Strings = typeof pt;
 
 const en: Strings = {
   langName: 'English',
+  code: 'EN',
   htmlLang: 'en',
   title: '82-0 · Perfect Season',
   positions: { G: 'Guard', F: 'Forward', C: 'Center' },
