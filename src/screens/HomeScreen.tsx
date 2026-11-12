@@ -26,15 +26,6 @@ export function HomeScreen({ onStart }: Props) {
           <p className="record">{t.home.record(stats.best ?? 0, stats.played, stats.perfect)}</p>
         )}
       </div>
-
-      <details className="howto">
-        <summary>{t.home.howTo}</summary>
-        <ol>
-          {t.home.rules.map((rule, i) => (
-            <li key={i}>{rule}</li>
-          ))}
-        </ol>
-      </details>
     </section>
   );
 }

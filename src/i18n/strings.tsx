@@ -30,12 +30,6 @@ const pt = {
   home: {
     tagline: 'Escolhe 5 lendas da NBA. Consegues a época perfeita?',
     language: 'Língua',
-    howTo: 'Como se joga',
-    rules: [
-      <>É sorteada uma equipa e uma década; escolhe um jogador. Só vês as médias dele.</>,
-      <>Monta um cinco (2 bases, 2 extremos, 1 poste). Tens 1 troca de equipa e 1 de década.</>,
-      <>Sem sorte: o resultado depende só do teu cinco. Ganha os 82 jogos.</>,
-    ],
     play: 'Jogar',
     record: (best: number, seasons: number, perfect: number) =>
       `Melhor ${best}-${82 - best} · ${seasons} ${seasons === 1 ? 'época' : 'épocas'} · ${perfect}× 82-0`,
@@ -105,12 +99,6 @@ const en: Strings = {
   home: {
     tagline: 'Pick 5 NBA legends. Can you go 82-0?',
     language: 'Language',
-    howTo: 'How to play',
-    rules: [
-      <>A team and a decade are drawn; pick a player. You only see his averages.</>,
-      <>Build a five (2 guards, 2 forwards, 1 center). You get 1 team and 1 decade re-roll.</>,
-      <>No luck: the result depends only on your five. Win all 82 games.</>,
-    ],
     play: 'Play',
     record: (best, seasons, perfect) =>
       `Best ${best}-${82 - best} · ${seasons} ${seasons === 1 ? 'season' : 'seasons'} · ${perfect}× 82-0`,
