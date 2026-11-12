@@ -82,10 +82,18 @@ button { font: inherit; color: inherit; border: 0; cursor: pointer; }
 @keyframes pop { 0% { transform: scale(0.8); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
 .reel { background: linear-gradient(180deg, var(--panel2), var(--panel)); border: 1px solid var(--line); border-radius: 16px; padding: 10px 14px; text-align: center; margin-bottom: 12px; position: relative; overflow: hidden; }
 .reel .lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--mut); }
-.reel .team { font-family: var(--display); font-size: 24px; line-height: 1.1; margin: 4px 0 0; min-height: 27px; }
-.reel .dec { font-family: var(--display); font-size: 18px; color: var(--acc2); min-height: 20px; }
+/* Altura fixa e uma só linha: nomes compridos levam reticências em vez de mudarem a altura do painel. */
+.reel .team, .reel .dec { white-space: nowrap; overflow: hidden; }
+.reel .team { font-family: var(--display); font-size: 24px; line-height: 27px; height: 27px; margin: 4px 0 0; }
+.reel .dec { font-family: var(--display); font-size: 18px; line-height: 20px; height: 20px; color: var(--acc2); }
+.reel .team span, .reel .dec span { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; vertical-align: top; }
+/* Slot machine: cada nome entra a deslizar de cima; o resultado final "assenta" com um pequeno ressalto. */
+.reel.spinning .team span, .reel.spinning .dec span { animation: reel-tick 0.12s ease-out; }
+.reel.landed .team span, .reel.landed .dec span { animation: reel-land 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.25); }
+@keyframes reel-tick { from { transform: translateY(-70%); opacity: 0.2; } to { transform: none; opacity: 1; } }
+@keyframes reel-land { from { transform: translateY(-40%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .reel .team span, .reel .dec span { animation: none !important; } }
 .reel .stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; transition: background 0.2s; }
-.reel.spinning .team, .reel.spinning .dec { filter: blur(0.6px); opacity: 0.85; }
 .skips { display: flex; gap: 8px; margin-bottom: 12px; }
 .skips button { flex: 1; padding: 11px 6px; border-radius: 12px; background: var(--panel2); border: 1px solid var(--line); font-size: 13px; font-weight: 600; }
 .skips button:disabled { color: #4b5470; background: var(--panel); border-color: var(--panel2); }

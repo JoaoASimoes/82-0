@@ -173,6 +173,9 @@ export function DraftScreen({ onComplete }: Props) {
   };
 
   const infoSlot = info === null ? null : lineup[info];
+  const showDraw = shown !== null && (spinning || combo !== null);
+  const teamText = done ? t.draft.closed : showDraw ? teamLabel(TEAMS, shown) : '—';
+  const decadeText = done || !showDraw ? '' : t.decade(shown.decade);
 
   return (
     <section className="view draft">
@@ -188,12 +191,15 @@ export function DraftScreen({ onComplete }: Props) {
             onSlotTap={done ? undefined : tapSlot}
           />
 
-          <div className={`reel ${spinning ? 'spinning' : ''}`}>
+          {/* `key` muda a cada nome, para a animação "slot machine" recomeçar (ver .reel no CSS). */}
+          <div className={`reel ${spinning ? 'spinning' : combo ? 'landed' : ''}`}>
             <div className="stripe" style={{ background: shown ? findTeam(TEAMS, shown.teamId).color : 'var(--acc)' }} />
             <div className="lbl">{t.draft.draw}</div>
-            <div className="team">{done ? t.draft.closed : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
+            <div className="team">
+              <span key={teamText}>{teamText}</span>
+            </div>
             <div className="dec">
-              {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : ''}
+              <span key={decadeText}>{decadeText}</span>
             </div>
           </div>
 
