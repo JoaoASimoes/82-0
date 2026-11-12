@@ -45,13 +45,11 @@ PLAYERS_PER_ERA = 10
 # rosters); the deeper bench players fall below that scale.
 CALIBRATION_TOP = 5
 MIN_RATING = 40
-# A player can play every position he historically played, anywhere in his career:
-#  - listed there by Basketball-Reference in a season with >= POSITION_MIN_GAMES games, or
-#  - (play-by-play data, 1996-97+) >= POSITION_MIN_SHARE % of his minutes there in a
-#    season with >= POSITION_MIN_MINUTES minutes.
-POSITION_MIN_GAMES = 10
-POSITION_MIN_SHARE = 25
-POSITION_MIN_MINUTES = 300
+# A player can play every position that was a real part of his career (all teams): at least
+# POSITION_MIN_SHARE of either his career games listed there by Basketball-Reference, or his
+# career minutes there (play-by-play data, 1996-97+). A few odd games or one late-career
+# season don't count (e.g. Carmelo Anthony played ~3% of his minutes at center: no C).
+POSITION_MIN_SHARE = 0.10
 
 # Target rating distribution: the 0th..100th percentiles of the original hand-made ratings.
 # Mapping the impact score onto it keeps the difficulty curve that season.test.ts protects,
@@ -128,17 +126,24 @@ def game_score(df: pd.DataFrame) -> pd.Series:
 
 
 def career_positions(totals: pd.DataFrame) -> dict[str, set[str]]:
-    """Every position (G/F/C) each player historically played, over his whole NBA career."""
+    """The positions (G/F/C) that were a real part of each player's NBA career (see POSITION_MIN_SHARE)."""
     out: dict[str, set[str]] = {}
-    listed = totals[(totals.g >= POSITION_MIN_GAMES) & totals.pos.isin(POSITION)]
-    for pid, pos in zip(listed.player_id, listed.pos):
-        out.setdefault(pid, set()).add(POSITION[pos])
+    # Per-team rows only ("2TM" rows would count a traded player's games twice).
+    rows = totals[~totals.team.str.endswith('TM') & totals.pos.isin(POSITION)]
+    games = rows.groupby(['player_id', rows.pos.map(POSITION)]).g.sum()
+    listed_share = games / games.groupby(level=0).transform('sum').clip(lower=1)
+    for (pid, position), share in listed_share.items():
+        if share >= POSITION_MIN_SHARE:
+            out.setdefault(pid, set()).add(position)
     if PLAY_BY_PLAY.exists():
         pbp = pd.read_csv(PLAY_BY_PLAY)
-        pbp = pbp[(pbp.lg == 'NBA') & (pbp.mp >= POSITION_MIN_MINUTES)].fillna(0)
+        pbp = pbp[(pbp.lg == 'NBA') & ~pbp.team.str.endswith('TM')]
+        pbp = pbp.fillna({c: 0 for c in ('mp', 'pg_percent', 'sg_percent', 'sf_percent', 'pf_percent', 'c_percent')})
+        minutes = pbp.groupby('player_id').mp.sum().clip(lower=1)
         shares = {'G': pbp.pg_percent + pbp.sg_percent, 'F': pbp.sf_percent + pbp.pf_percent, 'C': pbp.c_percent}
-        for position, share in shares.items():
-            for pid in pbp.player_id[share >= POSITION_MIN_SHARE]:
+        for position, percent in shares.items():
+            played = (percent / 100 * pbp.mp).groupby(pbp.player_id).sum() / minutes
+            for pid in played.index[played >= POSITION_MIN_SHARE]:
                 out.setdefault(pid, set()).add(position)
     return out
 
