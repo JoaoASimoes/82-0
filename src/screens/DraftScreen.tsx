@@ -14,7 +14,6 @@ import {
   movePlayer,
   placePlayer,
   DEFAULT_SORT,
-  SORT_KEYS,
   sortPlayers,
   type SortKey,
   poolFor,
@@ -27,6 +26,7 @@ import { PlayerRow } from '../components/PlayerRow';
 import { tap } from '../lib/haptics';
 import { useFinePointer } from '../lib/pointer';
 import { PlayerSheet } from '../components/PlayerSheet';
+import { SortBar } from '../components/SortBar';
 import { useLang } from '../i18n/LangContext';
 import { positionList } from '../i18n/strings';
 
@@ -178,30 +178,35 @@ export function DraftScreen({ onComplete }: Props) {
     <section className="view draft">
       {/* No computador: esta coluna fica à esquerda e fixa; a lista de jogadores vai à direita. */}
       <div className="draft-side">
-        <Lineup
-          lineup={lineup}
-          highlight={lastPlaced}
-          selected={selected}
-          targets={targets}
-          onSlotTap={done ? undefined : tapSlot}
-        />
+        {/* Telemóvel: o cinco, o sorteio, as trocas e a ordenação ficam fixos no topo durante o scroll. */}
+        <div className="draft-head">
+          <Lineup
+            lineup={lineup}
+            highlight={lastPlaced}
+            selected={selected}
+            targets={targets}
+            onSlotTap={done ? undefined : tapSlot}
+          />
 
-        <div className={`reel ${spinning ? 'spinning' : ''}`}>
-          <div className="stripe" style={{ background: shown ? findTeam(TEAMS, shown.teamId).color : 'var(--acc)' }} />
-          <div className="lbl">{t.draft.draw}</div>
-          <div className="team">{done ? t.draft.closed : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
-          <div className="dec">
-            {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : ''}
+          <div className={`reel ${spinning ? 'spinning' : ''}`}>
+            <div className="stripe" style={{ background: shown ? findTeam(TEAMS, shown.teamId).color : 'var(--acc)' }} />
+            <div className="lbl">{t.draft.draw}</div>
+            <div className="team">{done ? t.draft.closed : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
+            <div className="dec">
+              {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : ''}
+            </div>
           </div>
-        </div>
 
-        <div className="skips">
-          <button disabled={!combo || spinning || skips.team < 1} onClick={skipTeam} title={t.draft.swapHint}>
-            {t.draft.swapTeam}
-          </button>
-          <button disabled={!combo || spinning || skips.era < 1} onClick={skipEra} title={t.draft.swapHint}>
-            {t.draft.swapDecade}
-          </button>
+          <div className="skips">
+            <button disabled={!combo || spinning || skips.team < 1} onClick={skipTeam} title={t.draft.swapHint}>
+              {t.draft.swapTeam}
+            </button>
+            <button disabled={!combo || spinning || skips.era < 1} onClick={skipEra} title={t.draft.swapHint}>
+              {t.draft.swapDecade}
+            </button>
+          </div>
+
+          {combo && <SortBar value={sortKey} onChange={setSortKey} className="only-mobile" />}
         </div>
 
         <div className="hint">
@@ -210,21 +215,7 @@ export function DraftScreen({ onComplete }: Props) {
       </div>
 
       <div className="draft-main">
-        {combo && (
-          <div className="sortbar" role="group" aria-label={t.draft.sortBy}>
-            {SORT_KEYS.map((k) => (
-              <button
-                key={k}
-                className={k === sortKey ? 'on' : ''}
-                aria-pressed={k === sortKey}
-                aria-label={`${t.draft.sortBy}: ${k === 'name' ? t.draft.sortName : t.statName[k]}`}
-                onClick={() => setSortKey(k)}
-              >
-                {k === 'name' ? t.draft.sortName : t.stat[k]}
-              </button>
-            ))}
-          </div>
-        )}
+        {combo && <SortBar value={sortKey} onChange={setSortKey} className="only-desktop" />}
 
         {combo && (
           <div className="pool">

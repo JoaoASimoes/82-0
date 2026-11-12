@@ -54,6 +54,16 @@ button { font: inherit; color: inherit; border: 0; cursor: pointer; }
 .card h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--mut); }
 
 /* Draft */
+/* Telemóvel: o cinco, o sorteio, as trocas e a ordenação ficam fixos no topo durante o scroll. A coluna .draft-side
+   "desaparece" (display: contents) para o sticky valer para o ecrã todo e não só para ela. */
+.draft-side { display: contents; }
+.draft-head { position: sticky; top: env(safe-area-inset-top); z-index: 4; margin: 0 -14px 4px; padding: 0 14px 6px; background: var(--bg); box-shadow: 0 8px 12px -10px #000c; }
+/* Tapa a zona do notch / barra de estado por cima da parte fixa. */
+.draft-head::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(env(safe-area-inset-top) + 12px); background: var(--bg); }
+.draft-head .lineup, .draft-head .reel, .draft-head .skips { margin-bottom: 8px; }
+.draft-head .sortbar { margin-bottom: 0; }
+/* A barra de ordenação é desenhada duas vezes: na parte fixa (telemóvel) e por cima da lista (computador). */
+.sortbar.only-desktop { display: none; }
 .lineup { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 12px; }
 .slot { background: var(--panel); border: 1px dashed var(--line); border-radius: 12px; min-height: 72px; padding: 6px 4px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
 .slot .pos { font-family: var(--display); font-size: 22px; color: var(--mut); }
@@ -140,7 +150,12 @@ button { font: inherit; color: inherit; border: 0; cursor: pointer; }
   .hero h1 { font-size: 160px; }
 
   .draft { display: grid; grid-template-columns: minmax(380px, 440px) 1fr; gap: 32px; align-items: start; }
-  .draft-side { position: sticky; top: 32px; }
+  .draft-side { display: block; position: sticky; top: 32px; }
+  .draft-head { position: static; margin: 0; padding: 0; box-shadow: none; }
+  .draft-head::before { display: none; }
+  .sortbar.only-mobile { display: none; }
+  .sortbar.only-desktop { display: flex; }
+  .draft-head .lineup, .draft-head .reel, .draft-head .skips { margin-bottom: 12px; }
   .draft-main { padding-top: 2px; }
   .slot .nm { font-size: 12px; }
   .slot .st, .slot .tm { font-size: 10px; }
