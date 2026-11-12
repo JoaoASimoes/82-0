@@ -41,6 +41,45 @@ export function placePlayer(lineup: Lineup, player: DraftedPlayer): { lineup: Sl
   return { lineup: next, index };
 }
 
+/** O jogador pode ocupar um lugar desta posição? */
+export const playsPosition = (player: { positions: Position[] }, position: Position) => player.positions.includes(position);
+
+/**
+ * Lugares para onde o jogador do lugar `from` pode ir: um lugar de outra posição que ele joga,
+ * vazio ou ocupado por alguém que possa ir para o lugar `from` (aí os dois trocam).
+ */
+export function moveTargets(lineup: Lineup, from: number): number[] {
+  const source = lineup[from];
+  if (!source?.player) return [];
+  const mover = source.player;
+  return lineup.flatMap((slot, i) => {
+    if (i === from || slot.position === source.position || !playsPosition(mover, slot.position)) return [];
+    return !slot.player || playsPosition(slot.player, source.position) ? [i] : [];
+  });
+}
+
+/** Move o jogador de `from` para `to` (trocando com quem lá estiver). Devolve um novo cinco. */
+export function movePlayer(lineup: Lineup, from: number, to: number): Slot[] {
+  if (!moveTargets(lineup, from).includes(to)) throw new Error(`Não dá para mover o lugar ${from} para ${to}`);
+  return lineup.map((s, i) =>
+    i === from ? { ...s, player: lineup[to]!.player } : i === to ? { ...s, player: lineup[from]!.player } : s,
+  );
+}
+
+/**
+ * Não há vaga para este jogador, mas haveria se alguém do cinco mudasse para um lugar vazio
+ * de outra posição que joga? (Serve para sugerir a troca na interface.)
+ */
+export function fitsAfterMove(lineup: Lineup, player: { name: string; positions: Position[] }): boolean {
+  if (isDrafted(lineup, player.name) || canPick(lineup, player)) return false;
+  return lineup.some(
+    (slot, i) =>
+      slot.player !== null &&
+      playsPosition(player, slot.position) &&
+      moveTargets(lineup, i).some((j) => lineup[j]!.player === null),
+  );
+}
+
 export function lineupAverage(lineup: Lineup): number {
   const ratings = lineup.flatMap((s) => (s.player ? [s.player.rating] : []));
   return ratings.length ? ratings.reduce((a, b) => a + b, 0) / ratings.length : 0;

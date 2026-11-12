@@ -67,7 +67,8 @@
     {
      "name": "Kevin Willis",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -91,7 +92,8 @@
     {
      "name": "Randy Wittman",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 76,
      "stats": {
@@ -141,7 +143,8 @@
     {
      "name": "Kevin Willis",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 86,
      "stats": {
@@ -177,7 +180,8 @@
     {
      "name": "Christian Laettner",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -189,7 +193,8 @@
     {
      "name": "Steve Smith",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -201,7 +206,8 @@
     {
      "name": "Stacey Augmon",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -213,7 +219,8 @@
     {
      "name": "Grant Long",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -225,7 +232,8 @@
     {
      "name": "Alan Henderson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -237,7 +245,8 @@
     {
      "name": "Duane Ferrell",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 73,
      "stats": {
@@ -251,7 +260,8 @@
     {
      "name": "Joe Johnson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -263,7 +273,8 @@
     {
      "name": "Shareef Abdur-Rahim",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -287,7 +298,8 @@
     {
      "name": "Al Harrington",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -299,7 +311,8 @@
     {
      "name": "Al Horford",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -311,7 +324,9 @@
     {
      "name": "Josh Smith",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -348,7 +363,8 @@
     {
      "name": "Marvin Williams",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -386,7 +402,8 @@
     {
      "name": "Paul Millsap",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 87,
      "stats": {
@@ -398,7 +415,8 @@
     {
      "name": "Al Horford",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 86,
      "stats": {
@@ -410,7 +428,9 @@
     {
      "name": "Josh Smith",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 86,
      "stats": {
@@ -422,7 +442,8 @@
     {
      "name": "Joe Johnson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -434,7 +455,8 @@
     {
      "name": "John Collins",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -470,7 +492,8 @@
     {
      "name": "Kyle Korver",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -521,7 +544,8 @@
     {
      "name": "Nickeil Alexander-Walker",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -545,7 +569,8 @@
     {
      "name": "Dyson Daniels",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -569,7 +594,8 @@
     {
      "name": "John Collins",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -581,7 +607,8 @@
     {
      "name": "Bogdan Bogdanović",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -621,7 +648,8 @@
     {
      "name": "Buck Williams",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -743,7 +771,8 @@
     {
      "name": "Derrick Coleman",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 89,
      "stats": {
@@ -791,7 +820,8 @@
     {
      "name": "Armen Gilliam",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -803,7 +833,8 @@
     {
      "name": "Kendall Gill",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -827,7 +858,8 @@
     {
      "name": "Chris Morris",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 81,
      "stats": {
@@ -866,7 +898,8 @@
     {
      "name": "Vince Carter",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -926,7 +959,8 @@
     {
      "name": "Kenyon Martin",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -950,7 +984,8 @@
     {
      "name": "Lucious Harris",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 73,
      "stats": {
@@ -975,7 +1010,8 @@
     {
      "name": "Jason Collins",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 70,
      "stats": {
@@ -1049,7 +1085,8 @@
     {
      "name": "Joe Johnson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -1061,7 +1098,8 @@
     {
      "name": "Caris LeVert",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -1073,7 +1111,8 @@
     {
      "name": "Kris Humphries",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -1098,7 +1137,8 @@
     {
      "name": "Rondae Hollis-Jefferson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 78,
      "stats": {
@@ -1112,7 +1152,9 @@
     {
      "name": "Kevin Durant",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 98,
      "stats": {
@@ -1124,7 +1166,8 @@
     {
      "name": "James Harden",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 96,
      "stats": {
@@ -1148,7 +1191,8 @@
     {
      "name": "Mikal Bridges",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 88,
      "stats": {
@@ -1184,7 +1228,8 @@
     {
      "name": "Cam Thomas",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -1209,7 +1254,8 @@
     {
      "name": "Joe Harris",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 78,
      "stats": {
@@ -1221,7 +1267,8 @@
     {
      "name": "Day'Ron Sharpe",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 75,
      "stats": {
@@ -1360,7 +1407,8 @@
     {
      "name": "Reggie Lewis",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 87,
      "stats": {
@@ -1384,7 +1432,8 @@
     {
      "name": "Dino Radja",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -1420,7 +1469,8 @@
     {
      "name": "Kevin Gamble",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 81,
      "stats": {
@@ -1495,7 +1545,8 @@
     {
      "name": "Kevin Garnett",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 87,
      "stats": {
@@ -1519,7 +1570,8 @@
     {
      "name": "Ray Allen",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -1569,7 +1621,8 @@
     {
      "name": "Kendrick Perkins",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -1593,7 +1646,8 @@
     {
      "name": "Tony Allen",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -1619,7 +1673,8 @@
     {
      "name": "Paul Pierce",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 86,
      "stats": {
@@ -1631,7 +1686,8 @@
     {
      "name": "Al Horford",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -1693,7 +1749,8 @@
     {
      "name": "Brandon Bass",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -1705,7 +1762,8 @@
     {
      "name": "Marcus Smart",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -1717,7 +1775,8 @@
     {
      "name": "Avery Bradley",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -1743,7 +1802,8 @@
     {
      "name": "Jaylen Brown",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 91,
      "stats": {
@@ -1755,7 +1815,8 @@
     {
      "name": "Kristaps Porziņģis",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 89,
      "stats": {
@@ -1779,7 +1840,8 @@
     {
      "name": "Robert Williams",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -1791,7 +1853,8 @@
     {
      "name": "Jrue Holiday",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -1803,7 +1866,8 @@
     {
      "name": "Marcus Smart",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -1815,7 +1879,8 @@
     {
      "name": "Al Horford",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -1855,7 +1920,8 @@
     {
      "name": "Armen Gilliam",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 86,
      "stats": {
@@ -1915,7 +1981,8 @@
     {
      "name": "Rex Chapman",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -1927,7 +1994,8 @@
     {
      "name": "J.R. Reid",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -1951,7 +2019,8 @@
     {
      "name": "Robert Reid",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 73,
      "stats": {
@@ -1963,7 +2032,8 @@
     {
      "name": "Earl Cureton",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -1977,7 +2047,8 @@
     {
      "name": "Alonzo Mourning",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -2013,7 +2084,8 @@
     {
      "name": "Anthony Mason",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -2025,7 +2097,8 @@
     {
      "name": "Kendall Gill",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -2073,7 +2146,8 @@
     {
      "name": "Johnny Newman",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -2123,7 +2197,8 @@
     {
      "name": "Gerald Wallace",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 85,
      "stats": {
@@ -2172,7 +2247,8 @@
     {
      "name": "Elden Campbell",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -2208,7 +2284,8 @@
     {
      "name": "Matt Carroll",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -2234,7 +2311,8 @@
     {
      "name": "Al Jefferson",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -2247,7 +2325,8 @@
      "name": "Nicolas Batum",
      "positions": [
       "F",
-      "G"
+      "G",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -2259,7 +2338,8 @@
     {
      "name": "Gerald Henderson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -2271,7 +2351,8 @@
     {
      "name": "Jeremy Lamb",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -2283,7 +2364,8 @@
     {
      "name": "Marvin Williams",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -2295,7 +2377,8 @@
     {
      "name": "Cody Zeller",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -2332,7 +2415,8 @@
     {
      "name": "Bismack Biyombo",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -2382,7 +2466,8 @@
     {
      "name": "Gordon Hayward",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 85,
      "stats": {
@@ -2418,7 +2503,8 @@
     {
      "name": "Kelly Oubre Jr.",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 82,
      "stats": {
@@ -2443,7 +2529,8 @@
     {
      "name": "Mason Plumlee",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -2455,7 +2542,8 @@
     {
      "name": "Nick Richards",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -2471,7 +2559,8 @@
     {
      "name": "Michael Jordan",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 99,
      "stats": {
@@ -2519,7 +2608,8 @@
     {
      "name": "Charles Oakley",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -2593,7 +2683,8 @@
     {
      "name": "Michael Jordan",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 98,
      "stats": {
@@ -2617,7 +2708,8 @@
     {
      "name": "Horace Grant",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 86,
      "stats": {
@@ -2653,7 +2745,8 @@
     {
      "name": "Dennis Rodman",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -2665,7 +2758,8 @@
     {
      "name": "Ron Harper",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -2701,7 +2795,8 @@
     {
      "name": "Will Perdue",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 71,
      "stats": {
@@ -2763,7 +2858,8 @@
     {
      "name": "Brad Miller",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -2775,7 +2871,8 @@
     {
      "name": "Jamal Crawford",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -2812,7 +2909,8 @@
     {
      "name": "Tyson Chandler",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -2913,7 +3011,8 @@
     {
      "name": "Lauri Markkanen",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -2925,7 +3024,8 @@
     {
      "name": "Carlos Boozer",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -2937,7 +3037,8 @@
     {
      "name": "Nikola Mirotić",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -2949,7 +3050,8 @@
     {
      "name": "Taj Gibson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -2963,7 +3065,8 @@
     {
      "name": "DeMar DeRozan",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 94,
      "stats": {
@@ -2975,7 +3078,8 @@
     {
      "name": "Zach LaVine",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 91,
      "stats": {
@@ -2987,7 +3091,8 @@
     {
      "name": "Josh Giddey",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -3047,7 +3152,8 @@
     {
      "name": "Ayo Dosunmu",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -3059,7 +3165,8 @@
     {
      "name": "Alex Caruso",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -3099,7 +3206,8 @@
     {
      "name": "Ron Harper",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 87,
      "stats": {
@@ -3147,7 +3255,8 @@
     {
      "name": "Hot Rod Williams",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -3283,7 +3392,8 @@
     {
      "name": "Chris Mills",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -3308,7 +3418,8 @@
     {
      "name": "Bobby Phills",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -3334,7 +3445,9 @@
     {
      "name": "LeBron James",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 97,
      "stats": {
@@ -3358,7 +3471,8 @@
     {
      "name": "Carlos Boozer",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -3407,7 +3521,8 @@
     {
      "name": "Drew Gooden",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -3431,7 +3546,8 @@
     {
      "name": "Larry Hughes",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -3458,7 +3574,9 @@
     {
      "name": "LeBron James",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 97,
      "stats": {
@@ -3482,7 +3600,8 @@
     {
      "name": "Kevin Love",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -3494,7 +3613,8 @@
     {
      "name": "Collin Sexton",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -3506,7 +3626,8 @@
     {
      "name": "Jordan Clarkson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -3531,7 +3652,8 @@
     {
      "name": "Anderson Varejão",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -3556,7 +3678,8 @@
     {
      "name": "J.R. Smith",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -3583,7 +3706,8 @@
     {
      "name": "Donovan Mitchell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 94,
      "stats": {
@@ -3607,7 +3731,8 @@
     {
      "name": "Evan Mobley",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -3631,7 +3756,8 @@
     {
      "name": "Caris LeVert",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -3656,7 +3782,8 @@
     {
      "name": "Sam Merrill",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -3668,7 +3795,8 @@
     {
      "name": "Cedi Osman",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 73,
      "stats": {
@@ -3757,7 +3885,8 @@
     {
      "name": "Sam Perkins",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -3769,7 +3898,8 @@
     {
      "name": "Roy Tarpley",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -3818,7 +3948,8 @@
     {
      "name": "Kurt Nimphius",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -3832,7 +3963,8 @@
     {
      "name": "Michael Finley",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 87,
      "stats": {
@@ -3856,7 +3988,8 @@
     {
      "name": "Jim Jackson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -3904,7 +4037,8 @@
     {
      "name": "George McCloud",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 81,
      "stats": {
@@ -3928,7 +4062,8 @@
     {
      "name": "Popeye Jones",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -3940,7 +4075,8 @@
     {
      "name": "Terry Davis",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -3954,7 +4090,8 @@
     {
      "name": "Dirk Nowitzki",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 93,
      "stats": {
@@ -4015,7 +4152,8 @@
     {
      "name": "Josh Howard",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 82,
      "stats": {
@@ -4102,7 +4240,8 @@
     {
      "name": "Dirk Nowitzki",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -4126,7 +4265,8 @@
     {
      "name": "Shawn Marion",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -4227,7 +4367,8 @@
     {
      "name": "Daniel Gafford",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -4251,7 +4392,8 @@
     {
      "name": "Naji Marshall",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -4263,7 +4405,8 @@
     {
      "name": "P.J. Washington",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -4300,7 +4443,8 @@
     {
      "name": "Dorian Finney-Smith",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -4312,7 +4456,8 @@
     {
      "name": "Dwight Powell",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -4400,7 +4545,8 @@
     {
      "name": "Wayne Cooper",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -4412,7 +4558,8 @@
     {
      "name": "Danny Schayes",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -4436,7 +4583,8 @@
     {
      "name": "T.R. Dunn",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -4474,7 +4622,8 @@
     {
      "name": "Antonio McDyess",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -4534,7 +4683,8 @@
     {
      "name": "Dale Ellis",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -4546,7 +4696,8 @@
     {
      "name": "Bryant Stith",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -4584,7 +4735,8 @@
     {
      "name": "Carmelo Anthony",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 89,
      "stats": {
@@ -4620,7 +4772,8 @@
     {
      "name": "Marcus Camby",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -4632,7 +4785,8 @@
     {
      "name": "Kenyon Martin",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -4644,7 +4798,8 @@
     {
      "name": "Nenê",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -4668,7 +4823,8 @@
     {
      "name": "J.R. Smith",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -4718,7 +4874,9 @@
     {
      "name": "Danilo Gallinari",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -4755,7 +4913,8 @@
     {
      "name": "Kenneth Faried",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -4767,7 +4926,8 @@
     {
      "name": "Arron Afflalo",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -4779,7 +4939,8 @@
     {
      "name": "Wilson Chandler",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -4791,7 +4952,8 @@
     {
      "name": "Gary Harris",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -4803,7 +4965,8 @@
     {
      "name": "Mason Plumlee",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -4890,7 +5053,8 @@
     {
      "name": "Christian Braun",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -4902,7 +5066,8 @@
     {
      "name": "Kentavious Caldwell-Pope",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -4927,7 +5092,8 @@
     {
      "name": "Peyton Watson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 74,
      "stats": {
@@ -5039,7 +5205,8 @@
     {
      "name": "Dennis Rodman",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -5065,7 +5232,8 @@
     {
      "name": "Grant Hill",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 91,
      "stats": {
@@ -5089,7 +5257,8 @@
     {
      "name": "Dennis Rodman",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -5101,7 +5270,8 @@
     {
      "name": "Jerry Stackhouse",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -5138,7 +5308,8 @@
     {
      "name": "Allan Houston",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -5150,7 +5321,8 @@
     {
      "name": "Terry Mills",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -5213,7 +5385,8 @@
     {
      "name": "Richard Hamilton",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -5225,7 +5398,8 @@
     {
      "name": "Ben Wallace",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -5274,7 +5448,8 @@
     {
      "name": "Antonio McDyess",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -5312,7 +5487,8 @@
     {
      "name": "Blake Griffin",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 89,
      "stats": {
@@ -5421,7 +5597,8 @@
     {
      "name": "Kentavious Caldwell-Pope",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -5435,7 +5612,8 @@
     {
      "name": "Cade Cunningham",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -5447,7 +5625,8 @@
     {
      "name": "Bojan Bogdanović",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 86,
      "stats": {
@@ -5507,7 +5686,8 @@
     {
      "name": "Ausar Thompson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -5531,7 +5711,8 @@
     {
      "name": "Isaiah Stewart",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -5584,7 +5765,8 @@
     {
      "name": "Mitch Richmond",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -5632,7 +5814,8 @@
     {
      "name": "Purvis Short",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 85,
      "stats": {
@@ -5695,7 +5878,8 @@
     {
      "name": "Chris Mullin",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 89,
      "stats": {
@@ -5707,7 +5891,8 @@
     {
      "name": "Latrell Sprewell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 86,
      "stats": {
@@ -5719,7 +5904,8 @@
     {
      "name": "Billy Owens",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -5731,7 +5917,8 @@
     {
      "name": "Joe Smith",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -5743,7 +5930,8 @@
     {
      "name": "Šarūnas Marčiulionis",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -5831,7 +6019,8 @@
     {
      "name": "Stephen Jackson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 85,
      "stats": {
@@ -5855,7 +6044,8 @@
     {
      "name": "Jason Richardson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -5879,7 +6069,8 @@
     {
      "name": "Troy Murphy",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -5903,7 +6094,8 @@
     {
      "name": "Mike Dunleavy",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 77,
      "stats": {
@@ -5915,7 +6107,8 @@
     {
      "name": "Adonal Foyle",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -5929,7 +6122,9 @@
     {
      "name": "Kevin Durant",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 96,
      "stats": {
@@ -5965,7 +6160,8 @@
     {
      "name": "David Lee",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -5977,7 +6173,8 @@
     {
      "name": "Klay Thompson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -5989,7 +6186,8 @@
     {
      "name": "Draymond Green",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -6001,7 +6199,8 @@
     {
      "name": "Andre Iguodala",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 77,
      "stats": {
@@ -6013,7 +6212,8 @@
     {
      "name": "Andrew Bogut",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -6063,7 +6263,8 @@
     {
      "name": "Klay Thompson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 85,
      "stats": {
@@ -6075,7 +6276,8 @@
     {
      "name": "Andrew Wiggins",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -6099,7 +6301,8 @@
     {
      "name": "Brandin Podziemski",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -6111,7 +6314,8 @@
     {
      "name": "Draymond Green",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -6123,7 +6327,8 @@
     {
      "name": "Jonathan Kuminga",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -6135,7 +6340,8 @@
     {
      "name": "Kevon Looney",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -6147,7 +6353,8 @@
     {
      "name": "Gary Payton II",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 73,
      "stats": {
@@ -6159,7 +6366,8 @@
     {
      "name": "Moses Moody",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -6212,7 +6420,8 @@
     {
      "name": "Otis Thorpe",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -6273,7 +6482,8 @@
     {
      "name": "Elvin Hayes",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -6335,7 +6545,8 @@
     {
      "name": "Otis Thorpe",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -6383,7 +6594,8 @@
     {
      "name": "Mario Elie",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 78,
      "stats": {
@@ -6407,7 +6619,8 @@
     {
      "name": "Matt Bullard",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 71,
      "stats": {
@@ -6458,7 +6671,8 @@
     {
      "name": "Cuttino Mobley",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -6470,7 +6684,8 @@
     {
      "name": "Luis Scola",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -6519,7 +6734,8 @@
     {
      "name": "Juwan Howard",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 74,
      "stats": {
@@ -6545,7 +6761,8 @@
     {
      "name": "James Harden",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 98,
      "stats": {
@@ -6569,7 +6786,8 @@
     {
      "name": "Kevin Martin",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 86,
      "stats": {
@@ -6581,7 +6799,8 @@
     {
      "name": "Dwight Howard",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -6605,7 +6824,8 @@
     {
      "name": "Luis Scola",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -6629,7 +6849,8 @@
     {
      "name": "Eric Gordon",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -6641,7 +6862,8 @@
     {
      "name": "Trevor Ariza",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -6667,7 +6889,9 @@
     {
      "name": "Kevin Durant",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 94,
      "stats": {
@@ -6716,7 +6940,8 @@
     {
      "name": "Jalen Green",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -6728,7 +6953,8 @@
     {
      "name": "Kevin Porter Jr.",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -6740,7 +6966,8 @@
     {
      "name": "Jabari Smith Jr.",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -6776,7 +7003,8 @@
     {
      "name": "Jae'Sean Tate",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 73,
      "stats": {
@@ -6804,7 +7032,8 @@
     {
      "name": "Reggie Miller",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -6853,7 +7082,8 @@
     {
      "name": "Herb Williams",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -6927,7 +7157,8 @@
     {
      "name": "Reggie Miller",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -6963,7 +7194,8 @@
     {
      "name": "Dale Davis",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -6999,7 +7231,8 @@
     {
      "name": "Jalen Rose",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 77,
      "stats": {
@@ -7011,7 +7244,8 @@
     {
      "name": "Antonio Davis",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 76,
      "stats": {
@@ -7062,7 +7296,8 @@
     {
      "name": "Metta World Peace",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -7087,7 +7322,8 @@
     {
      "name": "Reggie Miller",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -7099,7 +7335,8 @@
     {
      "name": "Troy Murphy",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -7123,7 +7360,8 @@
     {
      "name": "Al Harrington",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -7135,7 +7373,8 @@
     {
      "name": "Austin Croshere",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 72,
      "stats": {
@@ -7147,7 +7386,8 @@
     {
      "name": "Jeff Foster",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -7211,7 +7451,8 @@
     {
      "name": "David West",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -7223,7 +7464,8 @@
     {
      "name": "Myles Turner",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -7247,7 +7489,8 @@
     {
      "name": "Thaddeus Young",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -7271,7 +7514,8 @@
     {
      "name": "Lance Stephenson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -7297,7 +7541,8 @@
     {
      "name": "Domantas Sabonis",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 92,
      "stats": {
@@ -7309,7 +7554,8 @@
     {
      "name": "Pascal Siakam",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -7321,7 +7567,8 @@
     {
      "name": "Myles Turner",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -7333,7 +7580,8 @@
     {
      "name": "Buddy Hield",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -7370,7 +7618,8 @@
     {
      "name": "Obi Toppin",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -7394,7 +7643,8 @@
     {
      "name": "Aaron Nesmith",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -7410,7 +7660,8 @@
     {
      "name": "Terry Cummings",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -7422,7 +7673,8 @@
     {
      "name": "Charles Smith",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -7447,7 +7699,8 @@
     {
      "name": "Derek Smith",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -7519,7 +7772,8 @@
     {
      "name": "Michael Cage",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -7533,7 +7787,8 @@
     {
      "name": "Danny Manning",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -7557,7 +7812,8 @@
     {
      "name": "Ron Harper",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -7581,7 +7837,8 @@
     {
      "name": "Loy Vaught",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -7641,7 +7898,8 @@
     {
      "name": "Eric Piatkowski",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -7655,7 +7913,8 @@
     {
      "name": "Elton Brand",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 91,
      "stats": {
@@ -7728,7 +7987,8 @@
     {
      "name": "Cuttino Mobley",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -7764,7 +8024,8 @@
     {
      "name": "Quentin Richardson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -7790,7 +8051,8 @@
     {
      "name": "Blake Griffin",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -7826,7 +8088,8 @@
     {
      "name": "Montrezl Harrell",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -7838,7 +8101,8 @@
     {
      "name": "DeAndre Jordan",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -7862,7 +8126,8 @@
     {
      "name": "Jamal Crawford",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -7886,7 +8151,8 @@
     {
      "name": "Austin Rivers",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -7900,7 +8166,8 @@
     {
      "name": "Kawhi Leonard",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 95,
      "stats": {
@@ -7912,7 +8179,8 @@
     {
      "name": "James Harden",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 92,
      "stats": {
@@ -7924,7 +8192,8 @@
     {
      "name": "Paul George",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 90,
      "stats": {
@@ -7936,7 +8205,8 @@
     {
      "name": "Ivica Zubac",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -7948,7 +8218,8 @@
     {
      "name": "Norman Powell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -7984,7 +8255,8 @@
     {
      "name": "Terance Mann",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 76,
      "stats": {
@@ -8009,7 +8281,9 @@
     {
      "name": "Nicolas Batum",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 72,
      "stats": {
@@ -8025,7 +8299,8 @@
     {
      "name": "Magic Johnson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 97,
      "stats": {
@@ -8097,7 +8372,8 @@
     {
      "name": "A.C. Green",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -8121,7 +8397,8 @@
     {
      "name": "Mychal Thompson",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -8159,7 +8436,8 @@
     {
      "name": "Eddie Jones",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -8232,7 +8510,8 @@
     {
      "name": "A.C. Green",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -8256,7 +8535,8 @@
     {
      "name": "Elden Campbell",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -8282,7 +8562,8 @@
     {
      "name": "Kobe Bryant",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 95,
      "stats": {
@@ -8294,7 +8575,8 @@
     {
      "name": "Pau Gasol",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 91,
      "stats": {
@@ -8393,7 +8675,8 @@
      "name": "LeBron James",
      "positions": [
       "G",
-      "F"
+      "F",
+      "C"
      ],
      "rating": 98,
      "stats": {
@@ -8405,7 +8688,8 @@
     {
      "name": "Kobe Bryant",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 89,
      "stats": {
@@ -8455,7 +8739,8 @@
     {
      "name": "Brandon Ingram",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -8467,7 +8752,8 @@
     {
      "name": "Jordan Clarkson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -8479,7 +8765,8 @@
     {
      "name": "Kentavious Caldwell-Pope",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -8491,7 +8778,8 @@
     {
      "name": "Nick Young",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -8503,7 +8791,8 @@
     {
      "name": "Metta World Peace",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 73,
      "stats": {
@@ -8529,7 +8818,8 @@
     {
      "name": "Anthony Davis",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 97,
      "stats": {
@@ -8541,7 +8831,9 @@
     {
      "name": "LeBron James",
      "positions": [
-      "F"
+      "F",
+      "C",
+      "G"
      ],
      "rating": 96,
      "stats": {
@@ -8553,7 +8845,8 @@
     {
      "name": "Austin Reaves",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -8577,7 +8870,8 @@
     {
      "name": "Russell Westbrook",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -8601,7 +8895,8 @@
     {
      "name": "Rui Hachimura",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -8613,7 +8908,8 @@
     {
      "name": "Talen Horton-Tucker",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -8625,7 +8921,8 @@
     {
      "name": "Jaxson Hayes",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 73,
      "stats": {
@@ -8641,7 +8938,8 @@
     {
      "name": "Shareef Abdur-Rahim",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -8653,7 +8951,8 @@
     {
      "name": "Michael Dickerson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -8713,7 +9012,8 @@
     {
      "name": "Othella Harrington",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -8738,7 +9038,8 @@
     {
      "name": "George Lynch",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 74,
      "stats": {
@@ -8764,7 +9065,8 @@
     {
      "name": "Pau Gasol",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -8776,7 +9078,8 @@
     {
      "name": "O.J. Mayo",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -8825,7 +9128,8 @@
     {
      "name": "Shane Battier",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -8861,7 +9165,8 @@
     {
      "name": "Lorenzen Wright",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -8873,7 +9178,8 @@
     {
      "name": "Stromile Swift",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -8935,7 +9241,8 @@
     {
      "name": "Zach Randolph",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -8960,7 +9267,8 @@
     {
      "name": "Courtney Lee",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 76,
      "stats": {
@@ -8972,7 +9280,8 @@
     {
      "name": "Tony Allen",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 76,
      "stats": {
@@ -8997,7 +9306,8 @@
     {
      "name": "JaMychal Green",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 74,
      "stats": {
@@ -9023,7 +9333,8 @@
     {
      "name": "Jaren Jackson Jr.",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 86,
      "stats": {
@@ -9035,7 +9346,8 @@
     {
      "name": "Desmond Bane",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -9059,7 +9371,8 @@
     {
      "name": "Dillon Brooks",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -9071,7 +9384,8 @@
     {
      "name": "Kyle Anderson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -9083,7 +9397,8 @@
     {
      "name": "Santi Aldama",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -9197,7 +9512,8 @@
     {
      "name": "Grant Long",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -9260,7 +9576,8 @@
     {
      "name": "Alonzo Mourning",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -9308,7 +9625,8 @@
     {
      "name": "Grant Long",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -9332,7 +9650,8 @@
     {
      "name": "Steve Smith",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -9344,7 +9663,8 @@
     {
      "name": "P.J. Brown",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -9382,7 +9702,8 @@
     {
      "name": "Dwyane Wade",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 94,
      "stats": {
@@ -9406,7 +9727,8 @@
     {
      "name": "Eddie Jones",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -9418,7 +9740,8 @@
     {
      "name": "Michael Beasley",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -9430,7 +9753,8 @@
     {
      "name": "Brian Grant",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -9442,7 +9766,8 @@
     {
      "name": "Caron Butler",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -9466,7 +9791,8 @@
     {
      "name": "Udonis Haslem",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -9478,7 +9804,8 @@
     {
      "name": "Alonzo Mourning",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -9504,7 +9831,9 @@
     {
      "name": "LeBron James",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 98,
      "stats": {
@@ -9516,7 +9845,8 @@
     {
      "name": "Dwyane Wade",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 87,
      "stats": {
@@ -9591,7 +9921,8 @@
     {
      "name": "James Johnson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -9629,7 +9960,8 @@
     {
      "name": "Jimmy Butler",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 94,
      "stats": {
@@ -9641,7 +9973,8 @@
     {
      "name": "Bam Adebayo",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -9665,7 +9998,8 @@
     {
      "name": "Andrew Wiggins",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 84,
      "stats": {
@@ -9701,7 +10035,8 @@
     {
      "name": "Jaime Jaquez Jr.",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -9713,7 +10048,8 @@
     {
      "name": "Caleb Martin",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 77,
      "stats": {
@@ -9725,7 +10061,8 @@
     {
      "name": "Duncan Robinson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 76,
      "stats": {
@@ -9737,7 +10074,8 @@
     {
      "name": "Max Strus",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 74,
      "stats": {
@@ -9753,7 +10091,8 @@
     {
      "name": "Marques Johnson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 89,
      "stats": {
@@ -9765,7 +10104,8 @@
     {
      "name": "Terry Cummings",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -9839,7 +10179,8 @@
     {
      "name": "Junior Bridgeman",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -9927,7 +10268,8 @@
     {
      "name": "Ray Allen",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -9951,7 +10293,8 @@
     {
      "name": "Blue Edwards",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 81,
      "stats": {
@@ -10003,7 +10346,8 @@
     {
      "name": "Ray Allen",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 89,
      "stats": {
@@ -10039,7 +10383,8 @@
     {
      "name": "Michael Redd",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -10051,7 +10396,8 @@
     {
      "name": "Andrew Bogut",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -10075,7 +10421,8 @@
     {
      "name": "Desmond Mason",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -10087,7 +10434,8 @@
     {
      "name": "Tim Thomas",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -10111,7 +10459,8 @@
     {
      "name": "Dan Gadzuric",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 71,
      "stats": {
@@ -10126,7 +10475,8 @@
      "name": "Giannis Antetokounmpo",
      "positions": [
       "F",
-      "G"
+      "G",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -10174,7 +10524,8 @@
     {
      "name": "Khris Middleton",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 84,
      "stats": {
@@ -10186,7 +10537,8 @@
     {
      "name": "Greg Monroe",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -10222,7 +10574,8 @@
     {
      "name": "Ersan İlyasova",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -10249,7 +10602,9 @@
     {
      "name": "Giannis Antetokounmpo",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 99,
      "stats": {
@@ -10273,7 +10628,8 @@
     {
      "name": "Jrue Holiday",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 89,
      "stats": {
@@ -10285,7 +10641,8 @@
     {
      "name": "Khris Middleton",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 85,
      "stats": {
@@ -10359,7 +10716,8 @@
     {
      "name": "A.J. Green",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -10375,7 +10733,8 @@
     {
      "name": "Tony Campbell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 87,
      "stats": {
@@ -10387,7 +10746,8 @@
     {
      "name": "Tyrone Corbin",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 84,
      "stats": {
@@ -10411,7 +10771,8 @@
     {
      "name": "Sam Mitchell",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -10423,7 +10784,8 @@
     {
      "name": "Tod Murphy",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -10497,7 +10859,8 @@
     {
      "name": "Kevin Garnett",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -10521,7 +10884,8 @@
     {
      "name": "Tom Gugliotta",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 87,
      "stats": {
@@ -10595,7 +10959,8 @@
     {
      "name": "Sam Mitchell",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 77,
      "stats": {
@@ -10607,7 +10972,8 @@
     {
      "name": "Doug West",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -10621,7 +10987,8 @@
     {
      "name": "Kevin Garnett",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 95,
      "stats": {
@@ -10633,7 +11000,8 @@
     {
      "name": "Al Jefferson",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -10669,7 +11037,8 @@
     {
      "name": "Wally Szczerbiak",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -10681,7 +11050,8 @@
     {
      "name": "Randy Foye",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -10729,7 +11099,8 @@
     {
      "name": "Trenton Hassell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -10743,7 +11114,8 @@
     {
      "name": "Kevin Love",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 94,
      "stats": {
@@ -10755,7 +11127,8 @@
     {
      "name": "Karl-Anthony Towns",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 93,
      "stats": {
@@ -10767,7 +11140,8 @@
     {
      "name": "Andrew Wiggins",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 84,
      "stats": {
@@ -10827,7 +11201,8 @@
     {
      "name": "Zach LaVine",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -10839,7 +11214,8 @@
     {
      "name": "Gorgui Dieng",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -10879,7 +11255,8 @@
     {
      "name": "Anthony Edwards",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 91,
      "stats": {
@@ -10891,7 +11268,8 @@
     {
      "name": "Julius Randle",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 89,
      "stats": {
@@ -10927,7 +11305,8 @@
     {
      "name": "Donte DiVincenzo",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -10951,7 +11330,8 @@
     {
      "name": "Naz Reid",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -10975,7 +11355,8 @@
     {
      "name": "Kyle Anderson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -11027,7 +11408,8 @@
     {
      "name": "David West",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -11039,7 +11421,8 @@
     {
      "name": "Tyson Chandler",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -11075,7 +11458,8 @@
     {
      "name": "P.J. Brown",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -11099,7 +11483,8 @@
     {
      "name": "Rasual Butler",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 72,
      "stats": {
@@ -11126,7 +11511,8 @@
     {
      "name": "DeMarcus Cousins",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 94,
      "stats": {
@@ -11150,7 +11536,8 @@
     {
      "name": "Jrue Holiday",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 86,
      "stats": {
@@ -11162,7 +11549,8 @@
     {
      "name": "Ryan Anderson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -11187,7 +11575,8 @@
     {
      "name": "Eric Gordon",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -11249,7 +11638,8 @@
     {
      "name": "Brandon Ingram",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 89,
      "stats": {
@@ -11261,7 +11651,8 @@
     {
      "name": "CJ McCollum",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -11285,7 +11676,8 @@
     {
      "name": "Trey Murphy III",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -11297,7 +11689,8 @@
     {
      "name": "Herbert Jones",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -11321,7 +11714,8 @@
     {
      "name": "Jaxson Hayes",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -11345,7 +11739,8 @@
     {
      "name": "Naji Marshall",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 73,
      "stats": {
@@ -11373,7 +11768,8 @@
     {
      "name": "Patrick Ewing",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 91,
      "stats": {
@@ -11433,7 +11829,8 @@
     {
      "name": "Gerald Wilkins",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -11483,7 +11880,8 @@
     {
      "name": "Patrick Ewing",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -11495,7 +11893,8 @@
     {
      "name": "Allan Houston",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -11507,7 +11906,8 @@
     {
      "name": "Anthony Mason",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -11519,7 +11919,8 @@
     {
      "name": "Charles Oakley",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -11567,7 +11968,8 @@
     {
      "name": "Charles Smith",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -11617,7 +12019,8 @@
     {
      "name": "Al Harrington",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -11629,7 +12032,8 @@
     {
      "name": "Allan Houston",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -11654,7 +12058,8 @@
     {
      "name": "Jamal Crawford",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -11666,7 +12071,8 @@
     {
      "name": "Latrell Sprewell",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 82,
      "stats": {
@@ -11678,7 +12084,8 @@
     {
      "name": "Eddy Curry",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -11730,7 +12137,8 @@
     {
      "name": "Carmelo Anthony",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -11742,7 +12150,8 @@
     {
      "name": "Enes Freedom",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -11767,7 +12176,8 @@
     {
      "name": "Kristaps Porziņģis",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -11791,7 +12201,8 @@
     {
      "name": "Tyson Chandler",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -11816,7 +12227,8 @@
     {
      "name": "Courtney Lee",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -11828,7 +12240,8 @@
     {
      "name": "Tim Hardaway Jr.",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 79,
      "stats": {
@@ -11867,7 +12280,8 @@
     {
      "name": "Karl-Anthony Towns",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 93,
      "stats": {
@@ -11879,7 +12293,8 @@
     {
      "name": "Julius Randle",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -11891,7 +12306,8 @@
     {
      "name": "OG Anunoby",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 85,
      "stats": {
@@ -11903,7 +12319,8 @@
     {
      "name": "Mikal Bridges",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 84,
      "stats": {
@@ -11981,7 +12398,8 @@
     {
      "name": "Dale Ellis",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -12005,7 +12423,8 @@
     {
      "name": "Jack Sikma",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -12053,7 +12472,8 @@
     {
      "name": "Al Wood",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -12115,7 +12535,8 @@
     {
      "name": "Shawn Kemp",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 87,
      "stats": {
@@ -12151,7 +12572,8 @@
     {
      "name": "Vin Baker",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -12241,7 +12663,8 @@
      "name": "Kevin Durant",
      "positions": [
       "F",
-      "G"
+      "G",
+      "C"
      ],
      "rating": 91,
      "stats": {
@@ -12253,7 +12676,8 @@
     {
      "name": "Ray Allen",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 90,
      "stats": {
@@ -12277,7 +12701,8 @@
     {
      "name": "Brent Barry",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -12289,7 +12714,8 @@
     {
      "name": "Jeff Green",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -12338,7 +12764,8 @@
     {
      "name": "Vladimir Radmanović",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 74,
      "stats": {
@@ -12352,7 +12779,9 @@
     {
      "name": "Kevin Durant",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 97,
      "stats": {
@@ -12364,7 +12793,8 @@
     {
      "name": "Russell Westbrook",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 94,
      "stats": {
@@ -12376,7 +12806,8 @@
     {
      "name": "Paul George",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 92,
      "stats": {
@@ -12388,7 +12819,8 @@
     {
      "name": "Enes Freedom",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -12412,7 +12844,8 @@
     {
      "name": "Serge Ibaka",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -12475,7 +12908,8 @@
     {
      "name": "Shai Gilgeous-Alexander",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 98,
      "stats": {
@@ -12539,7 +12973,8 @@
     {
      "name": "Cason Wallace",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 76,
      "stats": {
@@ -12563,7 +12998,8 @@
     {
      "name": "Aaron Wiggins",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -12575,7 +13011,9 @@
     {
      "name": "Kenrich Williams",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -12628,7 +13066,8 @@
     {
      "name": "Otis Smith",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 82,
      "stats": {
@@ -12640,7 +13079,8 @@
     {
      "name": "Jerry Reynolds",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -12664,7 +13104,8 @@
     {
      "name": "Nick Anderson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -12676,7 +13117,8 @@
     {
      "name": "Sidney Green",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -12738,7 +13180,8 @@
     {
      "name": "Anfernee Hardaway",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 89,
      "stats": {
@@ -12750,7 +13193,8 @@
     {
      "name": "Horace Grant",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -12762,7 +13206,8 @@
     {
      "name": "Nick Anderson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -12786,7 +13231,8 @@
     {
      "name": "Bo Outlaw",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -12810,7 +13256,8 @@
     {
      "name": "Dennis Scott",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -12848,7 +13295,8 @@
     {
      "name": "Tracy McGrady",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 96,
      "stats": {
@@ -12946,7 +13394,8 @@
     {
      "name": "Mike Miller",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -12972,7 +13421,8 @@
     {
      "name": "Dwight Howard",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 93,
      "stats": {
@@ -13021,7 +13471,8 @@
     {
      "name": "Victor Oladipo",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -13069,7 +13520,8 @@
     {
      "name": "Terrence Ross",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -13107,7 +13559,8 @@
     {
      "name": "Desmond Bane",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -13131,7 +13584,8 @@
     {
      "name": "Wendell Carter Jr.",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -13167,7 +13621,8 @@
     {
      "name": "Moritz Wagner",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -13203,7 +13658,8 @@
     {
      "name": "Gary Harris",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -13414,7 +13870,8 @@
     {
      "name": "Jerry Stackhouse",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -13426,7 +13883,8 @@
     {
      "name": "Armen Gilliam",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -13513,7 +13971,8 @@
     {
      "name": "Thaddeus Young",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -13525,7 +13984,8 @@
     {
      "name": "Samuel Dalembert",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -13562,7 +14022,8 @@
     {
      "name": "Kyle Korver",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 74,
      "stats": {
@@ -13624,7 +14085,8 @@
     {
      "name": "Jrue Holiday",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -13636,7 +14098,8 @@
     {
      "name": "Thaddeus Young",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -13661,7 +14124,9 @@
     {
      "name": "Robert Covington",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -13673,7 +14138,8 @@
     {
      "name": "Spencer Hawes",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -13724,7 +14190,8 @@
     {
      "name": "James Harden",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 95,
      "stats": {
@@ -13760,7 +14227,8 @@
     {
      "name": "Quentin Grimes",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -13772,7 +14240,8 @@
     {
      "name": "Kelly Oubre Jr.",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 82,
      "stats": {
@@ -13784,7 +14253,8 @@
     {
      "name": "Seth Curry",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -13808,7 +14278,8 @@
     {
      "name": "Shake Milton",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 75,
      "stats": {
@@ -13820,7 +14291,8 @@
     {
      "name": "Paul Reed",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -13884,7 +14356,8 @@
     {
      "name": "Walter Davis",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -13908,7 +14381,8 @@
     {
      "name": "Alvan Adams",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -14019,7 +14493,8 @@
     {
      "name": "Clifford Robinson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -14043,7 +14518,8 @@
     {
      "name": "Danny Manning",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -14055,7 +14531,8 @@
     {
      "name": "A.C. Green",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -14067,7 +14544,8 @@
     {
      "name": "Cedric Ceballos",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -14081,7 +14559,8 @@
     {
      "name": "Shawn Marion",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 90,
      "stats": {
@@ -14130,7 +14609,8 @@
     {
      "name": "Jason Richardson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -14142,7 +14622,8 @@
     {
      "name": "Grant Hill",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 81,
      "stats": {
@@ -14154,7 +14635,9 @@
     {
      "name": "Boris Diaw",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -14179,7 +14662,8 @@
     {
      "name": "Raja Bell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -14217,7 +14701,8 @@
     {
      "name": "Devin Booker",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 86,
      "stats": {
@@ -14253,7 +14738,8 @@
     {
      "name": "Marcin Gortat",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -14277,7 +14763,8 @@
     {
      "name": "Markieff Morris",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -14289,7 +14776,8 @@
     {
      "name": "Jared Dudley",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 76,
      "stats": {
@@ -14301,7 +14789,9 @@
     {
      "name": "P.J. Tucker",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 75,
      "stats": {
@@ -14327,7 +14817,9 @@
     {
      "name": "Kevin Durant",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 96,
      "stats": {
@@ -14339,7 +14831,8 @@
     {
      "name": "Devin Booker",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 93,
      "stats": {
@@ -14375,7 +14868,8 @@
     {
      "name": "Bradley Beal",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -14387,7 +14881,8 @@
     {
      "name": "Mikal Bridges",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 84,
      "stats": {
@@ -14423,7 +14918,8 @@
     {
      "name": "Royce O'Neale",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 78,
      "stats": {
@@ -14622,7 +15118,8 @@
     {
      "name": "Clifford Robinson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -14634,7 +15131,8 @@
     {
      "name": "Rasheed Wallace",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -14646,7 +15144,8 @@
     {
      "name": "Buck Williams",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -14696,7 +15195,8 @@
     {
      "name": "Brandon Roy",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -14708,7 +15208,8 @@
     {
      "name": "Rasheed Wallace",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 86,
      "stats": {
@@ -14720,7 +15221,8 @@
     {
      "name": "LaMarcus Aldridge",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 83,
      "stats": {
@@ -14732,7 +15234,8 @@
     {
      "name": "Zach Randolph",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -14769,7 +15272,8 @@
     {
      "name": "Derek Anderson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -14781,7 +15285,8 @@
     {
      "name": "Dale Davis",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -14793,7 +15298,8 @@
     {
      "name": "Ruben Patterson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 76,
      "stats": {
@@ -14831,7 +15337,8 @@
     {
      "name": "LaMarcus Aldridge",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -14855,7 +15362,8 @@
     {
      "name": "CJ McCollum",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -14867,7 +15375,9 @@
     {
      "name": "Nicolas Batum",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -14879,7 +15389,8 @@
     {
      "name": "Wesley Matthews",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -15026,7 +15537,8 @@
     {
      "name": "Shaedon Sharpe",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -15078,7 +15590,8 @@
     {
      "name": "Otis Thorpe",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -15090,7 +15603,8 @@
     {
      "name": "Eddie Johnson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -15188,7 +15702,8 @@
     {
      "name": "Chris Webber",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 92,
      "stats": {
@@ -15200,7 +15715,8 @@
     {
      "name": "Mitch Richmond",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -15236,7 +15752,8 @@
     {
      "name": "Brian Grant",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -15248,7 +15765,8 @@
     {
      "name": "Lionel Simmons",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -15310,7 +15828,8 @@
     {
      "name": "Chris Webber",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 92,
      "stats": {
@@ -15334,7 +15853,8 @@
     {
      "name": "Metta World Peace",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 86,
      "stats": {
@@ -15358,7 +15878,8 @@
     {
      "name": "Brad Miller",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -15370,7 +15891,8 @@
     {
      "name": "Kevin Martin",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -15382,7 +15904,8 @@
     {
      "name": "Doug Christie",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -15432,7 +15955,8 @@
     {
      "name": "DeMarcus Cousins",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -15468,7 +15992,8 @@
     {
      "name": "Buddy Hield",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -15492,7 +16017,8 @@
     {
      "name": "Tyreke Evans",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -15516,7 +16042,8 @@
     {
      "name": "Bogdan Bogdanović",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -15528,7 +16055,8 @@
     {
      "name": "Willie Cauley-Stein",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -15540,7 +16068,8 @@
     {
      "name": "Jason Thompson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -15554,7 +16083,8 @@
     {
      "name": "Domantas Sabonis",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 94,
      "stats": {
@@ -15578,7 +16108,8 @@
     {
      "name": "DeMar DeRozan",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 89,
      "stats": {
@@ -15614,7 +16145,8 @@
     {
      "name": "Malik Monk",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -15638,7 +16170,8 @@
     {
      "name": "Kevin Huerter",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -15650,7 +16183,8 @@
     {
      "name": "Richaun Holmes",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -15662,7 +16196,8 @@
     {
      "name": "Trey Lyles",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -15678,7 +16213,8 @@
     {
      "name": "George Gervin",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 91,
      "stats": {
@@ -15775,7 +16311,8 @@
     {
      "name": "Frank Brickowski",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -15813,7 +16350,8 @@
     {
      "name": "Tim Duncan",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 92,
      "stats": {
@@ -15874,7 +16412,8 @@
     {
      "name": "Terry Cummings",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -15898,7 +16437,8 @@
     {
      "name": "Willie Anderson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -15910,7 +16450,8 @@
     {
      "name": "Will Perdue",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -15961,7 +16502,8 @@
     {
      "name": "Manu Ginóbili",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -15973,7 +16515,8 @@
     {
      "name": "Malik Rose",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -15998,7 +16541,8 @@
     {
      "name": "Brent Barry",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -16010,7 +16554,8 @@
     {
      "name": "Bruce Bowen",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 72,
      "stats": {
@@ -16074,7 +16619,8 @@
     {
      "name": "Kawhi Leonard",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 86,
      "stats": {
@@ -16086,7 +16632,8 @@
     {
      "name": "Tim Duncan",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -16110,7 +16657,8 @@
     {
      "name": "Manu Ginóbili",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -16135,7 +16683,8 @@
     {
      "name": "Danny Green",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 75,
      "stats": {
@@ -16147,7 +16696,9 @@
     {
      "name": "Boris Diaw",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -16197,7 +16748,8 @@
     {
      "name": "Jakob Poeltl",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -16234,7 +16786,8 @@
     {
      "name": "Keldon Johnson",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 82,
      "stats": {
@@ -16246,7 +16799,8 @@
     {
      "name": "Jeremy Sochan",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -16270,7 +16824,8 @@
     {
      "name": "Zach Collins",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -16298,7 +16853,8 @@
     {
      "name": "Vince Carter",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 89,
      "stats": {
@@ -16322,7 +16878,8 @@
     {
      "name": "Doug Christie",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -16334,7 +16891,8 @@
     {
      "name": "Marcus Camby",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -16370,7 +16928,8 @@
     {
      "name": "Tracy McGrady",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -16407,7 +16966,8 @@
     {
      "name": "Carlos Rogers",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -16421,7 +16981,8 @@
     {
      "name": "Chris Bosh",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 89,
      "stats": {
@@ -16483,7 +17044,8 @@
     {
      "name": "Anthony Parker",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 80,
      "stats": {
@@ -16520,7 +17082,8 @@
     {
      "name": "Andrea Bargnani",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -16559,7 +17122,8 @@
     {
      "name": "DeMar DeRozan",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 86,
      "stats": {
@@ -16608,7 +17172,8 @@
     {
      "name": "Pascal Siakam",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 81,
      "stats": {
@@ -16620,7 +17185,8 @@
     {
      "name": "Amir Johnson",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -16644,7 +17210,8 @@
     {
      "name": "Norman Powell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -16671,7 +17238,8 @@
     {
      "name": "Pascal Siakam",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 91,
      "stats": {
@@ -16695,7 +17263,8 @@
     {
      "name": "Brandon Ingram",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 88,
      "stats": {
@@ -16707,7 +17276,9 @@
     {
      "name": "Scottie Barnes",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -16719,7 +17290,8 @@
     {
      "name": "RJ Barrett",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 87,
      "stats": {
@@ -16743,7 +17315,8 @@
     {
      "name": "Jakob Poeltl",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 84,
      "stats": {
@@ -16755,7 +17328,8 @@
     {
      "name": "OG Anunoby",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 84,
      "stats": {
@@ -16767,7 +17341,8 @@
     {
      "name": "Gary Trent Jr.",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -16779,7 +17354,9 @@
     {
      "name": "Chris Boucher",
      "positions": [
-      "F"
+      "F",
+      "C",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -16807,7 +17384,8 @@
     {
      "name": "Karl Malone",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 92,
      "stats": {
@@ -16843,7 +17421,8 @@
     {
      "name": "Thurl Bailey",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 82,
      "stats": {
@@ -16867,7 +17446,8 @@
     {
      "name": "Ben Poquette",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 78,
      "stats": {
@@ -16917,7 +17497,8 @@
     {
      "name": "Karl Malone",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 96,
      "stats": {
@@ -16965,7 +17546,8 @@
     {
      "name": "Tyrone Corbin",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -16977,7 +17559,8 @@
     {
      "name": "Bryon Russell",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 73,
      "stats": {
@@ -17040,7 +17623,8 @@
     {
      "name": "Karl Malone",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 90,
      "stats": {
@@ -17052,7 +17636,8 @@
     {
      "name": "Carlos Boozer",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 88,
      "stats": {
@@ -17100,7 +17685,8 @@
     {
      "name": "Mehmet Okur",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -17125,7 +17711,8 @@
     {
      "name": "Matt Harpring",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 79,
      "stats": {
@@ -17137,7 +17724,8 @@
     {
      "name": "Paul Millsap",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -17163,7 +17751,8 @@
     {
      "name": "Al Jefferson",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 87,
      "stats": {
@@ -17175,7 +17764,8 @@
     {
      "name": "Donovan Mitchell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 87,
      "stats": {
@@ -17187,7 +17777,8 @@
     {
      "name": "Paul Millsap",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -17211,7 +17802,8 @@
     {
      "name": "Gordon Hayward",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -17236,7 +17828,8 @@
     {
      "name": "Rodney Hood",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -17260,7 +17853,8 @@
     {
      "name": "Alec Burks",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 73,
      "stats": {
@@ -17272,7 +17866,8 @@
     {
      "name": "Enes Freedom",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 73,
      "stats": {
@@ -17286,7 +17881,8 @@
     {
      "name": "Donovan Mitchell",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 92,
      "stats": {
@@ -17298,7 +17894,8 @@
     {
      "name": "Lauri Markkanen",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 92,
      "stats": {
@@ -17322,7 +17919,8 @@
     {
      "name": "Collin Sexton",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -17334,7 +17932,8 @@
     {
      "name": "John Collins",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -17346,7 +17945,8 @@
     {
      "name": "Bojan Bogdanović",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 83,
      "stats": {
@@ -17358,7 +17958,8 @@
     {
      "name": "Jordan Clarkson",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -17422,7 +18023,8 @@
     {
      "name": "Jeff Ruland",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 88,
      "stats": {
@@ -17518,7 +18120,8 @@
     {
      "name": "Rick Mahorn",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -17569,7 +18172,8 @@
     {
      "name": "Tom Gugliotta",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 85,
      "stats": {
@@ -17581,7 +18185,8 @@
     {
      "name": "Juwan Howard",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 84,
      "stats": {
@@ -17593,7 +18198,8 @@
     {
      "name": "Pervis Ellison",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 83,
      "stats": {
@@ -17605,7 +18211,8 @@
     {
      "name": "Harvey Grant",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 80,
      "stats": {
@@ -17629,7 +18236,8 @@
     {
      "name": "Calbert Cheaney",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 78,
      "stats": {
@@ -17679,7 +18287,8 @@
     {
      "name": "Caron Butler",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 86,
      "stats": {
@@ -17691,7 +18300,8 @@
     {
      "name": "Michael Jordan",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 86,
      "stats": {
@@ -17703,7 +18313,8 @@
     {
      "name": "Larry Hughes",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 85,
      "stats": {
@@ -17715,7 +18326,8 @@
     {
      "name": "Antonio Daniels",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 77,
      "stats": {
@@ -17727,7 +18339,8 @@
     {
      "name": "Christian Laettner",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 77,
      "stats": {
@@ -17751,7 +18364,8 @@
     {
      "name": "Andray Blatche",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -17763,7 +18377,8 @@
     {
      "name": "Etan Thomas",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 72,
      "stats": {
@@ -17789,7 +18404,8 @@
     {
      "name": "Bradley Beal",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 87,
      "stats": {
@@ -17801,7 +18417,8 @@
     {
      "name": "Marcin Gortat",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 82,
      "stats": {
@@ -17813,7 +18430,8 @@
     {
      "name": "Trevor Ariza",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 81,
      "stats": {
@@ -17825,7 +18443,8 @@
     {
      "name": "Nenê",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -17837,7 +18456,9 @@
     {
      "name": "Otto Porter Jr.",
      "positions": [
-      "F"
+      "F",
+      "G",
+      "C"
      ],
      "rating": 80,
      "stats": {
@@ -17849,7 +18470,8 @@
     {
      "name": "Markieff Morris",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 79,
      "stats": {
@@ -17861,7 +18483,8 @@
     {
      "name": "Tomáš Satoranský",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 74,
      "stats": {
@@ -17873,7 +18496,8 @@
     {
      "name": "Trevor Booker",
      "positions": [
-      "F"
+      "F",
+      "C"
      ],
      "rating": 73,
      "stats": {
@@ -17885,7 +18509,8 @@
     {
      "name": "Kelly Oubre Jr.",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 72,
      "stats": {
@@ -17899,7 +18524,8 @@
     {
      "name": "Bradley Beal",
      "positions": [
-      "G"
+      "G",
+      "F"
      ],
      "rating": 92,
      "stats": {
@@ -17911,7 +18537,8 @@
     {
      "name": "Kristaps Porziņģis",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 92,
      "stats": {
@@ -17959,7 +18586,8 @@
     {
      "name": "Daniel Gafford",
      "positions": [
-      "C"
+      "C",
+      "F"
      ],
      "rating": 81,
      "stats": {
@@ -18008,7 +18636,8 @@
     {
      "name": "Corey Kispert",
      "positions": [
-      "F"
+      "F",
+      "G"
      ],
      "rating": 77,
      "stats": {

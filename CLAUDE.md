@@ -40,7 +40,7 @@ data_raw/     CSVs do dataset do Basketball-Reference (Kaggle). Fora do git.
 - Siglas antigas (SEA, NJN, VAN, KCK, CHH, NOH…) convertem-se para as franquias do jogo em `FRANCHISE`, no script. Segue a linhagem oficial da NBA: os Charlotte Hornets de 1988-2002 contam para CHA, os New Orleans Hornets para NOP.
 - No CSV, `season` é o ano em que a época ACABA (2027 = 2026-27); o script converte.
 - Década = ano de início da época (1989-90 → `1980`).
-- `positions`: `G`, `F`, `C` ou duas (ex.: `['G', 'F']`).
+- `positions`: todas as posições (`G`, `F`, `C`) em que o jogador jogou na carreira, a principal primeiro (ex.: `['F', 'C']`). Ver `career_positions` no script. No cinco, um jogador pode ser trocado para qualquer lugar de uma dessas posições (`moveTargets`/`movePlayer` em `draft.ts`).
 - `rating` 0–99 = impacto do jogador NAQUELA equipa e década: Game Score por jogo, convertido por percentil para a distribuição de notas em `RATING_QUANTILES` (que mantém a curva de dificuldade). A escala é calibrada com os 5 principais de cada era; os restantes ficam abaixo (notas de rotação). Escala: 95+ superestrela histórica, 88–94 all-star, 80–87 titular sólido, <80 rotação. **É secreto: nunca o mostrar na interface** — decide a simulação, mas o utilizador só vê as `stats`.
 - `stats` = médias por jogo `{ pts, reb, ast }` (uma casa decimal) desse jogador nessa equipa e década. É a única informação de valor que aparece no ecrã.
 - `labels` (em `teams.ts`, à mão) quando a franquia tinha outro nome (Seattle SuperSonics, New Jersey Nets, Washington Bullets…).

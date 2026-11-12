@@ -1,7 +1,7 @@
 """Generate src/data/players.json from the Basketball-Reference dataset in data_raw/.
 
-Dataset: "NBA Stats (1947-present)" on Kaggle (Basketball-Reference data). Only
-`data_raw/Player Totals.csv` is used. Download it into data_raw/ (git-ignored).
+Dataset: "NBA Stats (1947-present)" on Kaggle (Basketball-Reference data). Uses
+`Player Totals.csv` and `Player Play By Play.csv`. Download it into data_raw/ (git-ignored).
 
 For every franchise and decade (FIRST_DECADE onwards) it picks the PLAYERS_PER_ERA
 players with the biggest total contribution to that team in that decade, and stores:
@@ -26,6 +26,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 TOTALS = ROOT / 'data_raw' / 'Player Totals.csv'
+PLAY_BY_PLAY = ROOT / 'data_raw' / 'Player Play By Play.csv'
 OUT = ROOT / 'src' / 'data' / 'players.json'
 
 FIRST_DECADE = 1980
@@ -34,8 +35,13 @@ PLAYERS_PER_ERA = 10
 # rosters); the deeper bench players fall below that scale.
 CALIBRATION_TOP = 5
 MIN_RATING = 40
-# A second position is listed when the player spent at least this share of his games there.
-SECOND_POSITION_SHARE = 0.25
+# A player can play every position he historically played, anywhere in his career:
+#  - listed there by Basketball-Reference in a season with >= POSITION_MIN_GAMES games, or
+#  - (play-by-play data, 1996-97+) >= POSITION_MIN_SHARE % of his minutes there in a
+#    season with >= POSITION_MIN_MINUTES minutes.
+POSITION_MIN_GAMES = 10
+POSITION_MIN_SHARE = 25
+POSITION_MIN_MINUTES = 300
 
 # Target rating distribution (21 quantiles, 0%..100%), taken from the original
 # hand-made ratings. Mapping Game Score onto it keeps the difficulty curve that
@@ -70,10 +76,28 @@ def game_score(df: pd.DataFrame) -> pd.Series:
             - 0.4 * df.pf - df.tov)
 
 
-def positions_for(games_by_position: Counter) -> list[str]:
-    total = sum(games_by_position.values())
-    ranked = [p for p, g in games_by_position.most_common() if g / total >= SECOND_POSITION_SHARE]
-    return ranked[:2] or [games_by_position.most_common(1)[0][0]]
+def career_positions(totals: pd.DataFrame) -> dict[str, set[str]]:
+    """Every position (G/F/C) each player historically played, over his whole NBA career."""
+    out: dict[str, set[str]] = {}
+    listed = totals[(totals.g >= POSITION_MIN_GAMES) & totals.pos.isin(POSITION)]
+    for pid, pos in zip(listed.player_id, listed.pos):
+        out.setdefault(pid, set()).add(POSITION[pos])
+    if PLAY_BY_PLAY.exists():
+        pbp = pd.read_csv(PLAY_BY_PLAY)
+        pbp = pbp[(pbp.lg == 'NBA') & (pbp.mp >= POSITION_MIN_MINUTES)].fillna(0)
+        shares = {'G': pbp.pg_percent + pbp.sg_percent, 'F': pbp.sf_percent + pbp.pf_percent, 'C': pbp.c_percent}
+        for position, share in shares.items():
+            for pid in pbp.player_id[share >= POSITION_MIN_SHARE]:
+                out.setdefault(pid, set()).add(position)
+    return out
+
+
+def positions_for(stint_games: Counter, career: set[str]) -> list[str]:
+    """Main position in this stint first, then every other position he played in his career."""
+    order = 'GFC'
+    main = stint_games.most_common(1)[0][0] if stint_games else None
+    rest = sorted(career - {main}, key=lambda p: (-stint_games.get(p, 0), order.index(p)))
+    return ([main] if main else []) + rest or ['F']
 
 
 def to_rating(score: float, sorted_scores: list[float]) -> int:
@@ -96,6 +120,7 @@ def main() -> None:
     if not TOTALS.exists():
         sys.exit(f'missing {TOTALS.relative_to(ROOT)}: download the dataset into data_raw/ (see the docstring)')
     df = pd.read_csv(TOTALS)
+    career = career_positions(df[df.lg == 'NBA'])
     # `season` is the END year (2027 = 2026-27); the game's decade uses the START year.
     df = df[(df.lg == 'NBA') & (df.season - 1 >= FIRST_DECADE)].copy()
     # Rows like "2TM" are a traded player's combined season: keep only per-team rows.
@@ -135,7 +160,7 @@ def main() -> None:
             stats = {'pts': round(s.pts / s.g, 1), 'reb': round(s.trb / s.g, 1), 'ast': round(s.ast / s.g, 1)}
             entries.append({
                 'name': s['name'],
-                'positions': positions_for(games) if games else ['F'],
+                'positions': positions_for(games, career.get(pid, set())),
                 'rating': to_rating(s.per_game, pool),
                 'stats': stats,
             })

@@ -61,6 +61,13 @@ button { font: inherit; color: inherit; border: 0; cursor: pointer; }
 .slot .st { font-size: 9px; color: var(--acc2); font-variant-numeric: tabular-nums; margin: 2px 0 1px; }
 .slot .tm { font-size: 9px; color: var(--mut); }
 .slot.pop { animation: pop 0.35s ease; }
+.slot { font: inherit; color: inherit; width: 100%; }
+.slot:disabled { opacity: 1; }
+.slot .alt { position: absolute; top: 4px; right: 5px; font-size: 9px; color: var(--mut); }
+.slot.sel { border: 2px solid var(--acc2); background: var(--panel2); }
+.slot.target { border: 2px dashed var(--acc2); animation: pulse 1s ease-in-out infinite; }
+@keyframes pulse { 50% { border-color: transparent; } }
+@media (prefers-reduced-motion: reduce) { .slot.target { animation: none; } }
 @keyframes pop { 0% { transform: scale(0.8); } 60% { transform: scale(1.08); } 100% { transform: scale(1); } }
 .reel { background: linear-gradient(180deg, var(--panel2), var(--panel)); border: 1px solid var(--line); border-radius: 18px; padding: 16px; text-align: center; margin-bottom: 12px; position: relative; overflow: hidden; }
 .reel .lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--mut); }

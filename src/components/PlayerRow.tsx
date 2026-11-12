@@ -5,15 +5,19 @@ interface Props {
   player: DraftedPlayer;
   available: boolean;
   alreadyDrafted: boolean;
+  /** Sem vaga agora, mas cabe se alguém do cinco mudar de posição. */
+  fitsAfterMove: boolean;
   onPick: () => void;
 }
 
-export function PlayerRow({ player, available, alreadyDrafted, onPick }: Props) {
+export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, onPick }: Props) {
   const why = alreadyDrafted
     ? 'Já está no teu cinco'
     : available
       ? player.positions.map((p) => POSITION_NAME[p]).join(' / ')
-      : 'Sem lugar livre nesta posição';
+      : fitsAfterMove
+        ? 'Muda alguém de posição para abrir vaga'
+        : 'Sem lugar livre nesta posição';
   return (
     <button className="pl" disabled={!available} onClick={onPick}>
       <span className="ps">{player.positions.join('-')}</span>

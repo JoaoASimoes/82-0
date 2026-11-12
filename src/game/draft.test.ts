@@ -5,6 +5,9 @@ import {
   statLine,
   statLineShort,
   canPick,
+  fitsAfterMove,
+  movePlayer,
+  moveTargets,
   comboHasPick,
   createLineup,
   decadeLabel,
@@ -87,5 +90,48 @@ describe('draft', () => {
     const stats = { pts: 26, reb: 10.4, ast: 6.5 };
     expect(statLine(stats)).toBe('26.0 PTS · 10.4 RES · 6.5 AST');
     expect(statLineShort(stats)).toBe('26.0/10.4/6.5');
+  });
+
+  describe('trocar de posição', () => {
+    // Cinco: 0 G, 1 G, 2 F, 3 F, 4 C
+    const build = (...players: (DraftedPlayer | null)[]) =>
+      createLineup().map((slot, i) => ({ ...slot, player: players[i] ?? null }));
+
+    it('um jogador F/C pode ir para o lugar de poste vazio', () => {
+      const lineup = build(null, null, p('Duncan', ['F', 'C']));
+      expect(moveTargets(lineup, 2)).toEqual([4]);
+      const next = movePlayer(lineup, 2, 4);
+      expect(next[4]!.player?.name).toBe('Duncan');
+      expect(next[2]!.player).toBeNull();
+      expect(lineup[2]!.player?.name).toBe('Duncan'); // imutável
+    });
+
+    it('troca dois jogadores quando ambos podem jogar no lugar do outro', () => {
+      const lineup = build(null, null, p('Garnett', ['F', 'C']), null, p('Dirk', ['C', 'F']));
+      expect(moveTargets(lineup, 2)).toEqual([4]);
+      const next = movePlayer(lineup, 2, 4);
+      expect(next[2]!.player?.name).toBe('Dirk');
+      expect(next[4]!.player?.name).toBe('Garnett');
+    });
+
+    it('não troca se o outro não pode jogar no lugar de origem', () => {
+      const lineup = build(null, null, p('Garnett', ['F', 'C']), null, p('Jokić', ['C']));
+      expect(moveTargets(lineup, 2)).toEqual([]);
+      expect(() => movePlayer(lineup, 2, 4)).toThrow();
+    });
+
+    it('não sugere lugares da mesma posição nem posições que o jogador não joga', () => {
+      const lineup = build(p('Stockton', ['G']));
+      expect(moveTargets(lineup, 0)).toEqual([]);
+      expect(moveTargets(lineup, 3)).toEqual([]); // lugar vazio
+    });
+
+    it('fitsAfterMove: um poste puro cabe se o F/C no lugar de poste mudar para extremo', () => {
+      const lineup = build(null, null, null, null, p('Duncan', ['F', 'C']));
+      const jokic = p('Jokić', ['C']);
+      expect(canPick(lineup, jokic)).toBe(false);
+      expect(fitsAfterMove(lineup, jokic)).toBe(true);
+      expect(fitsAfterMove(build(null, null, null, null, p('Shaq', ['C'])), jokic)).toBe(false);
+    });
   });
 });

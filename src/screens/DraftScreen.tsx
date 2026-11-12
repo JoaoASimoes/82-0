@@ -8,8 +8,12 @@ import {
   decadeLabel,
   drawCombo,
   findTeam,
+  fitsAfterMove,
   isComplete,
   isDrafted,
+  moveTargets,
+  movePlayer,
+  POSITION_NAME,
   placePlayer,
   poolFor,
   teamLabel,
@@ -36,12 +40,16 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
   const [spinning, setSpinning] = useState(false);
   const [skips, setSkips] = useState({ team: 1, era: 1 });
   const [lastPlaced, setLastPlaced] = useState<number | null>(null);
+  /** Lugar escolhido para mudar de posição (null = nenhum). */
+  const [selected, setSelected] = useState<number | null>(null);
+  const [moveHint, setMoveHint] = useState('');
   const timers = useRef<number[]>([]);
 
   useEffect(() => () => timers.current.forEach((t) => window.clearTimeout(t)), []);
 
   const spin = (filter?: (c: Combo) => boolean) => {
     if (spinning) return;
+    setSelected(null);
     const target = drawCombo(TEAMS, lineup, Math.random, filter);
     const decoys = allCombos(TEAMS).filter(filter ?? (() => true));
     setCombo(null);
@@ -83,6 +91,8 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
     const res = placePlayer(lineup, player);
     setLineup(res.lineup);
     setLastPlaced(res.index);
+    setSelected(null);
+    setMoveHint('');
     setCombo(null);
     tap();
     if (isComplete(res.lineup)) {
@@ -92,6 +102,36 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
 
   const picked = lineup.filter((s) => s.player).length;
   const done = picked === 5;
+  const targets = selected === null ? [] : moveTargets(lineup, selected);
+
+  const tapSlot = (index: number) => {
+    if (selected !== null && targets.includes(index)) {
+      setLineup(movePlayer(lineup, selected, index));
+      setLastPlaced(index);
+      setSelected(null);
+      setMoveHint('');
+      tap();
+      return;
+    }
+    const player = lineup[index]?.player;
+    if (!player || index === selected) {
+      setSelected(null);
+      setMoveHint('');
+      return;
+    }
+    if (moveTargets(lineup, index).length === 0) {
+      setSelected(null);
+      const only = player.positions.map((p) => POSITION_NAME[p].toLowerCase()).join(' ou ');
+      setMoveHint(
+        player.positions.length > 1
+          ? `${player.name} não tem para onde trocar agora`
+          : `${player.name} só joga a ${only}`,
+      );
+      return;
+    }
+    setSelected(index);
+    setMoveHint(`Toca no lugar para onde queres mudar ${player.name}`);
+  };
 
   return (
     <section className="view">
@@ -103,7 +143,13 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
         <span className="chip">{picked}/5</span>
       </div>
 
-      <Lineup lineup={lineup} highlight={lastPlaced} />
+      <Lineup
+        lineup={lineup}
+        highlight={lastPlaced}
+        selected={selected}
+        targets={targets}
+        onSlotTap={done ? undefined : tapSlot}
+      />
 
       <div className={`reel ${spinning ? 'spinning' : ''}`}>
         <div className="stripe" style={{ background: shown ? findTeam(TEAMS, shown.teamId).color : 'var(--acc)' }} />
@@ -123,7 +169,9 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
         </button>
       </div>
 
-      <div className="hint">{combo ? 'Toca num jogador para o escolher' : ''}</div>
+      <div className="hint">
+        {moveHint || (combo ? 'Toca num jogador para o escolher' : picked > 0 && !done ? 'Toca num jogador do cinco para o mudar de posição' : '')}
+      </div>
 
       {combo && (
         <div className="pool">
@@ -133,6 +181,7 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
               player={p}
               available={canPick(lineup, p)}
               alreadyDrafted={isDrafted(lineup, p.name)}
+              fitsAfterMove={fitsAfterMove(lineup, p)}
               onPick={() => pick(i)}
             />
           ))}

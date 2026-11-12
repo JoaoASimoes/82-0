@@ -8,7 +8,10 @@ export const DECADES: readonly Decade[] = [1980, 1990, 2000, 2010, 2020];
 
 export interface Player {
   name: string;
-  /** Uma ou duas posições; ex.: ['G', 'F'] pode jogar a base ou extremo. */
+  /**
+   * Todas as posições em que jogou na carreira (1 a 3), a principal primeiro;
+   * ex.: ['G', 'F'] pode jogar a base ou extremo.
+   */
   positions: Position[];
   /**
    * Impacto 0–99 do jogador nesta equipa e década. Decide a simulação,

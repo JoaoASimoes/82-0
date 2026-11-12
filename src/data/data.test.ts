@@ -27,7 +27,8 @@ describe('dados das equipas', () => {
           expect(Math.round(v * 10), `${p.name} ${k}: uma casa decimal`).toBeCloseTo(v * 10, 6);
         }
         expect(p.positions.length, p.name).toBeGreaterThanOrEqual(1);
-        expect(p.positions.length, p.name).toBeLessThanOrEqual(2);
+        expect(p.positions.length, p.name).toBeLessThanOrEqual(3);
+        expect(new Set(p.positions).size, `${p.name}: posições repetidas`).toBe(p.positions.length);
         for (const pos of p.positions) expect(['G', 'F', 'C']).toContain(pos);
       }
     }
