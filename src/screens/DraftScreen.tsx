@@ -12,7 +12,8 @@ import {
   isDrafted,
   moveTargets,
   movePlayer,
-  placePlayer,
+  placementOptions,
+  placePlayerAt,
   DEFAULT_SORT,
   sortPlayers,
   type SortKey,
@@ -52,6 +53,8 @@ export function DraftScreen({ onComplete }: Props) {
   const [moveHint, setMoveHint] = useState('');
   /** Telemóvel: lugar cujo pop-up com as médias está aberto. */
   const [info, setInfo] = useState<number | null>(null);
+  /** Jogador escolhido que pode ir para mais de uma posição: espera que o utilizador escolha o lugar. */
+  const [placing, setPlacing] = useState<DraftedPlayer | null>(null);
   const finePointer = useFinePointer();
   /** Ordem da lista do sorteio; mantém-se entre sorteios. */
   const [sortKey, setSortKey] = useState<SortKey>(DEFAULT_SORT);
@@ -62,6 +65,7 @@ export function DraftScreen({ onComplete }: Props) {
   const spin = (filter?: (c: Combo) => boolean) => {
     if (spinning) return;
     setSelected(null);
+    setPlacing(null);
     const target = drawCombo(TEAMS, lineup, Math.random, filter);
     const decoys = allCombos(TEAMS).filter(filter ?? (() => true));
     setCombo(null);
@@ -99,16 +103,36 @@ export function DraftScreen({ onComplete }: Props) {
   };
 
   const pick = (player: DraftedPlayer) => {
-    if (!combo || !canPick(lineup, player)) return;
-    const res = placePlayer(lineup, player);
-    setLineup(res.lineup);
-    setLastPlaced(res.index);
+    if (!combo) return;
+    if (placing?.name === player.name) {
+      // Tocar outra vez no mesmo jogador cancela a escolha do lugar.
+      setPlacing(null);
+      setMoveHint('');
+      return;
+    }
+    const options = placementOptions(lineup, player);
+    if (options.length === 0) return;
+    if (options.length === 1) {
+      placeAt(player, options[0]!);
+      return;
+    }
+    // Pode ir para mais de uma posição: os lugares possíveis piscam e o utilizador escolhe.
     setSelected(null);
+    setPlacing(player);
+    setMoveHint(t.draft.placeWhere(player.name));
+  };
+
+  const placeAt = (player: DraftedPlayer, index: number) => {
+    const next = placePlayerAt(lineup, player, index);
+    setLineup(next);
+    setLastPlaced(index);
+    setSelected(null);
+    setPlacing(null);
     setMoveHint('');
     setCombo(null);
     tap();
-    if (isComplete(res.lineup)) {
-      timers.current.push(window.setTimeout(() => onComplete(res.lineup), 700));
+    if (isComplete(next)) {
+      timers.current.push(window.setTimeout(() => onComplete(next), 700));
     }
   };
 
@@ -125,9 +149,18 @@ export function DraftScreen({ onComplete }: Props) {
     // `spin` muda a cada render e fica de fora das dependências de propósito: o que conta é o
     // estado que decide se há algo a sortear (e o cinco, para o sorteio usar o mais recente).
   }, [combo, spinning, done, lineup]);
-  const targets = selected === null ? [] : moveTargets(lineup, selected);
+  const targets = placing ? placementOptions(lineup, placing) : selected === null ? [] : moveTargets(lineup, selected);
 
   const tapSlot = (index: number) => {
+    if (placing) {
+      // A escolher o lugar do jogador novo: um lugar possível coloca-o; qualquer outro cancela.
+      if (targets.includes(index)) placeAt(placing, index);
+      else {
+        setPlacing(null);
+        setMoveHint('');
+      }
+      return;
+    }
     if (selected !== null && targets.includes(index)) {
       setLineup(movePlayer(lineup, selected, index));
       setLastPlaced(index);
@@ -231,6 +264,7 @@ export function DraftScreen({ onComplete }: Props) {
             {sortPlayers(poolFor(TEAMS, combo), sortKey).map((p) => (
               <PlayerRow
                 key={p.name}
+                choosing={placing?.name === p.name}
                 player={p}
                 available={canPick(lineup, p)}
                 alreadyDrafted={isDrafted(lineup, p.name)}

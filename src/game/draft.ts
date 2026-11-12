@@ -79,6 +79,29 @@ export function fitsAfterMove(lineup: Lineup, player: { name: string; positions:
   );
 }
 
+/**
+ * Lugares vazios onde o jogador pode entrar, um por posição (os dois lugares de base, ou de
+ * extremo, são equivalentes). Com mais de um, o utilizador escolhe onde o põe.
+ */
+export function placementOptions(lineup: Lineup, player: { name: string; positions: Position[] }): number[] {
+  if (isDrafted(lineup, player.name)) return [];
+  const seen = new Set<Position>();
+  return lineup.flatMap((slot, i) => {
+    if (slot.player || !playsPosition(player, slot.position) || seen.has(slot.position)) return [];
+    seen.add(slot.position);
+    return [i];
+  });
+}
+
+/** Coloca o jogador num lugar escolhido (vazio e de uma posição que ele joga). Devolve um novo cinco. */
+export function placePlayerAt(lineup: Lineup, player: DraftedPlayer, index: number): Slot[] {
+  const slot = lineup[index];
+  if (!slot || slot.player || !playsPosition(player, slot.position) || isDrafted(lineup, player.name)) {
+    throw new Error(`${player.name} não pode ir para o lugar ${index}`);
+  }
+  return lineup.map((s, i) => (i === index ? { ...s, player } : s));
+}
+
 export function lineupAverage(lineup: Lineup): number {
   const ratings = lineup.flatMap((s) => (s.player ? [s.player.rating] : []));
   return ratings.length ? ratings.reduce((a, b) => a + b, 0) / ratings.length : 0;

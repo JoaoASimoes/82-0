@@ -4,6 +4,8 @@ import type { DraftedPlayer } from '../data/types';
 import {
   statLineShort,
   canPick,
+  placementOptions,
+  placePlayerAt,
   DEFAULT_SORT,
   SORT_KEYS,
   sortPlayers,
@@ -155,6 +157,30 @@ describe('draft', () => {
     it('não altera a lista original', () => {
       sortPlayers(pool, 'pts');
       expect(pool.map((x) => x.name)).toEqual(['Rodman', 'Jordan', 'Bird']);
+    });
+  });
+
+  describe('escolher o lugar', () => {
+    // Cinco: 0 G, 1 G, 2 F, 3 F, 4 C
+    it('um lugar por posição livre que o jogador joga', () => {
+      expect(placementOptions(createLineup(), p('Duncan', ['F', 'C']))).toEqual([2, 4]);
+      expect(placementOptions(createLineup(), p('Iverson', ['G']))).toEqual([0]);
+      expect(placementOptions(createLineup(), p('Giannis', ['F', 'G', 'C']))).toEqual([0, 2, 4]);
+    });
+
+    it('ignora lugares ocupados e jogadores já no cinco', () => {
+      const lineup = placePlayerAt(createLineup(), p('Shaq', ['C']), 4);
+      expect(placementOptions(lineup, p('Duncan', ['F', 'C']))).toEqual([2]);
+      expect(placementOptions(lineup, p('Shaq', ['C']))).toEqual([]);
+    });
+
+    it('coloca no lugar escolhido sem mexer no cinco original', () => {
+      const empty = createLineup();
+      const next = placePlayerAt(empty, p('Duncan', ['F', 'C']), 4);
+      expect(next[4]!.player?.name).toBe('Duncan');
+      expect(empty[4]!.player).toBeNull();
+      expect(() => placePlayerAt(empty, p('Iverson', ['G']), 4)).toThrow();
+      expect(() => placePlayerAt(next, p('Shaq', ['C']), 4)).toThrow();
     });
   });
 });

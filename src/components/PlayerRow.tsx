@@ -11,10 +11,12 @@ interface Props {
   fitsAfterMove: boolean;
   /** Estatística pela qual a lista está ordenada (fica destacada). */
   sortKey: SortKey;
+  /** Escolhido, à espera de que o utilizador indique o lugar no cinco. */
+  choosing?: boolean;
   onPick: () => void;
 }
 
-export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, sortKey, onPick }: Props) {
+export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, sortKey, choosing = false, onPick }: Props) {
   const { t } = useLang();
   const why = alreadyDrafted
     ? t.draft.inLineup
@@ -24,7 +26,7 @@ export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, so
         ? t.draft.fitsAfterMove
         : t.draft.noSlot;
   return (
-    <button className="pl" disabled={!available} onClick={onPick}>
+    <button className={`pl ${choosing ? 'choosing' : ''}`} disabled={!available} onClick={onPick} aria-pressed={choosing}>
       <span className="ps">{player.positions.join('-')}</span>
       <span className="nm">
         {player.name}
