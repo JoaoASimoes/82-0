@@ -47,7 +47,7 @@ export function HomeScreen({ onStart }: Props) {
         Jogar
       </button>
       <p className="muted small center" style={{ marginTop: 14 }}>
-        Cada jogador tem uma nota secreta do seu impacto nessa equipa e década — é ela que decide a época. Médias aproximadas.
+        Cada jogador tem uma nota secreta do seu impacto nessa equipa e década — é ela que decide a época. Médias oficiais da NBA.
       </p>
     </section>
   );

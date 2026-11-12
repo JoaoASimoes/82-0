@@ -5,3 +5,7 @@ coverage
 *.log
 .DS_Store
 .env*
+.venv
+scripts/.cache
+__pycache__
+data_raw/

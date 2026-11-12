@@ -14,7 +14,7 @@ describe('dados das equipas', () => {
     expect(team.color).toMatch(/^#[0-9A-Fa-f]{6}$/);
     for (const [d, era] of Object.entries(team.eras) as [string, Era][]) {
       expect(DECADES).toContain(Number(d) as Decade);
-      expect(era.players.length, `${team.id} ${d}: mínimo 4 jogadores`).toBeGreaterThanOrEqual(4);
+      expect(era.players.length, `${team.id} ${d}: mínimo 10 jogadores`).toBeGreaterThanOrEqual(10);
       const names = era.players.map((p) => p.name);
       expect(new Set(names).size, `${team.id} ${d}: nomes repetidos`).toBe(names.length);
       for (const p of era.players) {

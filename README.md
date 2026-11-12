@@ -9,7 +9,7 @@ Pick 5 NBA legends and try for a perfect 82-win season. Built to be played on an
 3. You get **1 team re-roll** and **1 decade re-roll** per game.
 4. Simulate 82 games. Win them all for **82-0**.
 
-Each player also has a hidden 0–99 rating for his impact on that team in that decade. It drives the simulation but is never shown to the player. Ratings and averages are estimates, not official statistics.
+Each player also has a hidden 0–99 rating for his impact on that team in that decade. It drives the simulation but is never shown to the player. Rosters and averages come from Basketball-Reference data (see below); the rating is derived from them.
 
 ## Getting started
 
@@ -31,8 +31,20 @@ claude
 
 `CLAUDE.md` explains the project's structure, commands and rules to Claude Code. Example requests:
 - "Add a daily challenge mode where everyone gets the same draws"
-- "Add Steve Kerr to the 90s Bulls with rating 74 and averages of 8.4 pts, 1.8 reb and 3.5 ast" (or use the `/jogador` command)
+- "Show 12 players per team and decade instead of 10" (or use the `/jogador` command)
 - "Add a playoff round after the regular season"
+
+## Player data
+
+`src/data/players.json` is generated, not hand-written. `scripts/build_players.py` reads `Player Totals.csv` from the [NBA Stats (1947-present)](https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats) Kaggle dataset (Basketball-Reference data) and, for each franchise and decade since the 1980s, keeps the 10 players with the biggest total contribution (summed Game Score). It stores their per-game averages and a hidden rating (per-game Game Score mapped by percentile onto a fixed 0–99 distribution calibrated on each era's top 5; bench players fall below it).
+
+Download the dataset into `data_raw/` (git-ignored, ~32 MB). Only needed to regenerate the JSON; the game and CI use the committed `players.json`.
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r scripts/requirements.txt
+.venv/bin/python scripts/build_players.py   # takes a few seconds
+```
 
 ## Deploying to GitHub Pages
 
