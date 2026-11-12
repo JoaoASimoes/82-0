@@ -200,6 +200,27 @@ def impact_scores(stint: pd.DataFrame, pool: pd.DataFrame) -> pd.Series:
     return sum(weight * z(part) for part, weight in WEIGHTS.items())
 
 
+def _fnv1a(text: str) -> int:
+    h = 0x811C9DC5
+    for ch in text:
+        h ^= ord(ch)
+        h = (h * 16777619) & 0xFFFFFFFF
+    return h
+
+
+def encode_rating(rating: int, team: str, decade: int, name: str) -> str:
+    """Obfuscate the hidden rating so it isn't readable in the repo or the site's code.
+    NOT security (the game decodes it in the browser); must match src/data/codec.ts."""
+    value = (_fnv1a(f'{team}|{decade}|{name}') + rating * 104729) & 0xFFFFFFFF
+    digits = '0123456789abcdefghijklmnopqrstuvwxyz'
+    out = ''
+    while True:
+        value, r = divmod(value, 36)
+        out = digits[r] + out
+        if value == 0:
+            return out
+
+
 def to_rating(score: float, sorted_scores: list[float]) -> int:
     """Map a score onto RATING_PERCENTILES by its percentile in `sorted_scores` (the
     calibration pool). Scores below the pool extrapolate linearly below the scale."""
@@ -282,7 +303,8 @@ def main() -> None:
             entries.append({
                 'name': s['name'],
                 'positions': positions_for(games, career.get(pid, set())),
-                'rating': to_rating(s.score, pool),
+                # Hidden rating, obfuscated (decoded by src/data/teams.ts).
+                'x': encode_rating(to_rating(s.score, pool), team, decade, s['name']),
                 'stats': stats,
             })
         # Alphabetical: the order must not give away the hidden rating.

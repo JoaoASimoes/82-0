@@ -1,12 +1,14 @@
 import type { Decade, Era, Player, Team } from './types';
 import { DECADES } from './types';
 import generated from './players.json';
+import { decodeRating, ratingKey } from './codec';
 
 /**
  * Franquias da NBA. Os plantéis NÃO são escritos à mão: vêm de `players.json`,
  * gerado por `scripts/build_players.py` a partir do dataset do Basketball-Reference em `data_raw/`.
  * - A década é o ano de início da época (1989-90 conta como 1980).
- * - `rating` (0–99) é o impacto do jogador nessa equipa e década, calculado a partir
+ * - `rating` (0–99) vem ofuscado no JSON (campo `x`, ver codec.ts) e é descodificado aqui. É o impacto
+ *   do jogador nessa equipa e década, calculado a partir
  *   do Game Score por jogo. Fica escondido do utilizador.
  * - `stats` são as médias por jogo (pontos/ressaltos/assistências) nessa equipa e década.
  * Aqui só se mantém o nome, a cor e os nomes históricos (`labels`) de cada franquia.
@@ -77,15 +79,19 @@ const TEAM_INFO: TeamInfo[] = [
   },
 ];
 
+/** Jogador tal como vem em `players.json`: a nota vem ofuscada no campo `x` (ver codec.ts). */
+type StoredPlayer = Omit<Player, 'rating'> & { x: string };
 /** Formato de `players.json`: equipa → década → jogadores. */
-type GeneratedRosters = Record<string, Partial<Record<string, Player[]>>>;
+type GeneratedRosters = Record<string, Partial<Record<string, StoredPlayer[]>>>;
 const ROSTERS = (generated as { teams: GeneratedRosters }).teams;
 
 export const TEAMS: Team[] = TEAM_INFO.map(({ labels, ...info }) => {
   const eras: Partial<Record<Decade, Era>> = {};
   for (const decade of DECADES) {
-    const players = ROSTERS[info.id]?.[String(decade)];
-    if (players?.length) eras[decade] = { label: labels?.[decade], players };
+    const stored = ROSTERS[info.id]?.[String(decade)];
+    if (!stored?.length) continue;
+    const players = stored.map(({ x, ...p }) => ({ ...p, rating: decodeRating(x, ratingKey(info.id, decade, p.name)) }));
+    eras[decade] = { label: labels?.[decade], players };
   }
   return { ...info, eras };
 });
