@@ -103,6 +103,17 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
 
   const picked = lineup.filter((s) => s.player).length;
   const done = picked === 5;
+
+  // Sem combinação sorteada, rodar é a única jogada possível: roda sozinho após uma pausa curta
+  // (no início e depois de cada escolha). O timeout, e não uma chamada direta, também evita
+  // problemas com o duplo efeito do StrictMode em desenvolvimento.
+  useEffect(() => {
+    if (combo || spinning || done) return;
+    const id = window.setTimeout(() => spin(), picked === 0 ? 300 : 450);
+    return () => window.clearTimeout(id);
+    // `spin` muda a cada render e fica de fora das dependências de propósito: o que conta é o
+    // estado que decide se há algo a sortear (e o cinco, para o sorteio usar o mais recente).
+  }, [combo, spinning, done, lineup]);
   const targets = selected === null ? [] : moveTargets(lineup, selected);
 
   const tapSlot = (index: number) => {
@@ -156,7 +167,7 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
         <div className="lbl">{t.draft.draw}</div>
         <div className="team">{done ? t.draft.closed : shown && (spinning || combo) ? teamLabel(TEAMS, shown) : '—'}</div>
         <div className="dec">
-          {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : picked ? t.draft.spinAgain : t.draft.pressSpin}
+          {done ? '' : shown && (spinning || combo) ? t.decade(shown.decade) : ''}
         </div>
       </div>
 
@@ -186,12 +197,6 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
             />
           ))}
         </div>
-      )}
-
-      {!combo && !spinning && !done && (
-        <button className="btn" onClick={() => spin()}>
-          {t.draft.spin}
-        </button>
       )}
     </section>
   );
