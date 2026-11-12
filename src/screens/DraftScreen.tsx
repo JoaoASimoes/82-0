@@ -169,11 +169,11 @@ export function DraftScreen({ onComplete }: Props) {
         </div>
 
         <div className="skips">
-          <button disabled={!combo || spinning || skips.team < 1} onClick={skipTeam}>
-            {t.draft.swapTeam(skips.team)}
+          <button disabled={!combo || spinning || skips.team < 1} onClick={skipTeam} title={t.draft.swapHint}>
+            {t.draft.swapTeam}
           </button>
-          <button disabled={!combo || spinning || skips.era < 1} onClick={skipEra}>
-            {t.draft.swapDecade(skips.era)}
+          <button disabled={!combo || spinning || skips.era < 1} onClick={skipEra} title={t.draft.swapHint}>
+            {t.draft.swapDecade}
           </button>
         </div>
 

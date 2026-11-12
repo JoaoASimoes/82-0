@@ -44,8 +44,9 @@ const pt = {
   draft: {
     draw: 'Sorteio',
     closed: 'Cinco fechado!',
-    swapTeam: (n: number) => `↻ Trocar equipa (${n})`,
-    swapDecade: (n: number) => `↻ Trocar década (${n})`,
+    swapTeam: '↻ Sortear outra equipa',
+    swapDecade: '↻ Sortear outra década',
+    swapHint: 'Só podes usar uma vez por jogo',
     tapToPick: 'Toca num jogador para o escolher',
     sortBy: 'Ordenar por',
     sortName: 'Nome',
@@ -116,8 +117,9 @@ const en: Strings = {
   draft: {
     draw: 'Draw',
     closed: 'Five locked in!',
-    swapTeam: (n) => `↻ Re-roll team (${n})`,
-    swapDecade: (n) => `↻ Re-roll decade (${n})`,
+    swapTeam: '↻ Re-roll team',
+    swapDecade: '↻ Re-roll decade',
+    swapHint: 'You can only use it once per game',
     tapToPick: 'Tap a player to pick him',
     sortBy: 'Sort by',
     sortName: 'Name',
