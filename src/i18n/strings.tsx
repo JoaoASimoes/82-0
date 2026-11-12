@@ -16,13 +16,13 @@ const pt = {
   title: '82-0 · Época Perfeita',
   positions: { G: 'Base', F: 'Extremo', C: 'Poste' } as Record<Position, string>,
   decade: (d: Decade) => (d === 2000 ? 'Anos 2000' : d >= 2010 ? `Anos ${d}` : `Anos ${String(d).slice(2)}`),
-  stat: { pts: 'PTS', reb: 'RES', ast: 'AST', stl: 'ROU', blk: 'DES' } as Record<keyof PlayerStats, string>,
+  stat: { pts: 'PTS', reb: 'RES', ast: 'AST', stl: 'ROU', blk: 'ABF' } as Record<keyof PlayerStats, string>,
   statName: {
     pts: 'Pontos',
     reb: 'Ressaltos',
     ast: 'Assistências',
     stl: 'Roubos de bola',
-    blk: 'Desarmes de lançamento',
+    blk: 'Abafos',
   } as Record<keyof PlayerStats, string>,
   or: 'ou',
   and: 'e',
@@ -157,7 +157,7 @@ const en: Strings = {
 
 export const STRINGS: Record<Lang, Strings> = { pt, en };
 
-/** "26.0 PTS · 10.4 RES · 6.5 AST · 1.2 ROU · 0.4 DES" na língua escolhida. */
+/** "26.0 PTS · 10.4 RES · 6.5 AST · 1.2 ROU · 0.4 ABF" na língua escolhida. */
 export const statLine = (s: PlayerStats, t: Strings) =>
   STAT_KEYS.map((k) => `${s[k].toFixed(1)} ${t.stat[k]}`).join(' · ');
 

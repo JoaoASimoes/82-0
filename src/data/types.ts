@@ -22,7 +22,7 @@ export interface Player {
   stats: PlayerStats;
 }
 
-/** Médias por jogo: pontos, ressaltos, assistências, roubos de bola e desarmes de lançamento. */
+/** Médias por jogo: pontos, ressaltos, assistências, roubos de bola e abafos. */
 export interface PlayerStats {
   pts: number;
   reb: number;
