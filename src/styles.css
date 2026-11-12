@@ -14,6 +14,9 @@
   --display: 'Bebas Neue', Impact, sans-serif;
 }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* Camada fixa na cor da app, maior do que o ecrã: tapa a zona que fica a descoberto quando a
+   página "estica" no overscroll (alguns browsers mostram aí o fundo deles e não o da página). */
+html::before { content: ''; position: fixed; inset: -100vh 0; background: var(--bg); z-index: -1; pointer-events: none; }
 html, body { margin: 0; background: var(--bg); background-color: var(--bg); color: var(--txt); font-family: Inter, -apple-system, system-ui, sans-serif; min-height: 100%; }
 body {
   padding: calc(env(safe-area-inset-top) + 12px) calc(env(safe-area-inset-right) + 14px)

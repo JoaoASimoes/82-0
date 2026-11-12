@@ -28,18 +28,8 @@ export default defineConfig({
         ],
       },
       workbox: {
+        // Inclui as fontes (.woff2), que agora são servidas pelo próprio site.
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
-        runtimeCaching: [
-          {
-            // Google Fonts ficam em cache para o jogo funcionar offline.
-            urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts',
-              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 },
-            },
-          },
-        ],
       },
     }),
   ],
