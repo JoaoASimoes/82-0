@@ -7,10 +7,11 @@ import { decodeRating, ratingKey } from './codec';
  * Franquias da NBA. Os plantéis NÃO são escritos à mão: vêm de `players.json`,
  * gerado por `scripts/build_players.py` a partir do dataset do Basketball-Reference em `data_raw/`.
  * - A década é o ano de início da época (1989-90 conta como 1980).
- * - `rating` (0–99) vem ofuscado no JSON (campo `x`, ver codec.ts) e é descodificado aqui. É o impacto
- *   do jogador nessa equipa e década, calculado a partir
- *   do Game Score por jogo. Fica escondido do utilizador.
- * - `stats` são as médias por jogo (pontos/ressaltos/assistências) nessa equipa e década.
+ * - `positions`: as posições que foram parte real da carreira do jogador (a principal primeiro).
+ * - `rating` (0–99): impacto do jogador nessa equipa e década (BPM, produção face à liga e
+ *   prestígio; ver o script). Vem ofuscado no JSON (campo `x`, ver codec.ts) e é descodificado
+ *   aqui. Nunca aparece na interface.
+ * - `stats`: médias por jogo nessa equipa e década (pontos, ressaltos, assistências, roubos, abafos).
  * Aqui só se mantém o nome, a cor e os nomes históricos (`labels`) de cada franquia.
  */
 interface TeamInfo {
