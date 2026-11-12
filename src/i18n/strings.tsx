@@ -24,18 +24,13 @@ const pt = {
     language: 'Língua',
     howTo: 'Como se joga',
     rules: [
-      <>Roda para sortear uma <b>equipa</b> e uma <b>década</b>.</>,
-      <>Escolhe um jogador desse plantel para o teu cinco (2 bases, 2 extremos, 1 poste). Só vês as <b>médias</b> dele nessa equipa e década.</>,
-      <>Podes <b>mudar de posição</b> um jogador do cinco, se ele jogou nessa posição na carreira.</>,
-      <>Tens <b>1 troca de equipa</b> e <b>1 troca de década</b> por jogo.</>,
-      <>Joga 82 jogos contra adversários fixos. <b>Não há sorte</b>: o resultado depende só do teu cinco. Ganha todos para fazer <b>82-0</b>.</>,
+      <>É sorteada uma equipa e uma década; escolhe um jogador. Só vês as médias dele.</>,
+      <>Monta um cinco (2 bases, 2 extremos, 1 poste). Tens 1 troca de equipa e 1 de década.</>,
+      <>Sem sorte: o resultado depende só do teu cinco. Ganha os 82 jogos.</>,
     ],
-    history: 'O teu histórico',
-    best: 'Melhor época',
-    seasons: 'Épocas',
     play: 'Jogar',
-    footnote:
-      'Cada jogador tem uma nota secreta do seu impacto nessa equipa e década — é ela que decide a época. Estatísticas do Basketball-Reference.',
+    record: (best: number, seasons: number, perfect: number) =>
+      `Melhor ${best}-${82 - best} · ${seasons} ${seasons === 1 ? 'época' : 'épocas'} · ${perfect}× 82-0`,
   },
 
   draft: {
@@ -104,18 +99,13 @@ const en: Strings = {
     language: 'Language',
     howTo: 'How to play',
     rules: [
-      <>Spin to draw a <b>team</b> and a <b>decade</b>.</>,
-      <>Pick one player from that roster for your starting five (2 guards, 2 forwards, 1 center). You only see his <b>averages</b> for that team and decade.</>,
-      <>You can <b>move a player to another position</b> in your five if he played it during his career.</>,
-      <>You get <b>1 team re-roll</b> and <b>1 decade re-roll</b> per game.</>,
-      <>Play 82 games against fixed opponents. <b>No luck involved</b>: the result depends only on your five. Win them all to go <b>82-0</b>.</>,
+      <>A team and a decade are drawn; pick a player. You only see his averages.</>,
+      <>Build a five (2 guards, 2 forwards, 1 center). You get 1 team and 1 decade re-roll.</>,
+      <>No luck: the result depends only on your five. Win all 82 games.</>,
     ],
-    history: 'Your record',
-    best: 'Best season',
-    seasons: 'Seasons',
     play: 'Play',
-    footnote:
-      "Every player has a hidden rating for his impact on that team and decade — that's what decides the season. Stats from Basketball-Reference.",
+    record: (best, seasons, perfect) =>
+      `Best ${best}-${82 - best} · ${seasons} ${seasons === 1 ? 'season' : 'seasons'} · ${perfect}× 82-0`,
   },
 
   draft: {
