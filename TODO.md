@@ -14,3 +14,13 @@ O dataset em `data_raw/` (Basketball-Reference) tem dados desde 1946-47 (BAA, NB
 - **Nomes históricos (`labels` em `src/data/teams.ts`):** Buffalo Braves (LAC), Cincinnati Royals / KC-Omaha Kings (SAC), Philadelphia / San Francisco Warriors (GSW), Tri-Cities / Milwaukee / St. Louis Hawks (ATL), Syracuse Nationals (PHI), Fort Wayne Pistons (DET), Minneapolis Lakers (LAL), New Orleans Jazz (UTA), Chicago Packers/Zephyrs → Baltimore/Capital Bullets (WAS), San Diego Rockets (HOU), Seattle SuperSonics (OKC), New York/New Jersey Nets (BKN)…
 - **Equipas da ABA** (Nuggets, Pacers, Spurs, Nets): o dataset tem os anos da ABA (`lg == 'ABA'`, até 1976), mas o script só lê a NBA. Decidir se contam (a ABA era uma liga mais fraca: talvez descontar na nota).
 - **Poucas franquias nos anos 50** (8 a 10 equipas): o sorteio fica com poucas combinações nessa década. Confirmar que o teste "o draft nunca encrava" continua a passar.
+
+## Estatísticas de utilização do site
+
+Depende de o site estar publicado (GitHub Pages ainda por ativar: repositório privado → GitHub Pro, ou tornar público).
+
+- **Serviço recomendado: GoatCounter** — grátis para projetos não comerciais, sem cookies (dispensa o aviso de consentimento do RGPD), script pequeno, suporta eventos. Alternativas: Cloudflare Web Analytics (grátis, sem cookies, eventos limitados), Umami (plano gratuito ou alojado por nós), Plausible (pago). Evitar Google Analytics: usa cookies e obriga a aviso de consentimento na UE. O "Insights → Traffic" do GitHub não serve (conta visitas ao repositório, não ao site).
+- **Passo do utilizador:** criar a conta no GoatCounter (precisa de email) e escolher o código do site.
+- **Implementação:** script do GoatCounter no `index.html` + `src/lib/analytics.ts` com uma função `track(evento)` que falha em silêncio (bloqueadores, offline) e **não envia nada em desenvolvimento** (`import.meta.env.DEV`).
+- **Eventos a registar:** jogo iniciado, época terminada (com o nº de vitórias), 82-0, língua escolhida, telemóvel vs computador, uso das trocas de equipa/década.
+- Confirmar que o service worker da PWA não interfere com o envio dos eventos.
