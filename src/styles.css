@@ -1,4 +1,6 @@
 :root {
+  /* Tema escuro também para o próprio browser: fundo da página, barras de scroll e a zona do overscroll. */
+  color-scheme: dark;
   --bg: #0b0f1a;
   --panel: #141a2a;
   --panel2: #1b2338;
@@ -12,7 +14,7 @@
   --display: 'Bebas Neue', Impact, sans-serif;
 }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-html, body { margin: 0; background: var(--bg); color: var(--txt); font-family: Inter, -apple-system, system-ui, sans-serif; min-height: 100%; }
+html, body { margin: 0; background: var(--bg); background-color: var(--bg); color: var(--txt); font-family: Inter, -apple-system, system-ui, sans-serif; min-height: 100%; }
 body {
   padding: calc(env(safe-area-inset-top) + 12px) calc(env(safe-area-inset-right) + 14px)
     calc(env(safe-area-inset-bottom) + 16px) calc(env(safe-area-inset-left) + 14px);
