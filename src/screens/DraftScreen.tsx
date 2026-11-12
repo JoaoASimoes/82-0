@@ -25,6 +25,8 @@ import { pickRandom } from '../game/rng';
 import { Lineup } from '../components/Lineup';
 import { PlayerRow } from '../components/PlayerRow';
 import { tap } from '../lib/haptics';
+import { useFinePointer } from '../lib/pointer';
+import { PlayerSheet } from '../components/PlayerSheet';
 import { useLang } from '../i18n/LangContext';
 import { positionList } from '../i18n/strings';
 
@@ -47,6 +49,9 @@ export function DraftScreen({ onComplete }: Props) {
   /** Lugar escolhido para mudar de posição (null = nenhum). */
   const [selected, setSelected] = useState<number | null>(null);
   const [moveHint, setMoveHint] = useState('');
+  /** Telemóvel: lugar cujo pop-up com as médias está aberto. */
+  const [info, setInfo] = useState<number | null>(null);
+  const finePointer = useFinePointer();
   /** Ordem da lista do sorteio; mantém-se entre sorteios. */
   const [sortKey, setSortKey] = useState<SortKey>(DEFAULT_SORT);
   const timers = useRef<number[]>([]);
@@ -134,18 +139,40 @@ export function DraftScreen({ onComplete }: Props) {
       setMoveHint('');
       return;
     }
-    if (moveTargets(lineup, index).length === 0) {
+    // Telemóvel: o toque abre o pop-up com as médias (e a opção de mudar de posição).
+    // Computador: as médias aparecem ao passar o rato, e o clique escolhe logo para mudar.
+    if (!finePointer) {
       setSelected(null);
-      setMoveHint(
-        player.positions.length > 1
-          ? t.draft.nowhereToMove(player.name)
-          : t.draft.onlyPlays(player.name, positionList(player.positions, t, 'or')),
-      );
+      setMoveHint('');
+      setInfo(index);
       return;
     }
+    const why = cantMoveReason(index);
+    if (why) {
+      setSelected(null);
+      setMoveHint(why);
+      return;
+    }
+    startMove(index);
+  };
+
+  /** Porque é que o jogador deste lugar não pode mudar de posição agora (null = pode). */
+  const cantMoveReason = (index: number): string | null => {
+    const player = lineup[index]?.player;
+    if (!player || moveTargets(lineup, index).length > 0) return null;
+    return player.positions.length > 1
+      ? t.draft.nowhereToMove(player.name)
+      : t.draft.onlyPlays(player.name, positionList(player.positions, t, 'or'));
+  };
+
+  const startMove = (index: number) => {
+    const player = lineup[index]?.player;
+    if (!player) return;
     setSelected(index);
     setMoveHint(t.draft.moveWhere(player.name));
   };
+
+  const infoSlot = info === null ? null : lineup[info];
 
   return (
     <section className="view draft">
@@ -215,6 +242,19 @@ export function DraftScreen({ onComplete }: Props) {
           </div>
         )}
       </div>
+
+      {infoSlot?.player && info !== null && (
+        <PlayerSheet
+          player={infoSlot.player}
+          position={infoSlot.position}
+          cantMove={cantMoveReason(info)}
+          onMove={() => {
+            startMove(info);
+            setInfo(null);
+          }}
+          onClose={() => setInfo(null)}
+        />
+      )}
     </section>
   );
 }

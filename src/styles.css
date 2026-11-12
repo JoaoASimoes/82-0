@@ -55,12 +55,11 @@ button { font: inherit; color: inherit; border: 0; cursor: pointer; }
 
 /* Draft */
 .lineup { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 12px; }
-.slot { background: var(--panel); border: 1px dashed var(--line); border-radius: 12px; min-height: 84px; padding: 6px 4px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+.slot { background: var(--panel); border: 1px dashed var(--line); border-radius: 12px; min-height: 72px; padding: 6px 4px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
 .slot .pos { font-family: var(--display); font-size: 22px; color: var(--mut); }
 .slot.full { border-style: solid; border-color: var(--acc); }
 .slot.full .pos { position: absolute; top: 3px; left: 6px; font-size: 14px; color: var(--acc2); }
 .slot .nm { font-size: 11px; font-weight: 700; line-height: 1.15; margin-top: 10px; }
-.slot .st { font-size: 9px; color: var(--acc2); font-variant-numeric: tabular-nums; margin: 2px 0 1px; }
 .slot .tm { font-size: 9px; color: var(--mut); }
 .slot.pop { animation: pop 0.35s ease; }
 .slot { font: inherit; color: inherit; width: 100%; }
@@ -80,6 +79,23 @@ button { font: inherit; color: inherit; border: 0; cursor: pointer; }
 .skips { display: flex; gap: 8px; margin-bottom: 12px; }
 .skips button { flex: 1; padding: 11px 6px; border-radius: 12px; background: var(--panel2); border: 1px solid var(--line); font-size: 13px; font-weight: 600; }
 .skips button:disabled { color: #4b5470; background: var(--panel); border-color: var(--panel2); }
+
+/* Médias de um jogador do cinco: cartão ao passar o rato (computador) e pop-up (telemóvel) */
+.statgrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 10px 0; }
+.statgrid div { text-align: center; }
+.statgrid dt { font-size: 10px; letter-spacing: 0.05em; color: var(--mut); }
+.statgrid dd { margin: 2px 0 0; font-family: var(--display); font-size: 22px; font-variant-numeric: tabular-nums; }
+.slot .tip { display: none; position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); z-index: 5; width: 240px; padding: 10px 12px; text-align: left; background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 30px #0008; pointer-events: none; }
+.slot .tip.left { left: 0; transform: none; }
+.slot .tip.right { left: auto; right: 0; transform: none; }
+.slot .tip b { display: block; font-size: 14px; }
+.slot .tip .statgrid { margin-bottom: 0; }
+.sheet-backdrop { position: fixed; inset: 0; z-index: 20; background: #000a; display: flex; align-items: flex-end; justify-content: center; animation: fade 0.15s ease; }
+.sheet { width: 100%; max-width: 520px; background: var(--panel); border: 1px solid var(--line); border-bottom: 0; border-radius: 18px 18px 0 0; padding: 18px 16px calc(env(safe-area-inset-bottom) + 16px); animation: rise 0.2s ease; }
+.sheet-head { display: flex; flex-direction: column; gap: 2px; }
+.sheet-head b { font-size: 18px; }
+.sheet .statgrid { margin: 14px 0 16px; }
+@keyframes rise { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
 .pool { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
 .pl { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; text-align: left; width: 100%; transition: transform 0.08s; }
 .pl:active { transform: scale(0.98); }
@@ -138,6 +154,7 @@ button { font: inherit; color: inherit; border: 0; cursor: pointer; }
 /* ---------- Rato (ponteiro fino com hover) ---------- */
 @media (hover: hover) and (pointer: fine) {
   .pl:not(:disabled):hover, .slot:not(:disabled):hover { border-color: var(--acc2); }
+  .slot.full:hover .tip { display: block; }
   .btn:not(:disabled):hover { filter: brightness(1.08); }
   .skips button:not(:disabled):hover, .sortbar button:hover, .langswitch button:hover, .howto summary:hover { color: var(--txt); }
 }

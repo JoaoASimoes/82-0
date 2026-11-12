@@ -1,7 +1,9 @@
 import type { Slot } from '../game/draft';
-import { shortDecade, statLineShort } from '../game/draft';
+import { shortDecade, teamLabel } from '../game/draft';
+import { TEAMS } from '../data/teams';
+import { StatGrid } from './StatGrid';
 import { useLang } from '../i18n/LangContext';
-import { positionList } from '../i18n/strings';
+import { positionList, statLine } from '../i18n/strings';
 
 interface Props {
   lineup: Slot[];
@@ -36,7 +38,7 @@ export function Lineup({ lineup, highlight, selected = null, targets = [], onSlo
             aria-pressed={i === selected}
             aria-label={
               slot.player
-                ? t.draft.slotPlayer(t.positions[slot.position], slot.player.name, positionList(other, t, 'and'))
+                ? `${t.draft.slotPlayer(t.positions[slot.position], slot.player.name, positionList(other, t, 'and'))}. ${statLine(slot.player.stats, t)}`
                 : t.draft.slotEmpty(t.positions[slot.position])
             }
           >
@@ -45,12 +47,17 @@ export function Lineup({ lineup, highlight, selected = null, targets = [], onSlo
               <>
                 {other.length > 0 && <span className="alt">↔{other.join('')}</span>}
                 <div className="nm">{slot.player.name}</div>
-                <div className="st" title={`${t.stat.pts} / ${t.stat.reb} / ${t.stat.ast}`}>
-                  {statLineShort(slot.player.stats)}
-                </div>
                 <div className="tm">
                   {slot.player.teamId} {shortDecade(slot.player.decade)}
                 </div>
+                {/* Cartão com as médias: só aparece ao passar o rato (ver styles.css). */}
+                <span className={`tip ${i < 2 ? 'left' : i > 2 ? 'right' : ''}`} aria-hidden="true">
+                  <b>{slot.player.name}</b>
+                  <span className="muted small">
+                    {teamLabel(TEAMS, slot.player)} · {t.decade(slot.player.decade)}
+                  </span>
+                  <StatGrid stats={slot.player.stats} />
+                </span>
               </>
             ) : (
               <span className="muted small">{t.positions[slot.position]}</span>
