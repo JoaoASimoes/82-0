@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { track } from './lib/analytics';
 import type { Slot } from './game/draft';
 import { HomeScreen } from './screens/HomeScreen';
 import { DraftScreen } from './screens/DraftScreen';
@@ -14,6 +15,7 @@ export function App() {
   const toast = useToast();
 
   const newGame = () => {
+    track('game-start');
     setGameId((n) => n + 1);
     setScreen({ name: 'draft' });
     window.scrollTo(0, 0);

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { loadLang, saveLang } from '../lib/storage';
+import { track } from '../lib/analytics';
 import { detectLang, LANGS, STRINGS, type Lang, type Strings } from './strings';
 
 interface LangState {
@@ -32,6 +33,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
       setLang: (next) => {
         setLangState(next);
         saveLang(next);
+        track(`lang-${next}`);
       },
     }),
     [lang, t],

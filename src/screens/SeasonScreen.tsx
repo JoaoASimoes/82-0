@@ -4,6 +4,7 @@ import { lineupAverage, teamLabel, type Slot } from '../game/draft';
 import { countWins, SEASON_GAMES, simulateSeason } from '../game/season';
 import { verdictFor } from '../game/verdict';
 import { recordSeason } from '../lib/storage';
+import { track } from '../lib/analytics';
 import { Confetti } from '../components/Confetti';
 import { useLang } from '../i18n/LangContext';
 import { statLine } from '../i18n/strings';
@@ -36,7 +37,11 @@ export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
   useEffect(() => {
     if (!finished || recorded.current) return;
     recorded.current = true;
-    const { newBest } = recordSeason(countWins(games));
+    const total = countWins(games);
+    const { newBest } = recordSeason(total);
+    track('season-end');
+    track(`wins-${total}`);
+    if (total === SEASON_GAMES) track('perfect-season');
     if (newBest) toast(t.season.newBest);
   }, [finished, games, toast, t]);
 

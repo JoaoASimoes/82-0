@@ -41,3 +41,7 @@ npm run build   # production build in dist/
 ```
 
 Every push to `main` is tested and deployed to GitHub Pages.
+
+## Privacy
+
+The published site counts visits and a few anonymous game events (e.g. seasons played, wins) with [GoatCounter](https://www.goatcounter.com): no cookies and no personal data. Nothing is sent when running locally.

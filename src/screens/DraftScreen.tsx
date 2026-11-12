@@ -25,6 +25,7 @@ import { Lineup } from '../components/Lineup';
 import { PlayerRow } from '../components/PlayerRow';
 import { tap } from '../lib/haptics';
 import { useFinePointer } from '../lib/pointer';
+import { track } from '../lib/analytics';
 import { PlayerSheet } from '../components/PlayerSheet';
 import { SortBar } from '../components/SortBar';
 import { useLang } from '../i18n/LangContext';
@@ -87,11 +88,13 @@ export function DraftScreen({ onComplete }: Props) {
   const skipTeam = () => {
     if (!combo || skips.team < 1) return;
     setSkips((s) => ({ ...s, team: s.team - 1 }));
+    track('reroll-team');
     spin((c) => c.decade === combo.decade && c.teamId !== combo.teamId);
   };
   const skipEra = () => {
     if (!combo || skips.era < 1) return;
     setSkips((s) => ({ ...s, era: s.era - 1 }));
+    track('reroll-decade');
     spin((c) => c.teamId === combo.teamId && c.decade !== combo.decade);
   };
 
