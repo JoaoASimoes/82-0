@@ -1,12 +1,17 @@
 """Generate src/data/players.json from the Basketball-Reference dataset in data_raw/.
 
 Dataset: "NBA Stats (1947-present)" on Kaggle (Basketball-Reference data). Uses
-`Player Totals.csv` and `Player Play By Play.csv`. Download it into data_raw/ (git-ignored).
+`Player Totals.csv`, `Advanced.csv`, `Player Play By Play.csv`, `Player Award Shares.csv`,
+`End of Season Teams.csv` and `All-Star Selections.csv`. Download it into data_raw/ (git-ignored).
 
 For every franchise and decade (FIRST_DECADE onwards) it picks the PLAYERS_PER_ERA
 players with the biggest total contribution to that team in that decade, and stores:
   - per-game averages (pts/reb/ast) for that stint  -> shown in the game
-  - a hidden 0-99 rating derived from per-game Game Score -> drives the sim
+  - a hidden 0-99 rating -> drives the sim. It blends two things (see `impact_scores`):
+      * box-score impact: minutes-weighted BPM (pace-adjusted), scaled by minutes per game
+      * prestige: MVP votes, All-NBA/All-Defense teams, DPOY votes, All-Star picks and
+        championships won with that team in that decade -- the "beyond the stats" part
+        that makes Jordan or LeBron who they are.
 
 Usage (from the project root):
     python3 -m venv .venv && .venv/bin/pip install -r scripts/requirements.txt
@@ -27,6 +32,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 TOTALS = ROOT / 'data_raw' / 'Player Totals.csv'
 PLAY_BY_PLAY = ROOT / 'data_raw' / 'Player Play By Play.csv'
+ADVANCED = ROOT / 'data_raw' / 'Advanced.csv'
+AWARDS = ROOT / 'data_raw' / 'Player Award Shares.csv'
+END_OF_SEASON = ROOT / 'data_raw' / 'End of Season Teams.csv'
+ALL_STARS = ROOT / 'data_raw' / 'All-Star Selections.csv'
 OUT = ROOT / 'src' / 'data' / 'players.json'
 
 FIRST_DECADE = 1980
@@ -43,10 +52,42 @@ POSITION_MIN_GAMES = 10
 POSITION_MIN_SHARE = 25
 POSITION_MIN_MINUTES = 300
 
-# Target rating distribution (21 quantiles, 0%..100%), taken from the original
-# hand-made ratings. Mapping Game Score onto it keeps the difficulty curve that
-# season.test.ts protects.
-RATING_QUANTILES = [72, 77, 79, 80, 80, 81, 82, 82, 83, 83, 84, 85, 85, 86, 87, 88, 89, 90, 92, 95, 99]
+# Target rating distribution: the 0th..100th percentiles of the original hand-made ratings.
+# Mapping the impact score onto it keeps the difficulty curve that season.test.ts protects,
+# and keeps the top narrow (only the top ~1% reach 98-99).
+RATING_PERCENTILES = [
+    72, 74, 76, 76, 77, 77, 78, 78, 78, 79, 79, 79, 79, 79, 80, 80, 80, 80, 80, 80, 80, 80, 80, 81, 81,
+    81, 81, 81, 81, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 83, 83, 83, 83, 83, 83, 84, 84, 84, 84,
+    84, 84, 84, 84, 84, 85, 85, 85, 85, 85, 85, 85, 86, 86, 86, 86, 86, 86, 86, 87, 87, 87, 87, 87, 88,
+    88, 88, 88, 88, 89, 89, 89, 89, 89, 90, 90, 91, 91, 92, 92, 92, 93, 93, 93, 94, 95, 95, 96, 97, 98, 99,
+]
+
+# How much each part weighs in the rating (the rest is box-score impact).
+PRESTIGE_WEIGHT = 0.45
+# Prestige points per season (awards are per season; a traded player's are split by games).
+PRESTIGE = {
+    'mvp_share': 4.0,          # x MVP vote share (the winner gets ~0.8-1.0)
+    'dpoy_share': 1.0,         # x DPOY vote share
+    'All-NBA': {'1st': 2.0, '2nd': 1.2, '3rd': 0.7},
+    'All-Defense': {'1st': 0.6, '2nd': 0.3},
+    'all_star': 0.5,
+    'title': 2.0,              # x min(1, minutes / TITLE_FULL_MINUTES) ** 2: the champion's core, not its bench
+}
+TITLE_FULL_MINUTES = 2500
+# Prestige measures a player's peak with the team: the average of his best PEAK_SEASONS there.
+PEAK_SEASONS = 4
+
+# NBA champions by season END year. The dataset has no titles, so they live here:
+# add each new champion when the season ends.
+CHAMPIONS = {
+    1981: 'BOS', 1982: 'LAL', 1983: 'PHI', 1984: 'BOS', 1985: 'LAL', 1986: 'BOS', 1987: 'LAL',
+    1988: 'LAL', 1989: 'DET', 1990: 'DET', 1991: 'CHI', 1992: 'CHI', 1993: 'CHI', 1994: 'HOU',
+    1995: 'HOU', 1996: 'CHI', 1997: 'CHI', 1998: 'CHI', 1999: 'SAS', 2000: 'LAL', 2001: 'LAL',
+    2002: 'LAL', 2003: 'SAS', 2004: 'DET', 2005: 'SAS', 2006: 'MIA', 2007: 'SAS', 2008: 'BOS',
+    2009: 'LAL', 2010: 'LAL', 2011: 'DAL', 2012: 'MIA', 2013: 'MIA', 2014: 'SAS', 2015: 'GSW',
+    2016: 'CLE', 2017: 'GSW', 2018: 'GSW', 2019: 'TOR', 2020: 'LAL', 2021: 'MIL', 2022: 'GSW',
+    2023: 'DEN', 2024: 'BOS', 2025: 'OKC',
+}
 
 # Basketball-Reference abbreviation -> franchise id used by the game (src/data/teams.ts).
 # Follows the NBA's official lineage: the 1988-2002 Charlotte Hornets (CHH) belong to
@@ -100,20 +141,55 @@ def positions_for(stint_games: Counter, career: set[str]) -> list[str]:
     return ([main] if main else []) + rest or ['F']
 
 
+def season_prestige(df: pd.DataFrame) -> pd.Series:
+    """Prestige points for each (season, team, player) row of `df`."""
+    awards = pd.read_csv(AWARDS)
+    teams = pd.read_csv(END_OF_SEASON)
+    stars = pd.read_csv(ALL_STARS)
+    per_season: dict[tuple[int, str], float] = {}
+
+    def add(season, pid, points):
+        per_season[(int(season), pid)] = per_season.get((int(season), pid), 0.0) + float(points)
+
+    for award, key in (('nba mvp', 'mvp_share'), ('nba dpoy', 'dpoy_share')):
+        for r in awards[awards.award == award].itertuples():
+            add(r.season, r.player_id, PRESTIGE[key] * r.share)
+    for r in teams[(teams.lg == 'NBA') & teams.type.isin(['All-NBA', 'All-Defense'])].itertuples():
+        add(r.season, r.player_id, PRESTIGE[r.type].get(r.number_tm, 0))
+    for r in stars[stars.lg == 'NBA'].drop_duplicates(['season', 'player_id']).itertuples():
+        add(r.season, r.player_id, PRESTIGE['all_star'])
+
+    # Season awards are split across a traded player's teams by games played.
+    season_games = df.groupby(['season', 'player_id']).g.transform('sum').clip(lower=1)
+    keys = zip(df.season, df.player_id)
+    awards_part = pd.Series([per_season.get((int(s), p), 0.0) for s, p in keys], index=df.index) * df.g / season_games
+    champion = df.season.map(CHAMPIONS) == df.franchise
+    title_part = champion * PRESTIGE['title'] * (df.mp / TITLE_FULL_MINUTES).clip(upper=1) ** 2
+    return awards_part + title_part
+
+
+def impact_scores(stint: pd.DataFrame, pool: pd.DataFrame) -> pd.Series:
+    """Blend box-score impact and prestige into one score, each z-scored on the calibration pool."""
+    def z(col: str) -> pd.Series:
+        std = pool[col].std() or 1.0
+        return (stint[col] - pool[col].mean()) / std
+    return (1 - PRESTIGE_WEIGHT) * z('impact') + PRESTIGE_WEIGHT * z('prestige')
+
+
 def to_rating(score: float, sorted_scores: list[float]) -> int:
-    """Map a per-game Game Score onto RATING_QUANTILES by its percentile in `sorted_scores`
-    (the calibration pool). Scores below the pool extrapolate linearly below the scale."""
+    """Map a score onto RATING_PERCENTILES by its percentile in `sorted_scores` (the
+    calibration pool). Scores below the pool extrapolate linearly below the scale."""
     lowest = sorted_scores[0]
     if score < lowest:
-        # Slope of the bottom 5% of the scale: rating points per Game Score point.
+        # Slope of the bottom 5% of the scale: rating points per score point.
         ref = sorted_scores[len(sorted_scores) // 20]
-        slope = (RATING_QUANTILES[1] - RATING_QUANTILES[0]) / max(ref - lowest, 0.1)
-        return max(MIN_RATING, round(RATING_QUANTILES[0] - (lowest - score) * slope))
+        slope = (RATING_PERCENTILES[5] - RATING_PERCENTILES[0]) / max(ref - lowest, 0.01)
+        return max(MIN_RATING, round(RATING_PERCENTILES[0] - (lowest - score) * slope))
     pct = bisect.bisect_left(sorted_scores, score) / max(1, len(sorted_scores) - 1)
-    pos = min(pct, 1.0) * (len(RATING_QUANTILES) - 1)
+    pos = min(pct, 1.0) * (len(RATING_PERCENTILES) - 1)
     lo = int(pos)
-    hi = min(lo + 1, len(RATING_QUANTILES) - 1)
-    return round(RATING_QUANTILES[lo] + (RATING_QUANTILES[hi] - RATING_QUANTILES[lo]) * (pos - lo))
+    hi = min(lo + 1, len(RATING_PERCENTILES) - 1)
+    return round(RATING_PERCENTILES[lo] + (RATING_PERCENTILES[hi] - RATING_PERCENTILES[lo]) * (pos - lo))
 
 
 def main() -> None:
@@ -132,23 +208,39 @@ def main() -> None:
     df['decade'] = (df.season - 1) // 10 * 10
     df['gmsc'] = game_score(df.fillna({c: 0 for c in ('orb', 'drb', 'stl', 'blk', 'tov')}))
     df['position'] = df.pos.map(POSITION)
+    adv = pd.read_csv(ADVANCED)[['season', 'team', 'player_id', 'bpm']]
+    df = df.merge(adv, on=['season', 'team', 'player_id'], how='left')
+    df['bpm'] = df.bpm.fillna(-2.0)  # missing BPM (tiny samples) = replacement level
+    df['bpm_min'] = df.bpm * df.mp
+    df['prestige'] = season_prestige(df)
 
     out: dict[str, dict[str, list[dict]]] = {}
     eras: dict[tuple[str, int], pd.DataFrame] = {}
     for (team, decade), rows in df.groupby(['franchise', 'decade']):
         stint = rows.groupby('player_id').agg(
             name=('player', 'first'), g=('g', 'sum'), pts=('pts', 'sum'),
-            trb=('trb', 'sum'), ast=('ast', 'sum'), gmsc=('gmsc', 'sum'))
+            trb=('trb', 'sum'), ast=('ast', 'sum'), gmsc=('gmsc', 'sum'),
+            mp=('mp', 'sum'), bpm_min=('bpm_min', 'sum'), prestige=('prestige', 'sum'))
         stint = stint[stint.g > 0].sort_values('gmsc', ascending=False)
         stint = stint.drop_duplicates('name').head(PLAYERS_PER_ERA)
         if len(stint) < PLAYERS_PER_ERA:
             log(f'skipping {team} {decade}: only {len(stint)} players')
             continue
-        stint['per_game'] = stint.gmsc / stint.g
+        # Box-score impact per game: (BPM + 2) is value over replacement per 100 possessions,
+        # scaled by the share of the game he was on the floor (VORP per game, in effect).
+        bpm = stint.bpm_min / stint.mp.clip(lower=1)
+        stint['impact'] = (bpm + 2) * (stint.mp / stint.g) / 48
+        # Prestige at his peak with the team: mean of his best PEAK_SEASONS seasons there.
+        by_season = rows.groupby(['player_id', 'season']).prestige.sum()
+        peak = by_season.groupby(level=0).apply(lambda v: v.nlargest(PEAK_SEASONS).mean())
+        stint['prestige'] = peak.reindex(stint.index).fillna(0)
         eras[(team, int(decade))] = stint
 
     # `stint` is ranked by total contribution, so head(CALIBRATION_TOP) are the core players.
-    pool = sorted(v for s in eras.values() for v in s.per_game.head(CALIBRATION_TOP))
+    core = pd.concat(s.head(CALIBRATION_TOP) for s in eras.values())
+    for stint in eras.values():
+        stint['score'] = impact_scores(stint, core)
+    pool = sorted(impact_scores(core, core))
     for (team, decade), stint in sorted(eras.items()):
         rows = df[(df.franchise == team) & (df.decade == decade)]
         entries = []
@@ -161,7 +253,7 @@ def main() -> None:
             entries.append({
                 'name': s['name'],
                 'positions': positions_for(games, career.get(pid, set())),
-                'rating': to_rating(s.per_game, pool),
+                'rating': to_rating(s.score, pool),
                 'stats': stats,
             })
         entries.sort(key=lambda e: (-e['rating'], e['name']))

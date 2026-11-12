@@ -1,8 +1,8 @@
 # TODO
 
-## Melhorar a nota secreta
+## Campeão de 2025-26
 
-O Game Score sobrevaloriza marcadores e subvaloriza defensores/ressaltadores (ex.: Dennis Rodman nos Bulls dos 90 fica com 79, Monta Ellis acima do Klay Thompson nos Warriors dos 2010). O dataset tem `Advanced.csv` com Win Shares, BPM e VORP por equipa e época, que medem melhor o impacto real. Experimentar, por exemplo, BPM ponderado por minutos.
+`CHAMPIONS` em `scripts/build_players.py` vai até 2024-25. Acrescentar o campeão de 2025-26 (e de cada época seguinte) e voltar a gerar o `players.json`.
 
 ## Acrescentar as décadas de 1950, 1960 e 1970
 
