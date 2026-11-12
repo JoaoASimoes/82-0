@@ -1,42 +1,48 @@
 import { describe, expect, it } from 'vitest';
-import { seededRng } from './rng';
-import { countWins, SEASON_GAMES, simulateSeason, winProbability } from './season';
+import { countWins, DEFAULT_SIM, normalQuantile, opponents, SEASON_GAMES, simulateSeason } from './season';
 
-const avgWins = (strength: number, runs = 400) => {
-  const rng = seededRng(strength * 1000);
-  let total = 0;
-  let perfect = 0;
-  for (let i = 0; i < runs; i++) {
-    const w = countWins(simulateSeason(strength, rng));
-    total += w;
-    if (w === 82) perfect++;
-  }
-  return { wins: total / runs, perfectRate: perfect / runs };
-};
+const wins = (strength: number) => countWins(simulateSeason(strength));
 
 describe('simulação', () => {
   it('joga sempre 82 jogos', () => {
-    expect(simulateSeason(90, seededRng(1))).toHaveLength(SEASON_GAMES);
+    expect(simulateSeason(90)).toHaveLength(SEASON_GAMES);
+    expect(opponents()).toHaveLength(SEASON_GAMES);
   });
 
-  it('é determinística com a mesma semente', () => {
-    expect(simulateSeason(90, seededRng(5))).toEqual(simulateSeason(90, seededRng(5)));
+  it('não tem sorte: a mesma força dá sempre o mesmo resultado, jogo a jogo', () => {
+    expect(simulateSeason(91.4)).toEqual(simulateSeason(91.4));
+    expect(opponents()).toEqual(opponents());
   });
 
-  it('probabilidade de vitória cresce com a força', () => {
-    expect(winProbability(82, 82)).toBeCloseTo(0.5);
-    expect(winProbability(95, 82)).toBeGreaterThan(winProbability(88, 82));
+  it('mais força nunca dá menos vitórias', () => {
+    let prev = -1;
+    for (let s = 70; s <= 99; s += 0.2) {
+      const w = wins(s);
+      expect(w).toBeGreaterThanOrEqual(prev);
+      prev = w;
+    }
   });
 
-  // Curva de dificuldade: se alterares DEFAULT_SIM, atualiza estes intervalos de propósito.
+  it('o adversário mais forte é o limiar do 82-0', () => {
+    expect(Math.max(...opponents())).toBeCloseTo(DEFAULT_SIM.strongest, 6);
+    expect(wins(95.2)).toBe(82);
+    expect(wins(95.0)).toBe(81);
+  });
+
+  it('a inversa da Normal está certa', () => {
+    expect(normalQuantile(0.5)).toBeCloseTo(0, 6);
+    expect(normalQuantile(0.975)).toBeCloseTo(1.959964, 5);
+    expect(normalQuantile(0.01)).toBeCloseTo(-2.326348, 5);
+  });
+
+  // Curva de dificuldade: se alterares DEFAULT_SIM, atualiza estes valores de propósito.
   it('mantém a curva de dificuldade', () => {
-    expect(avgWins(85).wins).toBeGreaterThan(44);
-    expect(avgWins(85).wins).toBeLessThan(58);
-    expect(avgWins(90).wins).toBeGreaterThan(64);
-    expect(avgWins(90).wins).toBeLessThan(76);
-    expect(avgWins(90).perfectRate).toBeLessThan(0.02);
-    const top = avgWins(98);
-    expect(top.perfectRate).toBeGreaterThan(0.15);
-    expect(top.perfectRate).toBeLessThan(0.6);
+    expect(wins(85)).toBeGreaterThanOrEqual(18);
+    expect(wins(85)).toBeLessThanOrEqual(26);
+    expect(wins(90)).toBeGreaterThanOrEqual(64);
+    expect(wins(90)).toBeLessThanOrEqual(72);
+    expect(wins(93)).toBeGreaterThanOrEqual(77);
+    expect(wins(93)).toBeLessThanOrEqual(80);
+    expect(wins(95)).toBe(81);
   });
 });

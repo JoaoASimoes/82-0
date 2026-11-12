@@ -7,7 +7,7 @@ Pick 5 NBA legends and try for a perfect 82-win season. Built to be played on an
 1. Spin to draw a **team** and a **decade**.
 2. Pick one player from that roster for your starting five (2 guards, 2 forwards, 1 center). You only see his **per-game averages** (points, rebounds, assists) for that team and decade.
 3. You get **1 team re-roll** and **1 decade re-roll** per game.
-4. Simulate 82 games. Win them all for **82-0**.
+4. Play 82 games against a fixed schedule of opponents. There's no luck: the result depends only on your five (the average of their hidden ratings), so two identical fives always get the same record. Win them all for **82-0** (you need an average of 95.2+, roughly 3% of drafts).
 
 Each player also has a hidden 0–99 rating for his impact on that team in that decade. It drives the simulation but is never shown to the player. Rosters and averages come from Basketball-Reference data (see below); the rating is derived from them.
 

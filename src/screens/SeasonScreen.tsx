@@ -18,8 +18,8 @@ interface Props {
 export function SeasonScreen({ lineup, onAgain, onHome, toast }: Props) {
   const { t } = useLang();
   const avg = lineupAverage(lineup);
-  // Simula uma vez; a animação só revela os resultados aos poucos.
-  const [games] = useState(() => simulateSeason(avg, Math.random));
+  // A época é determinística; a animação só revela os resultados aos poucos.
+  const [games] = useState(() => simulateSeason(avg));
   const [revealed, setRevealed] = useState(0);
   const recorded = useRef(false);
 

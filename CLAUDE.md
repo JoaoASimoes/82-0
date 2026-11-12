@@ -48,7 +48,7 @@ data_raw/     CSVs do dataset do Basketball-Reference (Kaggle). Fora do git.
 - Mínimo 10 jogadores por década (eras com menos ficam de fora); sem nomes repetidos na mesma era. `data.test.ts` verifica isto.
 
 ## Simulação (`src/game/season.ts`)
-Força da equipa = média das notas. Cada jogo: adversário ~ Normal(82, 5); P(vitória) logística com `spread` 2.4. A curva de dificuldade está documentada em `DEFAULT_SIM` e protegida por `season.test.ts` — se mudares a afinação de propósito, atualiza os intervalos do teste.
+**Sem sorte:** o resultado depende só do cinco — dois cincos iguais fazem sempre o mesmo resultado, jogo a jogo. Força da equipa = média das notas. Os 82 adversários têm forças fixas (quantis de uma Normal com mediana 87; o mais forte, 95.1, é o limiar do 82-0) e um calendário fixo; ganhas um jogo se a tua força for maior do que a do adversário. Para 82-0 é preciso média ≥ 95.2 (~3% dos drafts de um jogador típico). A curva está documentada em `DEFAULT_SIM` e protegida por `season.test.ts` — se mudares a afinação de propósito, atualiza o teste. Não usar `Rng` na simulação da época.
 
 ## Ideias para próximas funcionalidades
 Tarefas já planeadas e detalhadas estão em `TODO.md` (ex.: décadas de 1950, 1960 e 1970).
