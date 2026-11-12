@@ -11,9 +11,9 @@ describe('línguas', () => {
   });
 
   it('formata as médias em cada língua', () => {
-    const stats = { pts: 26, reb: 10.4, ast: 6.5 };
-    expect(statLine(stats, STRINGS.pt)).toBe('26.0 PTS · 10.4 RES · 6.5 AST');
-    expect(statLine(stats, STRINGS.en)).toBe('26.0 PTS · 10.4 REB · 6.5 AST');
+    const stats = { pts: 26, reb: 10.4, ast: 6.5, stl: 1.2, blk: 0.4 };
+    expect(statLine(stats, STRINGS.pt)).toBe('26.0 PTS · 10.4 RES · 6.5 AST · 1.2 ROU · 0.4 DES');
+    expect(statLine(stats, STRINGS.en)).toBe('26.0 PTS · 10.4 REB · 6.5 AST · 1.2 STL · 0.4 BLK');
   });
 
   it('traduz décadas e posições', () => {

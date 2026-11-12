@@ -4,6 +4,7 @@ import type { DraftedPlayer } from '../data/types';
 import {
   statLineShort,
   canPick,
+  sortPlayers,
   fitsAfterMove,
   movePlayer,
   moveTargets,
@@ -22,7 +23,7 @@ const p = (name: string, positions: DraftedPlayer['positions'], rating = 90): Dr
   name,
   positions,
   rating,
-  stats: { pts: 20, reb: 5, ast: 5 },
+  stats: { pts: 20, reb: 5, ast: 5, stl: 1, blk: 1 },
   teamId: 'CHI',
   decade: 1990,
 });
@@ -83,7 +84,7 @@ describe('draft', () => {
   });
 
   it('formata as médias com uma casa decimal', () => {
-    const stats = { pts: 26, reb: 10.4, ast: 6.5 };
+    const stats = { pts: 26, reb: 10.4, ast: 6.5, stl: 1.2, blk: 0.4 };
     expect(statLineShort(stats)).toBe('26.0/10.4/6.5');
   });
 
@@ -127,6 +128,25 @@ describe('draft', () => {
       expect(canPick(lineup, jokic)).toBe(false);
       expect(fitsAfterMove(lineup, jokic)).toBe(true);
       expect(fitsAfterMove(build(null, null, null, null, p('Shaq', ['C'])), jokic)).toBe(false);
+    });
+  });
+
+  describe('ordenar a lista do sorteio', () => {
+    const withStats = (name: string, pts: number, blk: number) => ({ ...p(name, ['F'], 99), stats: { pts, reb: 5, ast: 5, stl: 1, blk } });
+    const pool = [withStats('Rodman', 7, 0.6), withStats('Jordan', 30, 0.8), withStats('Bird', 25, 0.8)];
+
+    it('por nome, A→Z', () => {
+      expect(sortPlayers(pool, 'name').map((x) => x.name)).toEqual(['Bird', 'Jordan', 'Rodman']);
+    });
+
+    it('por estatística, maior primeiro, empates por nome', () => {
+      expect(sortPlayers(pool, 'pts').map((x) => x.name)).toEqual(['Jordan', 'Bird', 'Rodman']);
+      expect(sortPlayers(pool, 'blk').map((x) => x.name)).toEqual(['Bird', 'Jordan', 'Rodman']);
+    });
+
+    it('não altera a lista original', () => {
+      sortPlayers(pool, 'pts');
+      expect(pool.map((x) => x.name)).toEqual(['Rodman', 'Jordan', 'Bird']);
     });
   });
 });

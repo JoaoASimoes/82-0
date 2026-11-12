@@ -20,7 +20,7 @@ describe('dados das equipas', () => {
       for (const p of era.players) {
         expect(p.rating, p.name).toBeGreaterThanOrEqual(40);
         expect(p.rating, p.name).toBeLessThanOrEqual(99);
-        for (const [k, max] of [['pts', 40], ['reb', 20], ['ast', 14]] as const) {
+        for (const [k, max] of [['pts', 40], ['reb', 20], ['ast', 14], ['stl', 4], ['blk', 6]] as const) {
           const v = p.stats[k];
           expect(v, `${p.name} ${k}`).toBeGreaterThanOrEqual(0);
           expect(v, `${p.name} ${k}`).toBeLessThanOrEqual(max);

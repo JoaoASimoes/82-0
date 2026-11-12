@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { TEAMS } from '../data/teams';
-import type { Combo } from '../data/types';
+import type { Combo, DraftedPlayer } from '../data/types';
 import {
   allCombos,
   canPick,
@@ -13,6 +13,9 @@ import {
   moveTargets,
   movePlayer,
   placePlayer,
+  SORT_KEYS,
+  sortPlayers,
+  type SortKey,
   poolFor,
   teamLabel,
   type Slot,
@@ -44,6 +47,8 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
   /** Lugar escolhido para mudar de posição (null = nenhum). */
   const [selected, setSelected] = useState<number | null>(null);
   const [moveHint, setMoveHint] = useState('');
+  /** Ordem da lista do sorteio; mantém-se entre sorteios. */
+  const [sortKey, setSortKey] = useState<SortKey>('name');
   const timers = useRef<number[]>([]);
 
   useEffect(() => () => timers.current.forEach((t) => window.clearTimeout(t)), []);
@@ -85,10 +90,8 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
     spin((c) => c.teamId === combo.teamId && c.decade !== combo.decade);
   };
 
-  const pick = (index: number) => {
-    if (!combo) return;
-    const player = poolFor(TEAMS, combo)[index];
-    if (!player || !canPick(lineup, player)) return;
+  const pick = (player: DraftedPlayer) => {
+    if (!combo || !canPick(lineup, player)) return;
     const res = placePlayer(lineup, player);
     setLineup(res.lineup);
     setLastPlaced(res.index);
@@ -185,15 +188,32 @@ export function DraftScreen({ onComplete, onQuit }: Props) {
       </div>
 
       {combo && (
+        <div className="sortbar" role="group" aria-label={t.draft.sortBy}>
+          {SORT_KEYS.map((k) => (
+            <button
+              key={k}
+              className={k === sortKey ? 'on' : ''}
+              aria-pressed={k === sortKey}
+              aria-label={`${t.draft.sortBy}: ${k === 'name' ? t.draft.sortName : t.statName[k]}`}
+              onClick={() => setSortKey(k)}
+            >
+              {k === 'name' ? t.draft.sortName : t.stat[k]}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {combo && (
         <div className="pool">
-          {poolFor(TEAMS, combo).map((p, i) => (
+          {sortPlayers(poolFor(TEAMS, combo), sortKey).map((p) => (
             <PlayerRow
               key={p.name}
               player={p}
               available={canPick(lineup, p)}
               alreadyDrafted={isDrafted(lineup, p.name)}
               fitsAfterMove={fitsAfterMove(lineup, p)}
-              onPick={() => pick(i)}
+              sortKey={sortKey}
+              onPick={() => pick(p)}
             />
           ))}
         </div>

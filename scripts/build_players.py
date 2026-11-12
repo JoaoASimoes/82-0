@@ -6,7 +6,7 @@ Dataset: "NBA Stats (1947-present)" on Kaggle (Basketball-Reference data). Uses
 
 For every franchise and decade (FIRST_DECADE onwards) it picks the PLAYERS_PER_ERA
 players with the biggest total contribution to that team in that decade, and stores:
-  - per-game averages (pts/reb/ast) for that stint  -> shown in the game
+  - per-game averages (pts/reb/ast/stl/blk) for that stint  -> shown in the game
   - a hidden 0-99 rating -> drives the sim. It blends two things (see `impact_scores`):
       * box-score impact: minutes-weighted BPM (pace-adjusted), scaled by minutes per game
       * prestige: MVP votes, All-NBA/All-Defense teams, DPOY votes, All-Star picks and
@@ -219,7 +219,7 @@ def main() -> None:
     for (team, decade), rows in df.groupby(['franchise', 'decade']):
         stint = rows.groupby('player_id').agg(
             name=('player', 'first'), g=('g', 'sum'), pts=('pts', 'sum'),
-            trb=('trb', 'sum'), ast=('ast', 'sum'), gmsc=('gmsc', 'sum'),
+            trb=('trb', 'sum'), ast=('ast', 'sum'), stl=('stl', 'sum'), blk=('blk', 'sum'), gmsc=('gmsc', 'sum'),
             mp=('mp', 'sum'), bpm_min=('bpm_min', 'sum'), prestige=('prestige', 'sum'))
         stint = stint[stint.g > 0].sort_values('gmsc', ascending=False)
         stint = stint.drop_duplicates('name').head(PLAYERS_PER_ERA)
@@ -249,14 +249,16 @@ def main() -> None:
             for _, r in rows[rows.player_id == pid].iterrows():
                 if isinstance(r.position, str):
                     games[r.position] += r.g
-            stats = {'pts': round(s.pts / s.g, 1), 'reb': round(s.trb / s.g, 1), 'ast': round(s.ast / s.g, 1)}
+            stats = {k: round(s[col] / s.g, 1) for k, col in
+                     (('pts', 'pts'), ('reb', 'trb'), ('ast', 'ast'), ('stl', 'stl'), ('blk', 'blk'))}
             entries.append({
                 'name': s['name'],
                 'positions': positions_for(games, career.get(pid, set())),
                 'rating': to_rating(s.score, pool),
                 'stats': stats,
             })
-        entries.sort(key=lambda e: (-e['rating'], e['name']))
+        # Alphabetical: the order must not give away the hidden rating.
+        entries.sort(key=lambda e: e['name'])
         out.setdefault(team, {})[str(decade)] = entries
 
     OUT.write_text(json.dumps({

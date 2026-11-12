@@ -22,12 +22,16 @@ export interface Player {
   stats: PlayerStats;
 }
 
-/** Médias por jogo: pontos, ressaltos e assistências. */
+/** Médias por jogo: pontos, ressaltos, assistências, roubos de bola e desarmes de lançamento. */
 export interface PlayerStats {
   pts: number;
   reb: number;
   ast: number;
+  stl: number;
+  blk: number;
 }
+
+export const STAT_KEYS = ['pts', 'reb', 'ast', 'stl', 'blk'] as const satisfies readonly (keyof PlayerStats)[];
 
 export interface Era {
   /** Nome histórico da equipa nesta década, se diferente (ex.: "Seattle SuperSonics"). */

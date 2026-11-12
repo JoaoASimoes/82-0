@@ -1,4 +1,6 @@
 import type { DraftedPlayer } from '../data/types';
+import { STAT_KEYS } from '../data/types';
+import type { SortKey } from '../game/draft';
 import { useLang } from '../i18n/LangContext';
 
 interface Props {
@@ -7,10 +9,12 @@ interface Props {
   alreadyDrafted: boolean;
   /** Sem vaga agora, mas cabe se alguém do cinco mudar de posição. */
   fitsAfterMove: boolean;
+  /** Estatística pela qual a lista está ordenada (fica destacada). */
+  sortKey: SortKey;
   onPick: () => void;
 }
 
-export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, onPick }: Props) {
+export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, sortKey, onPick }: Props) {
   const { t } = useLang();
   const why = alreadyDrafted
     ? t.draft.inLineup
@@ -27,8 +31,8 @@ export function PlayerRow({ player, available, alreadyDrafted, fitsAfterMove, on
         <small>{why}</small>
       </span>
       <span className="sts">
-        {(['pts', 'reb', 'ast'] as const).map((k) => (
-          <span key={k}>
+        {STAT_KEYS.map((k) => (
+          <span key={k} className={k === sortKey ? 'on' : ''}>
             <b>{player.stats[k].toFixed(1)}</b>
             {t.stat[k]}
           </span>

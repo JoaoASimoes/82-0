@@ -1,4 +1,5 @@
 import type { Decade, PlayerStats, Position } from '../data/types';
+import { STAT_KEYS } from '../data/types';
 import type { VerdictTier } from '../game/verdict';
 
 export type Lang = 'pt' | 'en';
@@ -15,7 +16,14 @@ const pt = {
   title: '82-0 · Época Perfeita',
   positions: { G: 'Base', F: 'Extremo', C: 'Poste' } as Record<Position, string>,
   decade: (d: Decade) => (d === 2000 ? 'Anos 2000' : d >= 2010 ? `Anos ${d}` : `Anos ${String(d).slice(2)}`),
-  stat: { pts: 'PTS', reb: 'RES', ast: 'AST' } as Record<keyof PlayerStats, string>,
+  stat: { pts: 'PTS', reb: 'RES', ast: 'AST', stl: 'ROU', blk: 'DES' } as Record<keyof PlayerStats, string>,
+  statName: {
+    pts: 'Pontos',
+    reb: 'Ressaltos',
+    ast: 'Assistências',
+    stl: 'Roubos de bola',
+    blk: 'Desarmes de lançamento',
+  } as Record<keyof PlayerStats, string>,
   or: 'ou',
   and: 'e',
 
@@ -42,6 +50,8 @@ const pt = {
     swapTeam: (n: number) => `↻ Trocar equipa (${n})`,
     swapDecade: (n: number) => `↻ Trocar década (${n})`,
     tapToPick: 'Toca num jogador para o escolher',
+    sortBy: 'Ordenar por',
+    sortName: 'Nome',
     tapToMove: 'Toca num jogador do cinco para o mudar de posição',
     moveWhere: (name: string) => `Toca no lugar para onde queres mudar ${name}`,
     onlyPlays: (name: string, positions: string) => `${name} só joga a ${positions}`,
@@ -87,7 +97,8 @@ const en: Strings = {
   title: '82-0 · Perfect Season',
   positions: { G: 'Guard', F: 'Forward', C: 'Center' },
   decade: (d: Decade) => `${d}s`,
-  stat: { pts: 'PTS', reb: 'REB', ast: 'AST' },
+  stat: { pts: 'PTS', reb: 'REB', ast: 'AST', stl: 'STL', blk: 'BLK' },
+  statName: { pts: 'Points', reb: 'Rebounds', ast: 'Assists', stl: 'Steals', blk: 'Blocks' },
   or: 'or',
   and: 'and',
 
@@ -114,6 +125,8 @@ const en: Strings = {
     swapTeam: (n) => `↻ Re-roll team (${n})`,
     swapDecade: (n) => `↻ Re-roll decade (${n})`,
     tapToPick: 'Tap a player to pick him',
+    sortBy: 'Sort by',
+    sortName: 'Name',
     tapToMove: 'Tap a player in your five to change his position',
     moveWhere: (name) => `Tap the spot to move ${name} to`,
     onlyPlays: (name, positions) => `${name} only plays ${positions}`,
@@ -150,9 +163,9 @@ const en: Strings = {
 
 export const STRINGS: Record<Lang, Strings> = { pt, en };
 
-/** "26.0 PTS · 10.4 RES · 6.5 AST" na língua escolhida. */
+/** "26.0 PTS · 10.4 RES · 6.5 AST · 1.2 ROU · 0.4 DES" na língua escolhida. */
 export const statLine = (s: PlayerStats, t: Strings) =>
-  (['pts', 'reb', 'ast'] as const).map((k) => `${s[k].toFixed(1)} ${t.stat[k]}`).join(' · ');
+  STAT_KEYS.map((k) => `${s[k].toFixed(1)} ${t.stat[k]}`).join(' · ');
 
 /** "base ou extremo" / "guard or forward". */
 export const positionList = (positions: readonly Position[], t: Strings, joiner: 'or' | 'and') =>

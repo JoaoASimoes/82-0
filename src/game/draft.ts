@@ -1,4 +1,5 @@
 import type { Combo, Decade, DraftedPlayer, PlayerStats, Position, Team } from '../data/types';
+import { STAT_KEYS } from '../data/types';
 import { pickRandom, type Rng } from './rng';
 
 /** Formato do cinco: 2 bases, 2 extremos, 1 poste. */
@@ -124,6 +125,16 @@ export function teamLabel(teams: readonly Team[], combo: Combo): string {
 }
 
 export const shortDecade = (d: Decade) => `'${String(d).slice(2)}`;
+
+/** Critério para ordenar a lista do sorteio: nome (A→Z) ou uma estatística (maior primeiro). */
+export type SortKey = 'name' | (typeof STAT_KEYS)[number];
+export const SORT_KEYS: readonly SortKey[] = ['name', ...STAT_KEYS];
+
+/** Devolve uma cópia ordenada (empates por nome). Nunca ordena pela nota, que é secreta. */
+export function sortPlayers<T extends { name: string; stats: PlayerStats }>(players: readonly T[], key: SortKey): T[] {
+  const byName = (a: T, b: T) => a.name.localeCompare(b.name);
+  return [...players].sort(key === 'name' ? byName : (a, b) => b.stats[key] - a.stats[key] || byName(a, b));
+}
 
 /** Versão compacta para espaços estreitos, ex.: "26.0/10.4/6.5" (PTS/RES/AST). */
 export const statLineShort = (s: PlayerStats) => [s.pts, s.reb, s.ast].map((v) => v.toFixed(1)).join('/');
